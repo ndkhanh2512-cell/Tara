@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Chiến lược chuyển đổi số</title>
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <!-- S01 Title -->
+    <section class="title-slide" data-section="Mở đầu">
+      <div class="bar" aria-hidden="true"></div>
+      <p class="kicker">Chiến lược chuyển đổi số: Dữ liệu, AI và An ninh mạng</p>
+      <h1>Từ dữ liệu rời rạc đến tăng trưởng 60% mỗi năm</h1>
+      <p class="sub">Một nền tảng dữ liệu chung để Ban Lãnh đạo ra quyết định nhanh hơn, phục vụ 1,5 triệu khách hàng và mở rộng ra quốc tế.</p>
+      <div class="who">
+        <p><b>Khanh Nguyen</b><span>Ứng viên vị trí IT Head, lãnh đạo Phòng Chuyển đổi số</span></p>
+        <p><b>Tháng 10/2026</b><span>Trình bày với Ban Lãnh đạo Tara</span></p>
+      </div>
+      <div id="hero3d" aria-hidden="true"></div>
+      <aside class="notes">
+        Chào Ban Lãnh đạo. Hình 3D bên phải là ẩn dụ cho cả bài: tám hệ thống đang chạy rời nhau, quay quanh một trung tâm dữ liệu chung.
+        Bài gồm: bài toán và con số tiền đang kẹt; chiến lược và lộ trình (yêu cầu 1); KPI (yêu cầu 2); nguồn lực, ngân sách và cam kết (yêu cầu 3).
+      </aside>
+    </section>
+
+    <!-- Slide 2: summary and agenda -->
+    <section class="content" data-section="Mở đầu">
+      <h2>Ba đề xuất, một điều kiện</h2>
+      <p class="core">Tôi không đến để xây những phần mềm đắt đỏ. Tôi đến để <b>biến dữ liệu thành tiền mặt và tốc độ ra quyết định</b>, với năng lực đã kiểm chứng ở quy mô lớn hơn, để Tara đạt 60% mỗi năm một cách bền vững, an toàn và tiết kiệm.</p>
+      <div class="sum" style="margin-top:18px">
+        <div class="props">
+          <div class="prop"><span class="n">1</span><div><b>Một nền tảng dữ liệu chung</b><span>Giữ nguyên các hệ thống đang có, cho dữ liệu chảy về một nơi. Giải ba bài toán tồn kho, công nợ, xung đột kênh và làm nền cho 1,5 triệu khách hàng</span></div></div>
+          <div class="prop"><span class="n">2</span><div><b>AI có kiểm soát, đo được bằng tiền</b><span>Dữ liệu sạch trước, AI sau. AI đề xuất, con người quyết. Mỗi ứng dụng gắn với một con số kinh doanh</span></div></div>
+          <div class="prop"><span class="n">3</span><div><b>An ninh và tuân thủ xuyên suốt</b><span>Bảo vệ dữ liệu khách hàng và vận hành mùa sale như một rủi ro kinh doanh, không chỉ là việc kỹ thuật</span></div></div>
+        </div>
+        <div class="agenda">
+          <h3>Bố cục trình bày</h3>
+          <div class="a"><span class="req none">Bài toán</span><span>Tara đang ở đâu, dữ liệu rời rạc đang giữ bao nhiêu tiền</span></div>
+          <div class="a"><span class="req">Yêu cầu 1</span><span>Kiến trúc MIS và tích hợp, CRM và CDP, AI, an ninh mạng, lộ trình</span></div>
+          <div class="a"><span class="req">Yêu cầu 2</span><span>KPI của Phòng Chuyển đổi số</span></div>
+          <div class="a"><span class="req">Yêu cầu 3</span><span>Nguồn lực, ngân sách và cam kết của Ban Lãnh đạo</span></div>
+          <div class="a"><span class="req none">Hỏi đáp</span><span>Phụ lục: nguồn số liệu, chi phí NetSuite, an ninh, tự làm hay mua</span></div>
+        </div>
+      </div>
+      <p class="cond fragment"><b>Điều kiện:</b> thành công không nằm ở công nghệ, mà ở việc Ban Lãnh đạo và trưởng các phòng ban cùng làm chủ dữ liệu của mình.</p>
+      <p class="foot">Mở đầu</p>
+      <aside class="notes">
+        Tóm tắt trước, chi tiết sau. Ba đề xuất tương ứng với yêu cầu 1 của đề bài; yêu cầu 2 và 3 nằm ở hai phần cuối.
+        Bấm 1: điều kiện. Tôi nói sớm để Ban Lãnh đạo biết tôi sẽ xin điều gì ở cuối bài: không chỉ ngân sách, mà là sự tham gia của từng phòng ban.
+      </aside>
+    </section>
+
+    <!-- Slide 3: credentials -->
+    <section class="content" data-section="Mở đầu">
+      <h2>Vì sao tin đề xuất này</h2>
+      <div class="cred" style="margin-top:22px">
+        <div class="stat"><p class="v">5 <small>lên</small> 1.200+</p><p class="l">điểm bán, đỉnh 160 điểm mới mỗi tháng, kiến trúc tự xây mở rộng theo</p><span class="m">Lộ trình và mở rộng quốc tế</span></div>
+        <div class="stat"><p class="v">13+ <small>triệu</small></p><p class="l">hội viên trên website, app và CRM, một hồ sơ khách xuyên kênh</p><span class="m">CRM và CDP cho 1,5 triệu khách</span></div>
+        <div class="stat"><p class="v">200+</p><p class="l">báo cáo dùng hằng ngày trên kho dữ liệu hợp nhất ERP, POS, eCommerce, CRM</p><span class="m">Nền tảng dữ liệu chung</span></div>
+        <div class="stat"><p class="v">+15%</p><p class="l">giá trị đơn trung bình nhờ AI gợi ý sản phẩm và khuyến mãi cá nhân hóa</p><span class="m">AI đo được bằng tiền</span></div>
+        <div class="stat"><p class="v">99,99%</p><p class="l">uptime cho ERP, POS, kho và eCommerce trên 1.200 điểm; bảo vệ dữ liệu bằng DLP</p><span class="m">An ninh và vận hành mùa sale</span></div>
+        <div class="stat"><p class="v">3<small>×</small></p><p class="l">năng suất kho với cùng số người; đội AI engineering giúp đội nhỏ tự xây hệ thống lõi</p><span class="m">Đội 8 người làm việc của 20 người</span></div>
+      </div>
+      <p class="cred-foot">Điều tôi mang đến không phải công nghệ mới, mà là <b>kinh nghiệm đã làm ở quy mô lớn hơn</b>, nên rủi ro triển khai cho Tara thấp hơn.</p>
+      <p class="foot">Mở đầu</p>
+      <aside class="notes">
+        Chỉ một slide về bản thân. Không kể thành tích, mà chỉ ra mỗi con số nối với đề xuất nào trong bài. Ví dụ: 13 triệu hội viên nghĩa là bài toán 1,5 triệu khách của Tara tôi đã làm ở quy mô gấp gần 9 lần.
+        Kết bằng ý: rủi ro triển khai thấp vì đã làm rồi.
+      </aside>
+    </section>
+
+    <!-- Slide 4: where Tara is -->
+    <section class="content" data-section="Thực trạng và bài toán">
+      <h2>Tara đang ở đâu: mục tiêu 60% nghĩa là gấp 4 lần quy mô</h2>
+      <p class="lead">Ba năm 40% mỗi năm đã đưa Tara đến hôm nay. Ba năm 60% mỗi năm đòi hỏi cách làm khác.</p>
+      <div class="where">
+        <div class="growth">
+          <h3>Quy mô so với hôm nay, nếu đạt 60% mỗi năm</h3>
+          <div class="bars">
+            <div class="gbar"><div class="col" style="--h:24" data-v="1×"></div><p class="yl">Hôm nay</p></div>
+            <div class="gbar t fragment"><div class="col" style="--h:39" data-v="1,6×"></div><p class="yl">Năm 1</p></div>
+            <div class="gbar t fragment"><div class="col" style="--h:62" data-v="2,6×"></div><p class="yl">Năm 2</p></div>
+            <div class="gbar t fragment"><div class="col" style="--h:100" data-v="4,1×"></div><p class="yl">Năm 3</p></div>
+          </div>
+          <p class="cap">Đơn hàng, giao dịch, khách hàng, dữ liệu: tất cả nhân 4 trong 36 tháng</p>
+        </div>
+        <div class="facts3">
+          <div class="f3"><b>1,5 triệu khách hàng</b><span>eCommerce là kênh tăng trưởng chính: từ khoảng 150.000 khách định danh lên 1,5 triệu, gấp 10 lần</span></div>
+          <div class="f3"><b>Đa kênh toàn quốc</b><span>Website, sàn TMĐT, hơn 1.000 đại lý (giả định), bảo hành và chăm sóc khách hàng</span></div>
+          <div class="f3"><b>Mở rộng quốc tế</b><span>Nhiều pháp nhân, nhiều đồng tiền, luật dữ liệu mỗi nước khác nhau</span></div>
+        </div>
+      </div>
+      <p class="q fragment">Câu hỏi của bài hôm nay: nếu không thay đổi, hệ thống, con người và quy trình hiện tại có gánh nổi quy mô gấp 4 lần không?</p>
+      <span class="assume-tag">Số đại lý là giả định minh họa</span>
+      <p class="foot">Thực trạng và bài toán</p>
+      <aside class="notes">
+        Bấm ba lần cho ba cột: 1,6 lần, 2,6 lần, 4,1 lần. Để CEO tự thấy con số 60% mỗi năm nghĩa là gì sau 36 tháng: không phải tăng 60%, mà là gấp 4 lần mọi thứ.
+        Bên phải là ba áp lực: 1,5 triệu khách, đa kênh, quốc tế.
+        Bấm cuối: câu hỏi dẫn sang slide tám hệ thống rời rạc.
+      </aside>
+    </section>
+
+    <!-- S06 Merged: three CEO problems, one root -->
+    <section class="content" data-section="Thực trạng và bài toán">
+      <h2>Ba câu hỏi CEO sẽ gặp khi Tara gấp 4 lần</h2>
+      <p class="lead">Mỗi câu hỏi là một khoản tiền đang kẹt. Và cả ba chung một gốc: mỗi bộ phận một bộ số, không ai thấy toàn cảnh để quyết nhanh.</p>
+      <div class="ceo3">
+        <div class="cp p1">
+          <div class="ph"><i>1</i><b>Tồn kho chôn vốn</b></div>
+          <p class="cq2">"Tăng trưởng có đang ăn hết tiền mặt không?"</p>
+          <p class="lb">Triệu chứng</p>
+          <ul><li>Đặt hàng nhà máy trước 60–90 ngày; tồn bình quân 110 ngày</li><li>Mùa nóng thiếu quạt, dòng khác lại dư</li></ul>
+          <p class="rt2"><b>Gốc rễ:</b> chỉ thấy hàng bán cho đại lý, không thấy hàng đại lý bán ra cho người tiêu dùng</p>
+          <p class="lb">Giải pháp chính</p>
+          <ul><li>Bảng sức khỏe tồn kho, xả hàng chậm có mục tiêu</li><li>Số bán ra từ đại lý; AI dự báo theo mùa, thời tiết</li></ul>
+          <p class="val"><b>≈ 76 tỷ</b><span>giảm tồn từ 110 xuống 80 ngày</span></p>
+        </div>
+        <div class="cp p2">
+          <div class="ph"><i>2</i><b>Công nợ đại lý</b></div>
+          <p class="cq2">"Ai đang nợ quá hạn mà vẫn được giao hàng?"</p>
+          <p class="lb">Triệu chứng</p>
+          <ul><li>Hơn 1.000 đại lý; 12–15% công nợ quá hạn trên 60 ngày</li><li>Cuối tháng mất nhiều ngày đối soát</li></ul>
+          <p class="rt2"><b>Gốc rễ:</b> công nợ nằm ở kế toán, người bán hàng không nhìn thấy khi chốt đơn</p>
+          <p class="lb">Giải pháp chính</p>
+          <ul><li>Nhân viên bán thấy hạn mức ngay trên ứng dụng</li><li>Cổng đại lý tự đối soát, thanh toán QR; chấm điểm tín dụng</li></ul>
+          <p class="val"><b>≈ 49 tỷ</b><span>thu tiền nhanh hơn, từ 55 xuống 40 ngày</span></p>
+        </div>
+        <div class="cp p3">
+          <div class="ph"><i>3</i><b>Xung đột kênh bán</b></div>
+          <p class="cq2">"Ai đang phá giá BlueStone trên sàn?"</p>
+          <p class="lb">Triệu chứng</p>
+          <ul><li>Đại lý bán trên sàn thấp hơn giá chính hãng 10–15%</li><li>Đại lý phàn nàn kênh online chính hãng cướp khách</li></ul>
+          <p class="rt2"><b>Gốc rễ:</b> không biết sản phẩm trên sàn xuất phát từ lô hàng nào</p>
+          <p class="lb">Giải pháp chính</p>
+          <ul><li>Quét mã từng sản phẩm khi xuất kho</li><li>Theo dõi giá trên sàn; đơn online do đại lý gần nhất giao</li></ul>
+          <p class="val"><b>Vài phút</b><span>để biết lô hàng phá giá của đại lý nào</span></p>
+        </div>
+      </div>
+      <div class="ceobar fragment">
+        <p><b>Gốc chung: dữ liệu rời rạc.</b><small>Mỗi ngày tồn kho giảm được ≈ 2,5 tỷ; mỗi ngày thu tiền nhanh hơn ≈ 3,3 tỷ</small></p>
+        <p class="tot"><b>≈ 125 tỷ</b><span>tiền mặt có thể giải phóng</span></p>
+      </div>
+      <span class="assume-tag">Doanh thu 1.200 tỷ, giá vốn 920 tỷ: giả định minh họa</span>
+      <p class="foot">Thực trạng và bài toán</p>
+      <aside class="notes">
+        Slide này gom toàn bộ phần bài toán vào một màn hình, theo góc nhìn của CEO: ba câu hỏi mà khi Tara gấp 4 lần quy mô, CEO sẽ phải hỏi thường xuyên hơn.
+        Câu hỏi 1, tồn kho: tăng trưởng có đang ăn hết tiền mặt không? Đặt hàng nhà máy trước 60 đến 90 ngày, tồn bình quân 110 ngày, mùa nóng thiếu quạt nhưng dòng khác lại dư. Gốc rễ: Tara chỉ thấy hàng bán cho đại lý, không thấy hàng đại lý bán ra. Giảm tồn từ 110 xuống 80 ngày giải phóng khoảng 76 tỷ.
+        Câu hỏi 2, công nợ: ai đang nợ quá hạn mà vẫn được giao hàng? Công nợ nằm ở kế toán, người bán không thấy khi chốt đơn. Rút thời gian thu tiền từ 55 xuống 40 ngày giải phóng khoảng 49 tỷ. Ai quyết: ngưỡng hạn mức do Tài chính quyết, IT làm cho nó tự động.
+        Câu hỏi 3, xung đột kênh: ai đang phá giá trên sàn? Không biết sản phẩm trên sàn từ lô nào. Quét mã khi xuất kho thì vài phút là biết, thay vì vài tuần điều tra. Ý quan trọng: biến đại lý từ đối thủ thành đối tác, đơn online do đại lý gần nhất giao và lắp đặt.
+        Bấm 1: cả ba chung một gốc là dữ liệu rời rạc. Một nền tảng giải cả ba. Tổng tiền mặt có thể giải phóng khoảng 125 tỷ, với giả định doanh thu 1.200 tỷ. Mời Ban Lãnh đạo thay bằng số thật: mỗi ngày tồn kho giảm được khoảng 2,5 tỷ, mỗi ngày thu tiền nhanh hơn khoảng 3,3 tỷ.
+        Chuyển sang slide tiếp: vậy dữ liệu rời rạc trông như thế nào ở Tara hôm nay? Tám hệ thống.
+      </aside>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="systems" data-section="Thực trạng và bài toán">
+      <h2 class="h2fit">8 hệ thống, dữ liệu riêng lẻ, rời rạc: chưa có một bức tranh chung</h2>
+      <p class="lead">Mỗi phòng ban nhìn rõ phần của mình, nhưng chưa ai nhìn thấy toàn bộ doanh nghiệp.</p>
+
+      <div class="stage" id="systems-stage" data-step="0">
+        <p class="stage-tag now">Hiện trạng</p>
+        <p class="stage-tag sol">Giải pháp đề xuất</p>
+        <svg class="links" viewBox="0 0 1120 400" aria-hidden="true"></svg>
+
+        <div class="tile" style="--i:0; --sx:150; --sy:140; --sr:-2; --hx:560; --hy:35"><b>Oracle NetSuite</b><span>ERP: tài chính, kho hàng</span></div>
+        <div class="tile" style="--i:1; --sx:430; --sy:40; --sr:2;  --hx:871; --hy:83"><b>DMS</b><span>Bán hàng qua đại lý</span></div>
+        <div class="tile" style="--i:2; --sx:990; --sy:40; --sr:-2; --hx:1000; --hy:200"><b>eCommerce</b><span>Website bán hàng</span></div>
+        <div class="tile" style="--i:3; --sx:710; --sy:130; --sr:2;  --hx:871; --hy:317"><b>Haravan</b><span>Bán lẻ đa kênh</span></div>
+        <div class="tile" style="--i:4; --sx:990; --sy:235; --sr:2;  --hx:560; --hy:365"><b>CRM</b><span>Thông tin khách hàng</span></div>
+        <div class="tile" style="--i:5; --sx:710; --sy:268; --sr:-2; --hx:249; --hy:317"><b>Bảo hành &amp; CSKH</b><span>Dịch vụ sau bán</span></div>
+        <div class="tile" style="--i:6; --sx:430; --sy:268; --sr:2;  --hx:120; --hy:200"><b>Base</b><span>Quản trị nội bộ</span></div>
+        <div class="tile" style="--i:7; --sx:150; --sy:284; --sr:-2; --hx:249; --hy:83"><b>Dữ liệu bên ngoài</b><span>Thị trường, sàn TMĐT</span></div>
+
+        <div class="pain" style="left:190px; top:368px; width:350px; --d:0s"><b>Doanh thu tháng này?</b><span>NetSuite, DMS, Haravan mỗi nơi một số</span></div>
+        <div class="pain" style="left:560px; top:368px; width:350px; --d:.2s"><b>Khách hàng này là ai?</b><span>Một người, hồ sơ nằm ở Haravan, CRM, bảo hành</span></div>
+        <div class="pain" style="left:930px; top:368px; width:350px; --d:.4s"><b>Còn bao nhiêu hàng?</b><span>Đồng bộ theo lô, mỗi kênh một con số</span></div>
+
+        <div class="hub"><b>Nền tảng dữ liệu chung</b><span>Data Lake: một nguồn số liệu cho cả công ty</span></div>
+      </div>
+      <p class="caption">
+        <span class="c0">Tám hệ thống, mỗi hệ thống phục vụ tốt một phòng ban. Bấm tiếp để xem dữ liệu đang đi giữa chúng thế nào</span>
+        <span class="c1"></span>
+        <span class="c2"><b>Giải pháp đề xuất:</b> <em class="hub-count"><b>8</b> đường nối</em> về một trung tâm, thêm hệ thống mới chỉ thêm một đường. Đúng hướng Data Lake mà Ban Lãnh đạo đang cân nhắc</span>
+      </p>
+
+      <span class="fragment" aria-hidden="true"></span>
+      <span class="fragment" aria-hidden="true"></span>
+
+      <p class="foot">Thực trạng và bài toán</p>
+
+      <aside class="notes">
+        Bước 1 (mặc định): đây là bức tranh hiện tại, tám hệ thống, mỗi cái phục vụ tốt một phòng ban. Vấn đề không nằm ở từng hệ thống.
+        Bấm lần 1: vấn đề nằm ở khoảng trống giữa chúng. Hình này là minh họa, sẽ chỉnh theo hiện trạng thật của Tara.
+        Đường đỏ là kết nối tự viết giữa từng cặp hệ thống: NetSuite với Haravan cho tồn kho và đơn online, NetSuite với DMS cho đơn đại lý và công nợ, Haravan với CRM cho khách hàng, bảo hành với CRM cho số seri. Mỗi đường là một đoạn mã riêng, một lịch đồng bộ riêng.
+        Đường xám nét đứt là chỗ chưa có kết nối, đang lấp bằng Excel và nhập tay: đối chiếu tồn kho giữa DMS và Haravan, nhập giá đối thủ, tổng hợp đổi trả.
+        Ba ô dưới cùng là hậu quả. Hỏi doanh thu tháng này: NetSuite, DMS, Haravan mỗi nơi một số, cuối tháng tổng hợp bằng Excel. Hỏi khách này là ai: hồ sơ nằm rải ở Haravan, CRM, bảo hành. Hỏi còn bao nhiêu hàng: đồng bộ theo lô nên mỗi kênh một con số.
+        Thêm hệ thống thứ chín là thêm nhiều đường nữa, và thêm nhiều file Excel nữa.
+        Bấm lần 2: góc trên đổi nhãn từ Hiện trạng sang Giải pháp đề xuất. Các đường đỏ và các file Excel biến mất. Đích đến không phải thay các hệ thống này, mà là đặt một nền tảng dữ liệu chung ở giữa: mỗi hệ thống chỉ nối một đường về trung tâm, thêm hệ thống mới chỉ thêm một đường. Nói nôm na, đây chính là Data Lake mà Ban Lãnh đạo đang cân nhắc, và tôi đồng ý đó là hướng đúng. Các hệ thống giữ nguyên, dữ liệu chảy về một nơi.
+        Lưu ý khi nói: dừng ở mức đồng thuận, chưa bàn kỹ thuật. Ở Phần II tôi sẽ nói rõ Data Lake làm được gì, chưa làm được gì, và cần bổ sung thêm lớp nào để giữ hàng cho khách.
+      </aside>
+    </section>
+
+    <!-- S11 Strategy and data architecture (3D) -->
+    <section class="content" data-section="Yêu cầu 1 · Kiến trúc MIS và tích hợp">
+      <span class="req-tag">Yêu cầu 1 · MIS</span>
+      <h2>Kiến trúc MIS tổng thể: bốn lớp, một nguồn sự thật</h2>
+      <p class="lead">Giữ nguyên các hệ thống đang chạy. Lớp 2 chỉ chuyển dữ liệu, lớp 3 lưu và trả lời, lớp 4 là nơi dùng.</p>
+      <div class="arch archv2 stepper" data-step="0">
+        <div class="legend3d">
+          <div class="lg l1"><i>1</i><div><b>Nguồn dữ liệu<span class="role">sinh ra</span></b><span><em class="src-k">Nội bộ:</em> NetSuite, DMS, eCommerce, Haravan, Base, bảo hành, CRM, bán ra của đại lý</span>
+            <span class="ext"><em class="src-k">Yếu tố bên ngoài tác động:</em> thời tiết, mùa vụ; giá đối thủ, giá trên sàn; lễ Tết, ngày sale; xu hướng tìm kiếm; tỷ giá, cước vận chuyển; thuế, pháp lý</span></div></div>
+          <div class="lg l2"><i>2</i><div><b>Lớp kết nối dùng chung<span class="role">chỉ chuyển, không lưu</span></b><span>Đường ống chung: NetSuite và các hệ thống đang có, lớp này điều phối luồng dữ liệu tới đúng nơi cần.</span></div></div>
+          <div class="lg l3"><i>3</i><div><b>Nền tảng dữ liệu<span class="role">lưu và trả lời</span></b><span>Chia hai làn, mỗi làn trả lời một loại câu hỏi:</span>
+            <div class="lanes3">
+              <div class="la"><b>3A · Lớp dữ liệu thời gian thực</b>Chỉ giữ dữ liệu phải biết ngay: tồn khả dụng, lượt giữ hàng, hạn mức công nợ. Không giữ lịch sử. Gánh tải thay ERP: dưới 10 ms</div>
+              <div class="lb"><b>3B · Data Lake</b>Giữ toàn bộ dữ liệu lịch sử, nạp theo lô. Nuôi báo cáo, dự báo và AI: theo phút, giờ</div>
+            </div></div></div>
+          <div class="lg l4"><i>4</i><div><b>Giá trị cho kinh doanh<span class="role">nơi dùng</span></b><span>Kênh bán đọc từ 3A; dashboard, AI, hồ sơ khách hàng đọc từ 3B</span></div></div>
+          <div><p class="h3x" style="margin:4px 0 0">Chiến lược dữ liệu đi đủ tám bước</p>
+            <div class="life"><span data-n="1">Thu thập</span><span data-n="2">Lưu trữ</span><span data-n="3">Tích hợp</span><span data-n="4">Chất lượng</span><span data-n="5">Quản trị</span><span data-n="6">Bảo mật</span><span data-n="7">Đạo đức</span><span data-n="8">Cải tiến liên tục</span></div>
+          </div>
+        </div>
+        <div class="scene">
+          <div class="stack3d">
+            <div class="plane p1"><p class="pl">1. Nguồn dữ liệu</p><span>NetSuite</span><span>DMS</span><span>eCommerce</span><span>Haravan</span><span>Base</span><span>Bảo hành</span><span>CRM</span><span class="extc">Thời tiết</span><span class="extc">Giá đối thủ</span><span class="extc">Lễ Tết, sale sàn</span><span class="extc">Tỷ giá</span></div>
+            <div class="plane p2"><p class="pl">2. Lớp kết nối · chỉ chuyển</p><span>Dòng sự kiện</span><span>API</span><span>Đồng bộ dữ liệu gốc</span></div>
+            <div class="plane p3"><p class="pl">3. Nền tảng dữ liệu · lưu và trả lời</p>
+              <div class="half hot"><em>3A · Thời gian thực</em><span>Dữ liệu cần ngay</span><span>Không giữ lịch sử</span></div>
+              <div class="half cold"><em>3B · Data Lake</em><span>Toàn bộ lịch sử</span><span>Báo cáo, AI</span></div>
+            </div>
+            <div class="plane p4"><p class="pl">4. Giá trị · nơi dùng</p><span>Kênh bán</span><span>Dashboard</span><span>AI</span><span>Khách hàng 360°</span></div>
+          </div>
+          <p class="hint">Bấm tiếp để dựng từng lớp</p>
+        </div>
+        <span class="fragment" aria-hidden="true"></span><span class="fragment" aria-hidden="true"></span><span class="fragment" aria-hidden="true"></span><span class="fragment" aria-hidden="true"></span>
+      </div>
+      <p class="foot">Yêu cầu 1 · Kiến trúc MIS và tích hợp</p>
+      <aside class="notes">
+        Sơ đồ 3D dựng từ dưới lên. Câu dẫn để nhớ: lớp 2 chỉ chuyển, lớp 3 lưu và trả lời, lớp 4 là nơi dùng.
+        Lớp 1, nguồn: tám hệ thống giữ nguyên, kèm các yếu tố bên ngoài tác động như thời tiết, giá đối thủ, lễ Tết, tỷ giá. Đây là đầu vào giúp AI dự báo nhu cầu chính xác hơn chỉ nhìn doanh số năm trước.
+        Bấm 1, lớp 2, kết nối dùng chung: đây là đường ống, không phải kho. Nó không lưu gì cả. NetSuite và các hệ thống phát mỗi thay đổi một lần, lớp này đưa tới đúng nơi cần, thay vì nối từng cặp như slide 6.
+        Bấm 2, lớp 3, nền tảng dữ liệu, đây là chỗ lưu và trả lời, chia hai làn. Làn 3A là lớp dữ liệu thời gian thực. Tên gọi nói đúng việc của nó: chỉ giữ những dữ liệu phải biết ngay lúc này, gồm tồn khả dụng, lượt giữ hàng, hạn mức công nợ còn lại. Nó không giữ lịch sử; dữ liệu cũ nằm ở Data Lake. Nó gánh tải thay cho ERP và cho cả Data Lake. Mọi câu hỏi "còn hàng không, giữ cho khách này" của kênh bán dừng ở đây, trả lời dưới 10 mili giây, không chạm tới NetSuite và không chạm tới Data Lake. Làn 3B là Data Lake, đúng hướng Ban Lãnh đạo đang cân nhắc: lưu toàn bộ lịch sử, nạp theo lô, phục vụ báo cáo, dự báo và AI.
+        Cặp đối lập để Ban Lãnh đạo nhớ: lớp thời gian thực trả lời trong vài mili giây cho dữ liệu đang cần ngay; Data Lake trả lời trong vài phút cho dữ liệu lịch sử.
+        Nếu bị hỏi "vậy Data Lake ở đâu": chính là làn 3B. Nếu hỏi "cái gì giảm tải cho ERP": làn 3A. Nếu hỏi tên kỹ thuật: mô hình này gọi là Digital Integration Hub, triển khai bằng Redis trên AWS.
+        Bấm 3, lớp 4, giá trị: kênh bán đọc từ 3A; dashboard, AI, hồ sơ khách hàng đọc từ 3B. Bấm 4: tách lớp để thấy rõ cấu trúc.
+        Bên trái dưới cùng là tám bước của chiến lược dữ liệu, trong đó bước 8 cải tiến liên tục đóng vòng lặp.
+        Nếu được hỏi về ESB: kiến trúc theo sự kiện trên AWS là cách hiện đại thay cho ESB truyền thống, nhẹ và rẻ hơn. Thành phần dự kiến: EventBridge hoặc Kinesis cho lớp 2; Redis, tức Amazon ElastiCache, cho làn 3A; Data Lake trên S3 với định dạng mở cho làn 3B.
+      </aside>
+    </section>
+
+    <!-- S14 Integration: three ways channels read stock -->
+    <section class="content" id="datalake" data-section="Yêu cầu 1 · Kiến trúc MIS và tích hợp">
+      <h2>Data Lake cần thiết, nhưng không giữ được hàng cho khách</h2>
+      <p class="lead">Ba cách kênh bán lấy tồn kho. Hôm nay hỏi thẳng ERP; khi có Data Lake, cách tự nhiên là chuyển sang hỏi Data Lake. Cả hai đều vướng khi bán hàng thật.</p>
+      <div class="ways">
+        <div class="way wa">
+          <div class="wh"><i>1</i><b>Hôm nay: hỏi thẳng ERP</b></div>
+          <p class="ws">Khi chưa có Data Lake, kênh bán hỏi thẳng NetSuite và từng hệ thống nguồn.</p>
+          <svg viewBox="0 0 340 150" aria-hidden="true">
+            <defs><marker id="ma" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#D53F59"/></marker>
+              <marker id="ma2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9AA6B3"/></marker></defs>
+            <rect class="bx" x="4" y="14" width="92" height="28" fill="#fff" stroke="#CFDAE6"/><text x="13" y="32">Website, app</text>
+            <rect class="bx" x="4" y="54" width="92" height="28" fill="#fff" stroke="#CFDAE6"/><text x="13" y="72">Sàn TMĐT</text>
+            <rect class="bx" x="4" y="94" width="92" height="28" fill="#fff" stroke="#CFDAE6"/><text x="13" y="112">Đại lý, CSKH</text>
+            <rect class="bx" x="232" y="8" width="104" height="30" fill="#D53F59" stroke="#B02E46"/>
+            <text x="239" y="21" fill="#fff" style="font-size:10.5px">NetSuite</text><text x="239" y="33" fill="#fff" style="font-size:8.6px;font-weight:500;opacity:.9">quá tải mùa sale</text>
+            <rect class="bx" x="232" y="42" width="104" height="21" fill="#F3F5F8" stroke="#C9D2DC"/>
+            <text x="239" y="56" fill="#2B2E33" style="font-size:9.6px;font-weight:600">DMS, Haravan</text>
+            <rect class="bx" x="232" y="67" width="104" height="21" fill="#F3F5F8" stroke="#C9D2DC"/>
+            <text x="239" y="81" fill="#2B2E33" style="font-size:9.6px;font-weight:600">CRM, Bảo hành</text>
+            <rect class="bx" x="232" y="92" width="104" height="21" fill="#F3F5F8" stroke="#C9D2DC"/>
+            <text x="239" y="106" fill="#2B2E33" style="font-size:9.6px;font-weight:600">Base, bên ngoài</text>
+            <path d="M98 24 C160 24 180 20 228 20" stroke="#D53F59" stroke-width="1.6" fill="none" marker-end="url(#ma)"/>
+            <path d="M98 34 C160 34 180 26 228 26" stroke="#D53F59" stroke-width="1.6" fill="none" marker-end="url(#ma)"/>
+            <path d="M98 64 C160 64 180 30 228 30" stroke="#D53F59" stroke-width="1.6" fill="none" marker-end="url(#ma)"/>
+            <path d="M98 74 C160 72 182 34 228 34" stroke="#D53F59" stroke-width="1.6" fill="none" marker-end="url(#ma)"/>
+            <path d="M98 104 C164 104 182 38 228 37" stroke="#D53F59" stroke-width="1.6" fill="none" marker-end="url(#ma)"/>
+            <path d="M98 112 C160 112 190 50 228 50" stroke="#9AA6B3" stroke-width="1.3" stroke-dasharray="4 3" fill="none" marker-end="url(#ma2)"/>
+            <path d="M98 118 C160 118 190 77 228 77" stroke="#9AA6B3" stroke-width="1.3" stroke-dasharray="4 3" fill="none" marker-end="url(#ma2)"/>
+            <text class="sm" x="104" y="140">mỗi hệ thống hỏi thẳng từng nguồn</text>
+          </svg>
+          <p class="wrow"><span>Tải và chi phí ERP</span><span><span class="pill bad">Cao, sớm phải nâng bậc</span></span></p>
+          <p class="wrow"><span>Tốc độ trả lời</span><span><span class="pill bad">Chậm khi đông khách</span></span></p>
+          <p class="wrow"><span>Tồn kho mới</span><span><span class="pill ok">Tức thì</span></span></p>
+          <p class="wrow"><span>Giữ hàng khi đặt</span><span><span class="pill mid">Có, nhưng ERP gánh</span></span></p>
+          <p class="wrow"><span>Mùa sale</span><span><span class="pill bad">Chạm giới hạn gọi API</span></span></p>
+        </div>
+        <div class="way wb fragment">
+          <div class="wh"><i>2</i><b>Chỉ có Data Lake</b></div>
+          <p class="ws">ERP được giải tỏa. Nhưng Data Lake nhận dữ liệu theo lô, và được thiết kế cho vài người phân tích, không cho hàng nghìn khách cùng bấm đặt.</p>
+          <svg viewBox="0 0 340 150" aria-hidden="true">
+            <defs><marker id="mb" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6D6E71"/></marker>
+              <marker id="mb2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#D53F59"/></marker></defs>
+            <rect class="bx" x="4" y="8" width="86" height="30" fill="#6D6E71" stroke="#55565A"/>
+            <text x="11" y="21" fill="#fff" style="font-size:10.5px">NetSuite</text><text x="11" y="33" fill="#fff" style="font-size:8.6px;font-weight:500;opacity:.9">nguồn sự thật</text>
+            <rect class="bx" x="4" y="42" width="86" height="21" fill="#F3F5F8" stroke="#C9D2DC"/>
+            <text x="11" y="56" fill="#2B2E33" style="font-size:9.6px;font-weight:600">DMS, Haravan</text>
+            <rect class="bx" x="4" y="67" width="86" height="21" fill="#F3F5F8" stroke="#C9D2DC"/>
+            <text x="11" y="81" fill="#2B2E33" style="font-size:9.6px;font-weight:600">CRM, Bảo hành</text>
+            <rect class="bx" x="4" y="92" width="86" height="21" fill="#F3F5F8" stroke="#C9D2DC"/>
+            <text x="11" y="106" fill="#2B2E33" style="font-size:9.6px;font-weight:600">Base, bên ngoài</text>
+            <path d="M92 23 H100 M92 57 H100 M92 82 H100 M92 107 H100 M100 23 V107" stroke="#6D6E71" stroke-width="1.4" fill="none"/>
+            <path d="M100 66 H116" stroke="#6D6E71" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#mb)"/>
+            <ellipse cx="170" cy="66" rx="50" ry="26" fill="#E1EDF9" stroke="#277CBE" stroke-width="1.4"/>
+            <ellipse cx="170" cy="60" rx="50" ry="14" fill="none" stroke="#9EC3E4" stroke-width="1"/><text x="146" y="70" fill="#0057A9">Data Lake</text>
+            <text class="sm" x="104" y="104">nạp theo lô</text><text class="sm" x="104" y="116">vài phút – vài giờ</text>
+            <rect class="bx" x="252" y="14" width="84" height="28" fill="#fff" stroke="#CFDAE6"/><text x="261" y="32">Website, app</text>
+            <rect class="bx" x="252" y="54" width="84" height="28" fill="#fff" stroke="#CFDAE6"/><text x="261" y="72">Sàn TMĐT</text>
+            <rect class="bx" x="252" y="94" width="84" height="28" fill="#fff" stroke="#CFDAE6"/><text x="261" y="112">Đại lý, CSKH</text>
+            <path d="M250 28 C232 28 232 54 222 58" stroke="#D53F59" stroke-width="1.5" fill="none" marker-end="url(#mb2)"/>
+            <path d="M250 68 H222" stroke="#D53F59" stroke-width="1.5" fill="none" marker-end="url(#mb2)"/>
+            <path d="M250 108 C232 108 232 80 222 76" stroke="#D53F59" stroke-width="1.5" fill="none" marker-end="url(#mb2)"/>
+            <text class="sm" x="150" y="140" fill="#9E2238">đọc số đã cũ, không giữ được hàng</text>
+          </svg>
+          <p class="wrow"><span>Tải và chi phí ERP</span><span><span class="pill ok">Thấp</span></span></p>
+          <p class="wrow"><span>Tốc độ trả lời</span><span><span class="pill bad">Vài giây mỗi truy vấn</span></span></p>
+          <p class="wrow"><span>Tồn kho mới</span><span><span class="pill bad">Trễ vài phút – vài giờ</span></span></p>
+          <p class="wrow"><span>Giữ hàng khi đặt</span><span><span class="pill bad">Không, dễ bán vượt</span></span></p>
+          <p class="wrow"><span>Mùa sale</span><span><span class="pill bad">Quá tải khi đông khách</span></span></p>
+        </div>
+        <div class="way wc fragment">
+          <div class="wh"><i>3</i><b>Data Lake + lớp thời gian thực</b></div>
+          <p class="ws">Mọi hệ thống nguồn đổ vào một dòng, chia hai làn. Mỗi làn làm đúng việc của nó.</p>
+          <svg viewBox="0 0 340 150" aria-hidden="true">
+            <defs><marker id="mc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#0057A9"/></marker>
+              <marker id="mc2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#277CBE"/></marker></defs>
+            <rect class="bx" x="2" y="6" width="86" height="26" fill="#6D6E71" stroke="#55565A"/><text x="8" y="18" fill="#fff" style="font-size:10.5px">NetSuite</text><text x="8" y="28" fill="#E6E7E9" style="font-size:8.4px;font-weight:500">nguồn sự thật</text>
+            <rect class="bx" x="2" y="36" width="86" height="18" fill="#F3F5F8" stroke="#C9D2DC"/><text x="8" y="48.5" style="font-size:9.2px">DMS, Haravan</text>
+            <rect class="bx" x="2" y="58" width="86" height="18" fill="#F3F5F8" stroke="#C9D2DC"/><text x="8" y="70.5" style="font-size:9.2px">CRM, Bảo hành</text>
+            <rect class="bx" x="2" y="80" width="86" height="18" fill="#F3F5F8" stroke="#C9D2DC"/><text x="8" y="92.5" style="font-size:9.2px">Base, bên ngoài</text>
+            <path d="M88 19 H98 M88 45 H98 M88 67 H98 M88 89 H98" stroke="#277CBE" stroke-width="1.4" fill="none"/>
+            <rect x="98" y="6" width="18" height="92" rx="4" fill="#E6F0F9" stroke="#277CBE" stroke-width="1.3"/>
+            <text x="110.5" y="52" transform="rotate(-90 110.5 52)" text-anchor="middle" fill="#0057A9" style="font-size:9px;font-weight:700">kết nối</text>
+            <path d="M116 29 H130" stroke="#0057A9" stroke-width="2" fill="none" marker-end="url(#mc)"/>
+            <rect class="bx" x="132" y="8" width="102" height="42" fill="#0057A9" stroke="#00488C"/><text x="140" y="25" fill="#fff" style="font-size:11px">Thời gian thực</text><text x="140" y="40" fill="#CFE3F6" style="font-size:9.5px;font-weight:500">tồn kho, giữ hàng</text>
+            <text class="sm" x="134" y="63">nhận sự kiện tức thì</text>
+            <path d="M116 84 C126 84 124 112 131 112" stroke="#277CBE" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#mc2)"/>
+            <ellipse cx="183" cy="112" rx="50" ry="19" fill="#E1EDF9" stroke="#277CBE" stroke-width="1.4"/><text x="183" y="110" text-anchor="middle" fill="#0057A9">Data Lake</text><text x="183" y="122" text-anchor="middle" class="sm">cho phân tích</text>
+            <text class="sm" x="183" y="145" text-anchor="middle">nhận theo lô</text>
+            <path d="M236 29 H250" stroke="#0057A9" stroke-width="2" fill="none" marker-end="url(#mc)"/>
+            <rect class="bx" x="252" y="10" width="86" height="38" fill="#fff" stroke="#0057A9"/><text x="260" y="27">Kênh bán</text><text x="260" y="41" class="sm">dưới 10 ms</text>
+            <path d="M234 112 H250" stroke="#277CBE" stroke-width="1.8" fill="none" marker-end="url(#mc2)"/>
+            <rect class="bx" x="252" y="93" width="86" height="38" fill="#fff" stroke="#277CBE"/><text x="260" y="110">Báo cáo, AI</text><text x="260" y="123" class="sm">theo phút, giờ</text>
+          </svg>
+          <p class="wrow"><span>Tải và chi phí ERP</span><span><span class="pill ok">Thấp</span></span></p>
+          <p class="wrow"><span>Tốc độ trả lời</span><span><span class="pill ok">Dưới 10 ms</span></span></p>
+          <p class="wrow"><span>Tồn kho mới</span><span><span class="pill ok">Dưới 60 giây</span></span></p>
+          <p class="wrow"><span>Giữ hàng khi đặt</span><span><span class="pill ok">Có, ngay khi bấm đặt</span></span></p>
+          <p class="wrow"><span>Mùa sale</span><span><span class="pill ok">Chịu được tải cao</span></span></p>
+        </div>
+      </div>
+      <p class="waysum fragment">Đầu tư Data Lake không lãng phí: nó vẫn được xây, và là <b>làn phân tích</b> trả lời "bán thế nào, sắp tới cần bao nhiêu hàng". Chỉ cần bổ sung một <b>làn vận hành</b> trả lời "còn hàng không, giữ cho khách này". Cùng một dòng dữ liệu từ NetSuite và các hệ thống nguồn nuôi cả hai làn.</p>
+      <p class="foot">Yêu cầu 1 · Kiến trúc MIS và tích hợp</p>
+      <aside class="notes">
+        Mở bằng sự đồng thuận: Data Lake là hướng đúng, tôi cũng đã xây kho dữ liệu hợp nhất làm nền cho báo cáo và AI. Lưu ý giọng điệu: không nói "cách của anh/chị sai", mà nói "cách tự nhiên khi có Data Lake".
+        Ý cốt lõi: có hai loại câu hỏi khác nhau. Câu hỏi phân tích, tháng này bán thế nào, tháng sau cần bao nhiêu hàng. Câu hỏi giao dịch, còn hàng không, giữ cho khách này. Data Lake trả lời rất tốt loại thứ nhất.
+        Slide so sánh ba cách kênh bán lấy tồn kho, đọc theo hàng để thấy khác biệt.
+        Cách 1, hôm nay: khi chưa có Data Lake, mọi hệ thống cần tồn kho đều gọi vào NetSuite. Số liệu tức thì, nhưng mỗi cú bấm của khách là một lượt gọi vào ERP. Mùa sale ERP quá tải, và còn tốn tiền vì sớm phải nâng bậc dịch vụ NetSuite; chi tiết bậc dịch vụ và giới hạn ở phụ lục A2.
+        Bấm 1, cách 2: có Data Lake rồi thì chuyển kênh bán sang đọc Data Lake. ERP được giải tỏa, đúng. Nhưng Data Lake nhận dữ liệu theo lô, trễ vài phút đến vài giờ, mỗi truy vấn mất vài giây, và nó không có cơ chế giữ hàng. Mùa sale, khách nhìn thấy còn hàng nhưng thực ra đã hết: bán vượt tồn.
+        Bấm 2, cách 3: giữ Data Lake cho báo cáo và AI, thêm một lớp dữ liệu thời gian thực cho bán hàng. NetSuite vẫn là nguồn sự thật, đẩy thay đổi theo sự kiện vào lớp dữ liệu thời gian thực, và nạp theo lô vào Data Lake. Bốn chỉ tiêu đều xanh.
+        Bấm 3: câu chốt, và đây là điều quan trọng nhất với Ban Lãnh đạo. Đầu tư Data Lake vẫn giữ nguyên giá trị, chỉ bổ sung làn vận hành. Cùng một dòng dữ liệu từ ERP nuôi cả hai làn, không phải làm hai lần.
+        Nếu CEO hỏi xây Data Lake bằng gì: "Anh/chị đúng khi chọn Data Lake. Tôi đề xuất xây trên AWS với định dạng mở, rồi dùng 90 ngày đầu thử nghiệm hai phương án: dịch vụ gốc của AWS cho chi phí thấp, hoặc Databricks nếu Tara muốn đẩy nhanh AI. Ban chỉ đạo sẽ chọn dựa trên số liệu thử nghiệm." Dữ liệu ở định dạng mở nên chuyển sau không phải làm lại.
+        Nếu bị hỏi sâu: ngay cả các nhà cung cấp lakehouse như Databricks cũng tách riêng một lớp cơ sở dữ liệu vận hành cho nhu cầu giao dịch.
+        Slide tiếp theo là bản mô phỏng 3D của đúng ba cách này.
+        Nếu bị hỏi vì sao Redis cho lớp dữ liệu thời gian thực: dữ liệu nằm trong bộ nhớ nên đọc rất nhanh, có phép tăng giảm nguyên tử nên đếm tồn và giữ hàng chính xác khi nhiều người cùng bấm, và có cơ chế tự hết hạn phù hợp với giữ chỗ 15 phút. Trên AWS là dịch vụ ElastiCache for Redis.
+      </aside>
+    </section>
+
+    <!-- S14B 3D data-flow simulation -->
+    <section class="content" data-section="Yêu cầu 1 · Kiến trúc MIS và tích hợp">
+      <h2>Mô phỏng bốn lớp: ba cách, cùng một lượng khách</h2>
+      <p class="lead">Cùng bốn lớp của kiến trúc MIS. Bấm lần lượt ba nút: chỉ thay đổi chỗ lớp 4 hỏi tồn kho.</p>
+      <div class="flow3d" id="flow3d">
+        <div class="f3-stage">
+          <div class="f3-ctl">
+            <button type="button" class="on" data-mode="direct" data-tone="bad">1 · Hôm nay: hỏi thẳng ERP</button>
+            <button type="button" data-mode="lake" data-tone="mid">2 · Chỉ có Data Lake</button>
+            <button type="button" data-mode="cache" data-tone="ok">3 · Data Lake + lớp dữ liệu thời gian thực</button>
+          </div>
+          <div class="f3-labels" id="f3-labels">
+            <p class="f3-tag" data-k="erp">Lớp 1 · NetSuite<small>Nguồn, hệ thống ghi sổ</small></p>
+            <p class="f3-tag" data-k="src2">Lớp 1 · Nguồn khác<small>DMS, Haravan, CRM,<br>bảo hành, Base, bên ngoài</small></p>
+            <p class="f3-tag" data-k="hub">Lớp 2 · Lớp kết nối<small>Điều phối, không lưu</small></p>
+          <p class="f3-tag" data-k="lake">Lớp 3B · Data Lake<small>Lịch sử, nạp theo lô</small></p>
+            <p class="f3-tag" data-k="cache">Lớp 3A · Thời gian thực<small>Dữ liệu cần ngay, không giữ lịch sử</small></p>
+            <p class="f3-tag" data-k="sats">Lớp 4 · Kênh bán<small>Website, sàn, DMS, CSKH</small></p>
+            <p class="f3-tag" data-k="rep">Lớp 4 · Báo cáo, AI<small>Dashboard, dự báo</small></p>
+            <p class="f3-tag f3-warn" data-k="stale">Tồn kho cũ → bán vượt</p>
+          </div>
+          <div class="f3-fallback">Trình duyệt này không bật đồ họa 3D. Nội dung tương đương có ở slide trước, dạng sơ đồ.</div>
+        </div>
+        <div class="f3-hud">
+          <div class="f3-m" id="f3-load"><p class="t"><span>Tải lên NetSuite</span><b>—</b></p><div class="bar"><i></i></div></div>
+          <div class="f3-m" id="f3-rt"><p class="t"><span>Thời gian trả lời</span><b>—</b></p><div class="bar"><i></i></div></div>
+          <div class="f3-m" id="f3-fresh"><p class="t"><span>Độ trễ tồn kho</span><b>—</b></p><div class="bar"><i></i></div></div>
+          <div class="f3-m" id="f3-hold"><p class="t"><span>Giữ hàng khi đặt</span><b>—</b></p><div class="bar"><i></i></div></div>
+        </div>
+        <p class="f3-note bad" id="f3-note"></p>
+      </div>
+      <p class="foot">Yêu cầu 1 · Kiến trúc MIS và tích hợp</p>
+      <aside class="notes">
+        Bản mô phỏng của slide trước. Bấm lần lượt ba nút, để Ban Lãnh đạo tự thấy khác biệt.
+        Lớp 1 có hai cụm: NetSuite là nguồn chính về tồn kho, và cụm nguồn khác gồm DMS, Haravan, CRM, bảo hành, Base, dữ liệu bên ngoài. Ở chế độ 2 và 3, cả hai cụm đều đổ dữ liệu qua lớp kết nối.
+        Nút 1, hôm nay: mọi hạt dữ liệu màu đỏ đi suốt từ kênh bán về NetSuite. Khối ERP nóng đỏ, tải gần kịch, trả lời chậm. Tồn kho thì mới, nhưng ERP phải gánh từng cú bấm.
+        Nút 2, chỉ có Data Lake: ERP nguội đi vì kênh bán chuyển sang hỏi Data Lake. Nhưng nhìn kỹ: NetSuite chỉ đổ dữ liệu vào hồ theo từng đợt. Giữa hai đợt, kênh bán đọc số cũ. Thỉnh thoảng một kênh nháy đỏ: đó là đơn bán vượt tồn. Đồng hồ độ trễ tồn kho lên vài phút đến vài giờ, và không giữ được hàng.
+        Nút 3, Data Lake cộng lớp dữ liệu thời gian thực: Data Lake vẫn ở đó, vẫn nhận theo lô, vẫn nuôi báo cáo và AI ở phía sau. Phía trước có thêm lớp dữ liệu thời gian thực, NetSuite đẩy từng thay đổi vào liên tục. Kênh bán hỏi lớp này: hạt xanh chạy rất nhanh. Bốn đồng hồ đều xanh.
+        Câu chốt: cùng một lượng khách, cùng một ERP, cùng một Data Lake. Chỉ thêm một làn. Đầu tư Data Lake giữ nguyên giá trị.
+        Nếu máy chiếu không chạy được 3D, slide hiện dòng thông báo; quay lại slide sơ đồ phía trước.
+      </aside>
+    </section>
+
+    <!-- S08 Data flow walkthrough -->
+    <section class="content" data-section="Yêu cầu 1 · Kiến trúc MIS và tích hợp">
+      <h2>Luồng dữ liệu: theo chân 10 chiếc nồi chiên vừa xuất kho</h2>
+      <p class="lead">Một thay đổi trong NetSuite đi qua bốn lớp như thế nào, và mất bao lâu ở mỗi chặng.</p>
+      <div class="flowdia">
+        <svg viewBox="0 0 1136 418" role="img" aria-label="Luồng dữ liệu từ NetSuite qua lớp kết nối, lớp dữ liệu thời gian thực và Data Lake tới kênh bán">
+          <defs>
+            <marker id="fa" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#0057A9"/></marker>
+            <marker id="fb" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#277CBE"/></marker>
+            <marker id="fc" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#D53F59"/></marker>
+          </defs>
+
+          <rect class="zone" x="4" y="22" width="190" height="300" rx="9"/>
+          <rect class="zone" x="214" y="22" width="178" height="300" rx="9"/>
+          <rect class="zone" x="412" y="22" width="300" height="300" rx="9"/>
+          <rect class="zone" x="732" y="22" width="400" height="300" rx="9"/>
+          <text class="zh" x="16" y="15" fill="#6D6E71">LỚP 1 · TÁM NGUỒN</text>
+          <text class="zh" x="226" y="15" fill="#277CBE">LỚP 2 · CHỈ CHUYỂN</text>
+          <text class="zh" x="424" y="15" fill="#0057A9">LỚP 3 · LƯU VÀ TRẢ LỜI</text>
+          <text class="zh" x="744" y="15" fill="#D53F59">LỚP 4 · NƠI DÙNG</text>
+
+          <rect x="18" y="104" width="162" height="76" rx="8" fill="#6D6E71"/>
+          <text class="bt" x="32" y="130" fill="#fff">Oracle NetSuite</text>
+          <text class="bsw" x="32" y="148">Thủ kho bấm xuất 10 cái</text>
+          <text class="bsw" x="32" y="163">nồi chiên AFB-5861</text>
+          <circle cx="30" cy="96" r="11" fill="#0057A9"/><text class="num" x="26.5" y="100">1</text>
+          <rect x="18" y="204" width="162" height="104" rx="8" fill="#F3F5F8" stroke="#C9D2DC" stroke-width="1.3"/>
+          <text class="bt" x="30" y="224" fill="#4E5157">Các nguồn khác</text>
+          <text class="bs" x="30" y="240">DMS · Haravan</text>
+          <text class="bs" x="30" y="254">eCommerce · CRM</text>
+          <text class="bs" x="30" y="268">Bảo hành · Base</text>
+          <text class="bs" x="30" y="282">Dữ liệu bên ngoài</text>
+          <text class="bs" x="30" y="300" fill="#277CBE" style="font-style:italic">đi đúng đường này</text>
+          <path d="M182 256 C204 256 206 178 222 172" stroke="#9AA6B3" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#fb)"/>
+
+          <rect x="228" y="98" width="150" height="88" rx="8" fill="#E6F0F9" stroke="#277CBE" stroke-width="1.6"/>
+          <text class="bt" x="241" y="124" fill="#0057A9">Lớp kết nối</text>
+          <text class="bs" x="241" y="142">Nhận tin một lần</text>
+          <text class="bs" x="241" y="157">Chuyển tới mọi nơi cần</text>
+          <text class="bs" x="241" y="172" fill="#9E2238">Không lưu lại gì</text>
+          <circle cx="240" cy="90" r="11" fill="#0057A9"/><text class="num" x="236.5" y="94">2</text>
+
+          <rect x="426" y="52" width="272" height="86" rx="8" fill="#0057A9"/>
+          <text class="bt" x="440" y="78" fill="#fff">3A · Lớp dữ liệu thời gian thực</text>
+          <text class="bsw" x="440" y="96">Tồn khả dụng: 42 → 32</text>
+          <text class="bsw" x="440" y="111">Cập nhật trong dưới 1 giây</text>
+          <text class="bsw" x="440" y="126">Gánh tải đọc thay ERP</text>
+          <circle cx="438" cy="44" r="11" fill="#0057A9"/><text class="num" x="434.5" y="48">3</text>
+
+          <rect x="426" y="196" width="272" height="86" rx="8" fill="#E1EDF9" stroke="#277CBE" stroke-width="1.6"/>
+          <text class="bt" x="440" y="222" fill="#0057A9">3B · Data Lake</text>
+          <text class="bs" x="440" y="240">Ghi vào lịch sử xuất kho</text>
+          <text class="bs" x="440" y="255">Nạp theo lô, mỗi 15 phút</text>
+          <text class="bs" x="440" y="270">Giữ toàn bộ dữ liệu cũ</text>
+          <circle cx="438" cy="188" r="11" fill="#277CBE"/><text class="num" x="434.5" y="192">4</text>
+
+          <rect x="746" y="48" width="180" height="46" rx="7" fill="#fff" stroke="#0057A9" stroke-width="1.5"/>
+          <text class="bt" x="758" y="70">Website, app Tara</text><text class="bs" x="758" y="85">"Còn hàng" · dưới 10 ms</text>
+          <rect x="940" y="48" width="180" height="46" rx="7" fill="#fff" stroke="#0057A9" stroke-width="1.5"/>
+          <text class="bt" x="952" y="70">Sàn TMĐT</text><text class="bs" x="952" y="85">Đẩy tồn kèm tồn an toàn</text>
+          <rect x="746" y="102" width="180" height="46" rx="7" fill="#fff" stroke="#0057A9" stroke-width="1.5"/>
+          <text class="bt" x="758" y="124">DMS, cổng đại lý</text><text class="bs" x="758" y="139">Đại lý tra tồn tức thì</text>
+          <rect x="940" y="102" width="180" height="46" rx="7" fill="#fff" stroke="#0057A9" stroke-width="1.5"/>
+          <text class="bt" x="952" y="124">Ứng dụng kho, CSKH</text><text class="bs" x="952" y="139">Cùng đọc một con số</text>
+          <circle cx="744" cy="40" r="11" fill="#0057A9"/><text class="num" x="740.5" y="44">5</text>
+
+          <rect x="746" y="196" width="374" height="46" rx="7" fill="#fff" stroke="#277CBE" stroke-width="1.5"/>
+          <text class="bt" x="758" y="218">Dashboard mọi cấp · AI dự báo · Hồ sơ khách hàng</text>
+          <text class="bs" x="758" y="233">Trả lời "bán thế nào, sắp tới cần bao nhiêu hàng" · theo phút, giờ</text>
+          <circle cx="744" cy="188" r="11" fill="#277CBE"/><text class="num" x="740.5" y="192">6</text>
+
+          <path class="fl" d="M182 136 H222" stroke="#0057A9" stroke-width="2.2" fill="none" marker-end="url(#fa)"/>
+          <text class="lb2" x="186" y="128" fill="#0057A9">1 sự kiện</text>
+          <path d="M380 124 C402 124 402 95 420 95" stroke="#0057A9" stroke-width="2.2" fill="none" marker-end="url(#fa)"/>
+          <path d="M380 160 C402 160 402 239 420 239" stroke="#277CBE" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#fb)"/>
+          <text class="lb2" x="384" y="206" fill="#277CBE">theo lô</text>
+          <path d="M700 71 H740" stroke="#0057A9" stroke-width="2.2" fill="none" marker-end="url(#fa)"/>
+          <path d="M700 95 C718 95 720 125 740 125" stroke="#0057A9" stroke-width="2.2" fill="none" marker-end="url(#fa)"/>
+          <path d="M700 219 H740" stroke="#277CBE" stroke-width="2" fill="none" marker-end="url(#fb)"/>
+
+          <path d="M836 150 V168 H562 V144" stroke="#D53F59" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#fc)"/>
+          <circle cx="700" cy="168" r="11" fill="#D53F59"/><text class="num" x="696.5" y="172">7</text>
+          <text class="lb2" x="716" y="164" fill="#9E2238">Khách bấm đặt: giữ 1 cái, 15 phút. Tồn khả dụng 32 → 31</text>
+
+          <rect class="zone" x="4" y="338" width="1128" height="68" rx="9" stroke="#F0B9C3"/>
+          <text class="zh" x="16" y="332" fill="#D53F59">CHIỀU NGƯỢC LẠI · CHỈ KHI XUẤT KHO THẬT MỚI GHI VÀO ERP</text>
+          <rect x="18" y="352" width="162" height="42" rx="7" fill="#6D6E71"/>
+          <text class="bt" x="32" y="370" fill="#fff">Oracle NetSuite</text><text class="bsw" x="32" y="385">1 chứng từ xuất kho</text>
+          <rect x="426" y="352" width="272" height="42" rx="7" fill="#FDF4F6" stroke="#D53F59" stroke-width="1.5"/>
+          <text class="bt" x="440" y="370" fill="#9E2238">3A giữ chỗ, hết hạn, nhả hàng</text><text class="bs" x="440" y="385">Hàng trăm lượt mỗi phút, không chạm ERP</text>
+          <rect x="746" y="352" width="374" height="42" rx="7" fill="#fff" stroke="#CFDAE6"/>
+          <text class="bt" x="758" y="370">Khách thanh toán xong, kho xuất hàng</text><text class="bs" x="758" y="385">Giữ tạm chuyển thành giữ chắc, rồi chốt</text>
+          <path d="M740 373 H706" stroke="#D53F59" stroke-width="2" fill="none" marker-end="url(#fc)"/>
+          <path d="M420 373 H190" stroke="#D53F59" stroke-width="2.2" fill="none" marker-end="url(#fc)"/>
+          <text class="lb2" x="238" y="366" fill="#9E2238">chỉ ghi 1 lần, khi hàng rời kho</text>
+          <circle cx="726" cy="340" r="11" fill="#D53F59"/><text class="num" x="722.5" y="344">8</text>
+          <circle cx="203" cy="373" r="11" fill="#D53F59"/><text class="num" x="199.5" y="377">9</text>
+        </svg>
+      </div>
+      <div class="flowlegend">
+        <div class="f1"><b>Lớp 2 làm gì:</b> NetSuite và các nguồn khác báo một lần, lớp này chuyển tới mọi nơi cần. Thêm hệ thống mới chỉ cần đăng ký nhận.</div>
+        <div class="f2"><b>Vì sao tách 3A và 3B:</b> 3A trả lời câu hỏi bán hàng trong vài mili giây; 3B giữ lịch sử cho báo cáo và AI. Hai nhu cầu khác nhau, hai thiết kế khác nhau.</div>
+        <div class="f3"><b>Vì sao tiết kiệm:</b> hàng trăm lượt giữ chỗ và nhả hàng xử lý ở 3A, chỉ một chứng từ ghi vào NetSuite khi hàng rời kho. Không sinh dòng giao dịch rác.</div>
+      </div>
+      <p class="foot">Yêu cầu 1 · Kiến trúc MIS và tích hợp</p>
+      <aside class="notes">
+        Slide này trả lời câu hỏi "lớp 2 để làm gì" bằng một ví dụ cụ thể, thay vì định nghĩa.
+        Bước 1: thủ kho bấm xuất 10 chiếc nồi chiên trong NetSuite. Ví dụ theo NetSuite, nhưng khung xám bên dưới nhắc: bảy nguồn còn lại, DMS, Haravan, eCommerce, CRM, bảo hành, Base và dữ liệu bên ngoài, đều đi đúng đường này. Bước 2: NetSuite báo một lần vào lớp kết nối. Nhấn mạnh: lớp này không lưu gì cả, nó chỉ chuyển tin rồi thôi. Giá trị của nó là NetSuite không phải biết có bao nhiêu hệ thống đang cần tin đó.
+        Bước 3: lớp dữ liệu thời gian thực cập nhật tồn khả dụng từ 42 xuống 32, trong dưới một giây. Bước 4: Data Lake ghi vào lịch sử, nhưng theo lô, mỗi 15 phút, vì báo cáo không cần tức thì.
+        Bước 5: website, sàn, DMS, ứng dụng kho đều đọc từ lớp dữ liệu thời gian thực, mỗi lượt dưới 10 mili giây, và cùng thấy một con số. Bước 6: dashboard và AI đọc từ Data Lake.
+        Bước 7, đường đỏ nét đứt: khách bấm đặt trên website. Lượt giữ chỗ ghi vào lớp dữ liệu thời gian thực, tồn khả dụng còn 31. Việc này không chạm tới NetSuite.
+        Bước 8 và 9: khách thanh toán, kho xuất hàng, lúc đó mới ghi một chứng từ về NetSuite. Đây là điểm tiết kiệm: hàng trăm lượt giữ chỗ, hết hạn, nhả hàng mỗi phút đều xử lý ở lớp 3A; NetSuite chỉ nhận đúng những gì thực sự xảy ra.
+        Nếu Ban Lãnh đạo chỉ nhớ một điều từ slide này: mỗi thay đổi báo một lần, ai cần thì nhận; và chỉ việc có thật mới ghi vào sổ cái.
+        Nếu được hỏi sâu về tồn kho dùng chung: tồn khả dụng bằng tồn thực tế trừ hàng đang giữ trừ tồn an toàn theo kênh. Website và app của Tara giữ chỗ ngay khi khách bấm đặt, giữ tạm 15 phút, thanh toán xong chuyển sang giữ chắc, xuất kho thì chốt. Với sàn TMĐT, Tara không kiểm soát bước thanh toán, nên đẩy tồn khả dụng kèm tồn an toàn riêng cho sàn và giữ hàng ngay khi đơn đổ về. Quy tắc chia hàng giữa đại lý và online là quyết định của Ban Lãnh đạo; hệ thống thực thi. Mục tiêu: bán vượt tồn dưới 0,1%, độ trễ đồng bộ dưới 60 giây.
+      </aside>
+    </section>
+
+    <!-- S15 Website audit -->
+    <section class="content" data-section="Yêu cầu 1 · Kênh online">
+      <h2>Website BlueStone hôm nay: điều tôi quan sát được</h2>
+      <p class="lead">Tôi đã xem trang chủ và trang sản phẩm ngày 08/10/2026, từ bên ngoài, chưa có số liệu nội bộ.</p>
+      <div class="audit">
+        <div class="col good"><h3>Nền tảng đang có, dùng lại được</h3>
+          <ul>
+            <li><b>Kích hoạt và tra cứu bảo hành</b> bằng số điện thoại và số seri đã chạy trên web<span class="ev">cây cầu dữ liệu đã có</span></li>
+            <li><b>Số seri theo từng máy</b> đã gắn với đơn hàng, kênh bán, trạm bảo hành<span class="ev">dữ liệu quý nhất</span></li>
+            <li>Danh mục sản phẩm phân tầng tốt, hai thương hiệu BlueStone và Carez</li>
+            <li>Thanh toán đa dạng: Payoo, MoMo, ZaloPay, Fundiin, COD; miễn phí vận chuyển toàn quốc</li>
+            <li>Đa kênh tư vấn: Zalo, Messenger, hotline 1800, Facebook, TikTok, YouTube</li>
+            <li>Trang sản phẩm có thông số, tài liệu PDF, biểu mẫu đánh giá; đã có Google Tag Manager</li>
+          </ul>
+        </div>
+        <div class="col bad"><h3>Sáu vấn đề nhìn thấy từ bên ngoài</h3>
+          <ul>
+            <li><b>Khối sản phẩm tải sau bằng JavaScript:</b> mã trang trả về chỉ có chữ "Loading..."<span class="ev">chậm và mất điểm SEO</span></li>
+            <li><b>Không hiển thị còn hàng hay hết hàng</b> trên trang sản phẩm; chỉ có "còn 17/20 suất" là hạn mức khuyến mãi<span class="ev">không phải tồn kho</span></li>
+            <li><b>Mọi sản phẩm đều 0 đánh giá</b> và sản phẩm bán chạy ghi "Đã bán 0"<span class="ev">mất lòng tin</span></li>
+            <li><b>Chính sách mâu thuẫn:</b> đổi trả 30 ngày ở trang chủ nhưng 7 ngày ở hỏi đáp; hotline 8–22h ở đầu trang nhưng 8h–17h45 ở chân trang; "miễn phí vận chuyển mọi đơn" nhưng giỏ hàng báo chưa đạt mức tối thiểu</li>
+            <li><b>Nội dung cũ còn chạy:</b> banner "Summer 2026" và trang khuyến mãi Trung thu vẫn hiển thị trong tháng 10</li>
+            <li><b>Liên kết hỏng ở chân trang:</b> Twitter và Google Plus trỏ về trang chủ; Google Plus đã đóng từ 2019</li>
+          </ul>
+        </div>
+      </div>
+      <div class="afix">
+        <div><b>Trung tâm tồn kho</b>Hiện còn hàng hay hết hàng trên từng trang sản phẩm, giữ chỗ khi khách đặt</div>
+        <div><b>Quản trị dữ liệu</b>Một định nghĩa cho chính sách đổi trả, bảo hành, giờ hotline; sửa một nơi, đổi mọi nơi</div>
+        <div><b>Thu thập đánh giá</b>Nhắn tin sau giao hàng xin đánh giá; hiện số đã bán thật từ dữ liệu đơn hàng</div>
+        <div><b>Bảo hành QR thành hồ sơ khách</b>Mở rộng chức năng đã có thành hồ sơ khách hàng định danh</div>
+      </div>
+      <p class="srcline">Đây là quan sát từ bên ngoài, chưa có số liệu tốc độ tải, tỷ lệ chuyển đổi và tỷ lệ rời trang của Tara. Đề xuất đo 2–6 tuần trước khi quyết định, xem slide tiếp theo.</p>
+      <p class="foot">Yêu cầu 1 · Kênh online</p>
+      <aside class="notes">
+        Mở đầu: "Trước khi nói nên làm gì với website, tôi đã tự xem nó như một khách hàng." Điều này cho Ban Lãnh đạo thấy ứng viên đã làm bài tập về nhà.
+        Bên trái: những thứ Tara đã có và dùng lại được. Nhấn mạnh hai điểm đầu: kích hoạt và tra cứu bảo hành theo số seri đã chạy. Đây chính là cây cầu từ khách mua ở đại lý về Tara mà tôi nói ở slide khách hàng định danh. Tara không phải xây mới, chỉ cần mở rộng.
+        Bên phải: sáu vấn đề quan sát được. Quan trọng nhất là hai cái đầu. Thứ nhất, các khối sản phẩm trên trang chủ chỉ hiện chữ Loading trong mã trang, nghĩa là trình duyệt phải tải xong JavaScript rồi mới gọi tiếp để lấy sản phẩm. Đây là một nguyên nhân thật của cảm giác chậm mà anh/chị nêu, và cũng làm Google khó đọc nội dung sản phẩm. Thứ hai, trang sản phẩm không hề cho biết còn hàng hay hết hàng. Con số "còn 17 trên 20 suất" là hạn mức khuyến mãi, không phải tồn kho thật.
+        Nhóm thứ ba là chính sách mâu thuẫn. Đây không phải lỗi kỹ thuật mà là thiếu quản trị dữ liệu: cùng một chính sách được viết tay ở nhiều nơi. Đúng vấn đề tôi nêu ở slide một mã, một nguồn sự thật.
+        Dòng dưới cùng: bốn giải pháp đều đã nằm trong lộ trình, không phát sinh thêm việc.
+        Kết: nói rõ đây là quan sát bên ngoài, chưa có số liệu nội bộ. Không kết luận vội, đo 2 đến 6 tuần rồi quyết, như slide tiếp theo.
+      </aside>
+    </section>
+
+    <!-- Haravan -->
+    <section class="content" id="haravan" data-section="Yêu cầu 1 · Kênh online">
+      <h2>Website chậm: đổi nền tảng hay đổi cách dùng?</h2>
+      <p class="lead">Đo trước, quyết sau. Ba vấn đề vừa nêu sửa được mà chưa cần đổi nền tảng.</p>
+      <div class="hv">
+        <div class="facts">
+          <h3>Haravan hôm nay</h3>
+          <p class="fact">Nền tảng thương mại điện tử nội địa phổ biến, <b>mạnh ở doanh nghiệp vừa và nhỏ</b>, có gói Enterprise cho doanh nghiệp lớn</p>
+          <p class="fact">Giới hạn kết nối: <b>khoảng 4 lượt gọi mỗi giây</b>; mỗi lần cập nhật tồn kho nên <b>dưới 200 mã hàng</b></p>
+          <p class="causes">Cần kiểm chứng: website tra tồn kho trực tiếp, giao diện và ứng dụng cài thêm quá nặng, đồng bộ cả kho theo lô.</p>
+          <p class="hv-src">Nguồn: <a href="https://docs.haravan.com/docs/omni-apis/api-call-limit/" target="_blank" rel="noopener">Haravan Developer Docs, API Rate Limits</a></p>
+        </div>
+        <div class="fragment">
+          <h3>Ba phương án</h3>
+          <table class="opts">
+            <thead><tr><th>Phương án</th><th>Chi phí</th><th>Thời gian (ước tính)</th><th>Khi nào chọn</th></tr></thead>
+            <tbody>
+              <tr class="pick"><td>Tối ưu Haravan<small>Gỡ phần nặng, chỉ đẩy thay đổi tồn kho từ trung tâm tồn kho</small></td><td><span class="lv lo">Thấp</span></td><td>1–3 tháng</td><td>Khi đo thấy lỗi nằm ở cách tích hợp</td></tr>
+              <tr><td>Giao diện riêng, Haravan làm lõi<small>Website tự xây, Haravan giữ đơn hàng và thanh toán; cần xác nhận khả năng kết nối với Haravan</small></td><td><span class="lv mid">Trung bình</span></td><td>1–3 tháng</td><td>Khi cần trải nghiệm và tốc độ vượt khả năng giao diện có sẵn</td></tr>
+              <tr><td>Thay nền tảng<small>Nền tảng cấp doanh nghiệp quốc tế hoặc tự xây</small></td><td><span class="lv hi">Cao</span></td><td>3–6 tháng</td><td>Khi đo thấy chính lõi nền tảng là giới hạn, nhất là cho mở rộng quốc tế</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="result fragment">
+        <p class="money">Đề xuất: đo 2–6 tuần, rồi mới quyết định thay hay giữ<small>Tốc độ tải trang, tỷ lệ lỗi, thử tải mùa sale ở mức gấp 10–20 lần ngày thường, tỷ lệ chuyển đổi so với ngành</small></p>
+        <div class="kpis"><span>Trung tâm tồn kho dùng được cho mọi phương án</span></div>
+      </div>
+      <p class="foot">Yêu cầu 1 · Kênh online</p>
+      <aside class="notes">
+        Tôi đồng ý với cảm nhận của anh/chị rằng website hiện chưa đáp ứng được. Câu hỏi là lỗi ở nền tảng hay ở cách đang dùng nền tảng.
+        Haravan mạnh ở doanh nghiệp vừa và nhỏ, có gói cho doanh nghiệp lớn. Giới hạn kết nối khoảng 4 lượt gọi mỗi giây là đủ nếu chỉ đẩy phần tồn kho thay đổi, nhưng sẽ nghẽn nếu website tra tồn kho trực tiếp hoặc đồng bộ cả kho liên tục.
+        Bấm 1: ba phương án, chi phí và rủi ro tăng dần. Hai phương án đầu đều khoảng 1 đến 3 tháng, phương án thay nền tảng khoảng 3 đến 6 tháng. Đổi nền tảng mà giữ nguyên cách tích hợp thì vẫn chậm, nên trung tâm tồn kho là việc phải làm trước, và nó dùng được cho mọi phương án.
+        Bấm 2: đề xuất 2 đến 6 tuần đo bằng số liệu, tùy mức độ sẵn có của dữ liệu đo. Nếu số liệu cho thấy lõi Haravan là giới hạn, đặc biệt khi ra quốc tế, tôi sẽ trình phương án thay với chi phí và lộ trình cụ thể.
+      </aside>
+    </section>
+
+    <!-- S12 Data governance v2 -->
+    <section class="content" data-section="Yêu cầu 1 · Dữ liệu cho quyết định">
+      <h2>Quản trị dữ liệu: chuẩn hóa từ cách nhập đến cách tính</h2>
+      <p class="lead">Data Lake, dashboard hay AI chỉ đúng khi dữ liệu đưa vào đúng. Làm trong 6 tháng đầu, trước mọi thứ khác.</p>
+      <div class="dgprob">
+        <p class="pl">Vấn đề hôm nay<small>Cùng một chiếc nồi chiên, ba mã ở ba hệ thống (minh họa)</small></p>
+        <div class="dgcodes">
+          <div><span>NetSuite</span><code>AFB-5861</code></div>
+          <div><span>Haravan</span><code>NOI-CHIEN-7L</code></div>
+          <div><span>DMS</span><code>BS5861</code></div>
+        </div>
+        <p class="res"><b>Không cộng được với nhau</b>Dashboard báo sai, AI học sai. Một khách mua online và đăng ký bảo hành thành hai hồ sơ.</p>
+      </div>
+      <div class="dgsteps fragment">
+        <div class="dgs"><i>1</i><b>Cách nhập</b><p>Quy tắc nhập thống nhất, trường bắt buộc, hệ thống tự chặn khi nhập sai</p><p class="ex">Không tạo được khách thiếu số điện thoại</p></div>
+        <div class="dgs"><i>2</i><b>Mã định danh</b><p>Mỗi hàng, khách, đại lý, kho chỉ một mã, dùng chung mọi hệ thống</p><p class="ex">Nồi chiên chỉ còn một mã ở mọi nơi</p></div>
+        <div class="dgs"><i>3</i><b>Công thức tính</b><p>Mỗi chỉ số một định nghĩa, một cách tính, chốt một lần</p><p class="ex">"Doanh thu" trước hay sau chiết khấu, trừ hàng trả lại?</p></div>
+        <div class="dgs"><i>4</i><b>Người chịu trách nhiệm</b><p>Trưởng phòng làm chủ dữ liệu của phòng; mỗi phòng một Data Champion; hội đồng dữ liệu họp tháng</p></div>
+      </div>
+      <div class="dgq fragment">
+        <div class="pills"><span>Đúng</span><span>Đủ</span><span>Kịp thời</span><span>Không trùng</span></div>
+        <p><b>Có đo:</b> điểm chất lượng dữ liệu theo bốn tiêu chí này, mục tiêu từ 95%, công khai trên dashboard hằng tháng.</p>
+      </div>
+      <p class="dgchot fragment">Chuẩn hóa từ cách nhập đến cách tính, để dữ liệu đúng, đủ, kịp thời và không trùng. Có chủ, có đo.</p>
+      <span class="assume-tag">Mã sản phẩm là minh họa</span>
+      <p class="foot">Yêu cầu 1 · Dữ liệu cho quyết định</p>
+      <aside class="notes">
+        Slide này trả lời: vì sao nối được hệ thống rồi mà số vẫn không khớp. Nhiều dự án MIS thất bại không vì công nghệ mà vì mỗi hệ thống đặt mã và tính số một kiểu.
+        Mở bằng ví dụ: cùng một chiếc nồi chiên, NetSuite gọi một mã, Haravan một mã, DMS một mã khác. Gom về Data Lake cũng không cộng được với nhau, dashboard báo sai, AI học sai. Khách hàng cũng vậy: mua online một hồ sơ, đăng ký bảo hành một hồ sơ khác.
+        Bấm 1: bốn điểm chuẩn hóa, đi theo đúng đường của dữ liệu. Một, cách nhập: quy tắc thống nhất, trường bắt buộc, hệ thống tự chặn khi nhập sai. Hai, mã định danh: mỗi hàng, khách, đại lý, kho chỉ một mã. Ba, công thức tính: mỗi chỉ số một định nghĩa; ví dụ doanh thu tính trước hay sau chiết khấu, có trừ hàng trả lại không, chốt một lần cho cả công ty. Bốn, người chịu trách nhiệm: trưởng phòng làm chủ dữ liệu của phòng mình, mỗi phòng một Data Champion lo chất lượng hằng ngày, hội đồng dữ liệu họp tháng để chốt chuẩn và xử lý khi số liệu vênh.
+        Bấm 2: kết quả cần đạt là dữ liệu đúng, đủ, kịp thời, không trùng; có điểm chất lượng từ 95%, công khai hằng tháng.
+        Bấm 3: câu chốt. Quản trị dữ liệu không phải mua phần mềm, mà là quy tắc và người chịu trách nhiệm.
+        Nếu cần thêm dẫn chứng thực tế: trên website BlueStone, chính sách đổi trả ghi 30 ngày ở trang chủ nhưng 7 ngày ở phần hỏi đáp. Cùng một thông tin viết tay ở hai nơi thì sẽ lệch; dữ liệu kinh doanh cũng vậy.
+      </aside>
+    </section>
+
+    <!-- S16 Dashboards -->
+    <section class="content dashslide" data-section="Yêu cầu 1 · Dữ liệu cho quyết định">
+      <h2>Báo cáo cho mọi cấp: CEO trả lời câu hỏi kinh doanh trong 5 phút</h2>
+      <p class="lead">Chỉ số quan trọng cập nhật gần thời gian thực, báo cáo quản trị cập nhật trong ngày, xem được mọi lúc mọi nơi.</p>
+      <div class="dash">
+        <div>
+          <div class="pyr">
+            <div class="a"><b>Hội đồng Quản trị, CEO</b><span>Chiến lược, tiền mặt, tăng trưởng</span></div>
+            <div class="b"><b>Quản lý phòng ban</b><span>Vận hành hằng ngày, cảnh báo</span></div>
+            <div class="c"><b>Tuyến đầu</b><span>Ứng dụng bán hàng, kho, CSKH; tự phục vụ</span></div>
+          </div>
+        </div>
+        <div class="mock" role="img" aria-label="Màn hình Tivi minh họa của CEO mỗi sáng">
+          <div class="bar"><span>Màn hình Tivi của CEO, 7:30 sáng</span><span>Số liệu minh họa</span></div>
+          <div class="tiles">
+            <div class="mtile"><span>Doanh thu hôm qua</span><b>3,4 tỷ</b><i class="up">▲ 12% so với cùng kỳ</i></div>
+            <div class="mtile"><span>Số ngày tồn kho</span><b>96</b><i class="up">▼ 14 ngày từ đầu năm</i></div>
+            <div class="mtile"><span>Số ngày thu tiền</span><b>48</b><i class="up">▼ 7 ngày</i></div>
+            <div class="mtile"><span>Bán vượt tồn</span><b>0,04%</b><i class="up">Đạt mục tiêu</i></div>
+          </div>
+          <div class="row2">
+            <div class="panel"><h4>Doanh thu theo kênh, 30 ngày</h4>
+              <svg viewBox="0 0 300 110" preserveAspectRatio="none" aria-hidden="true">
+                <polyline fill="none" stroke="#0057A9" stroke-width="2.5" points="0,80 30,74 60,78 90,62 120,66 150,52 180,56 210,40 240,44 270,30 300,26"/>
+                <polyline fill="none" stroke="#277CBE" stroke-width="2" stroke-dasharray="5 4" points="0,92 30,90 60,86 90,88 120,80 150,82 180,74 210,76 240,68 270,66 300,60"/>
+                <polyline fill="none" stroke="#D53F59" stroke-width="2" points="0,100 30,99 60,97 90,98 120,95 150,94 180,92 210,90 240,91 270,88 300,86"/>
+              </svg></div>
+            <div class="panel"><h4>Cảnh báo cần quyết hôm nay</h4>
+              <p class="alert"><b>Quạt đứng:</b> còn 9 ngày bán, nên đặt thêm</p>
+              <p class="alert"><b>3 đại lý</b> quá hạn trên 60 ngày vẫn đặt hàng</p>
+              <p class="alert"><b>2 shop trên sàn</b> bán dưới giá tối thiểu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="minis fragment">
+        <div class="mini d1">
+          <div class="mb"><span>Chuỗi cung ứng</span><em>cập nhật theo giờ</em></div>
+          <div class="mk">
+            <div><span>Ngày tồn kho</span><b>96</b><i class="g">▼ 14</i></div>
+            <div><span>Mã sắp hết</span><b>7</b><i class="r">▲ 2</i></div>
+            <div><span>Độ chính xác dự báo</span><b>82%</b><i class="g">▲ 5đ</i></div>
+            <div><span>Hàng chậm &gt; 6 tháng</span><b>18%</b><i class="g">▼ 3đ</i></div>
+          </div>
+          <div class="spark"><svg viewBox="0 0 120 26" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#0057A9" stroke-width="2" points="0,6 15,8 30,7 45,11 60,10 75,14 90,15 105,18 120,20"/></svg></div>
+          <div class="ml"><p><b>Quạt đứng:</b> còn 9 ngày bán</p></div>
+        </div>
+        <div class="mini d2">
+          <div class="mb"><span>Kinh doanh, đại lý</span><em>cập nhật theo giờ</em></div>
+          <div class="mk">
+            <div><span>Doanh thu tháng</span><b>78%</b><i class="g">so kế hoạch</i></div>
+            <div><span>Ngày thu tiền</span><b>48</b><i class="g">▼ 7</i></div>
+            <div><span>Nợ quá hạn &gt; 60 ngày</span><b>9,2%</b><i class="g">▼ 2đ</i></div>
+            <div><span>Đại lý đang hoạt động</span><b>1.042</b><i class="g">▲ 31</i></div>
+          </div>
+          <div class="spark"><svg viewBox="0 0 120 26" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#277CBE" stroke-width="2" points="0,20 15,17 30,18 45,13 60,14 75,10 90,9 105,6 120,4"/></svg></div>
+          <div class="ml"><p><b>3 đại lý</b> quá hạn vẫn đặt hàng</p></div>
+        </div>
+        <div class="mini d3">
+          <div class="mb"><span>eCommerce, đa kênh</span><em>gần thời gian thực</em></div>
+          <div class="mk">
+            <div><span>Đơn hôm nay</span><b>312</b><i class="g">▲ 18%</i></div>
+            <div><span>Tỷ lệ chuyển đổi</span><b>1,9%</b><i class="g">▲ 0,3đ</i></div>
+            <div><span>Bán vượt tồn</span><b>0,04%</b><i class="g">đạt</i></div>
+            <div><span>Vi phạm giá sàn</span><b>2</b><i class="r">▲ 1</i></div>
+          </div>
+          <div class="spark"><svg viewBox="0 0 120 26" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#6D6E71" stroke-width="2" points="0,18 15,15 30,19 45,12 60,16 75,9 90,11 105,6 120,5"/></svg></div>
+          <div class="ml"><p><b>2 shop trên sàn</b> bán dưới giá tối thiểu</p></div>
+        </div>
+        <div class="mini d4">
+          <div class="mb"><span>Bảo hành, CSKH</span><em>gần thời gian thực</em></div>
+          <div class="mk">
+            <div><span>Ca đang mở</span><b>146</b><i class="r">▲ 12</i></div>
+            <div><span>Thời gian xử lý</span><b>3,2<small> ngày</small></b><i class="g">▼ 0,6</i></div>
+            <div><span>Đúng cam kết</span><b>91%</b><i class="g">▲ 4đ</i></div>
+            <div><span>Hài lòng</span><b>4,3<small>/5</small></b><i class="g">▲ 0,2</i></div>
+          </div>
+          <div class="spark"><svg viewBox="0 0 120 26" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#D53F59" stroke-width="2" points="0,8 15,10 30,9 45,13 60,12 75,16 90,17 105,19 120,21"/></svg></div>
+          <div class="ml"><p><b>Nồi chiên AFB-5861:</b> lỗi cùng lô tăng</p></div>
+        </div>
+      </div>
+      <p class="foot">Yêu cầu 1 · Dữ liệu cho quyết định</p>
+      <aside class="notes">
+        Ba tầng báo cáo. Tầng trên cùng là màn hình của CEO mỗi sáng: bốn con số và ba cảnh báo cần quyết trong ngày. Các con số đều là minh họa.
+        Lưu ý câu chữ: chỉ số quan trọng gần thời gian thực, báo cáo quản trị cập nhật trong ngày. Nhất quán với slide Data Lake: thời gian thực dành cho giao dịch.
+        Ba cảnh báo nối với ba câu hỏi của CEO ở phần bài toán: tồn kho, công nợ, xung đột kênh.
+        Bấm 1: bốn màn hình của bốn phòng ban. Điểm cần nhấn với Ban Lãnh đạo: tất cả đọc từ cùng một nguồn số liệu, nên con số của phòng ban và con số trên màn hình CEO luôn khớp nhau. Mỗi phòng chỉ thấy phần việc của mình và một cảnh báo cần xử lý trong ngày. Ví dụ ở Bảo hành là cảnh báo lỗi tăng bất thường theo lô, chính là dữ liệu phản hồi về cho phát triển sản phẩm. Mọi con số đều là minh họa.
+      </aside>
+    </section>
+
+    <!-- S17 Anonymous to identified -->
+    <section class="content crmslide" data-section="Yêu cầu 1 · CRM và CDP">
+      <span class="req-tag">Yêu cầu 1 · CRM và CDP</span>
+      <h2>Từ người mua vô danh đến khách hàng định danh</h2>
+      <p class="lead">Phần lớn khách mua BlueStone qua đại lý và sàn: Tara bán được hàng nhưng không biết khách là ai. Mục tiêu rõ, công cụ thì cần đo trước khi chọn.</p>
+      <div class="stepper" data-step="0">
+        <div class="journey">
+          <div class="jstep anon"><p class="n">1</p><b>Người mua vô danh</b><span>Mua qua đại lý, siêu thị điện máy, sàn TMĐT</span></div>
+          <div class="jstep key"><p class="n">2</p><b>Quét QR kích hoạt bảo hành</b><span>Cây cầu từ khách mua offline về Tara. Website đã có kích hoạt, tra cứu theo số seri</span></div>
+          <div class="jstep"><p class="n">3</p><b>Một hồ sơ khách hàng</b><span>Một người, một hồ sơ, hợp nhất từ mọi kênh</span></div>
+          <div class="jstep"><p class="n">4</p><b>Chăm sóc và bán thêm</b><span>Phụ kiện, thay lõi lọc, gia hạn bảo hành, mua lại</span></div>
+          <div class="jstep"><p class="n">5</p><b>Dữ liệu cho sản phẩm</b><span>Lỗi theo lô, đánh giá khách thành cải tiến sản phẩm</span></div>
+        </div>
+        <div class="count">
+          <p class="num">~150.000<small>khách định danh hiện nay (giả định)</small></p>
+          <div class="track"><div class="fillc"></div></div>
+          <p class="num">1,5 triệu<small>mục tiêu</small></p>
+        </div>
+        <span class="fragment" aria-hidden="true"></span>
+      </div>
+      <div class="cdec fragment">
+        <div class="cd crm">
+          <div class="ct"><b>CRM hiện tại: đánh giá trước, quyết sau</b><span>Quick win · 2–6 tuần</span></div>
+          <p class="cq">Câu hỏi cần trả lời: <em>giới hạn của CRM đang có có cản mục tiêu 3 năm không?</em></p>
+          <ul>
+            <li>Có chứa nổi 1,5 triệu hồ sơ, gộp được một người nhiều kênh không</li>
+            <li>Có kết nối được bảo hành, eCommerce, DMS, tổng đài không</li>
+            <li>Chi phí khi số người dùng và số hồ sơ tăng gấp nhiều lần</li>
+          </ul>
+          <div class="opts"><div><b>Giữ</b>Đủ cho 3 năm, chỉ cần tích hợp tốt hơn</div><div><b>Nâng cấp</b>Nền tốt, thiếu vài tính năng</div><div><b>Thay</b>Giới hạn chạm mục tiêu tăng trưởng</div></div>
+        </div>
+        <div class="cd cdp">
+          <div class="ct"><b>CDP: hỏi "để làm gì" trước khi mua</b><span>Lộ trình an toàn</span></div>
+          <p class="cq">Tara có thật sự cần một hệ thống CDP riêng? <em>Vì sao muốn triển khai, để giải bài toán nào?</em> Không mua trước, đo trước:</p>
+          <div class="cdpsteps">
+            <div><i>Giai đoạn 1 · 0–6 tháng</i><b>Dựng nền</b>Data Lake; mỗi khách một mã định danh duy nhất</div>
+            <div><i>Giai đoạn 2 · 6–18 tháng</i><b>Chạy thử 2–3 việc</b>Nhắc thay lõi lọc, gia hạn bảo hành, bán kèm; gửi danh sách theo lô qua kết nối tự viết</div>
+            <div><i>Giai đoạn 3 · 18–36 tháng</i><b>Rồi mới quyết</b>Mua CDP trọn gói, hay chỉ bổ sung phần còn thiếu</div>
+          </div>
+          <p class="cnote">Giai đoạn 2 cho biết lớp đưa dữ liệu ra kênh bán <b>thật sự cần gì</b>. Nếu CRM cộng Data Lake đã đủ, không cần mua. Bước nào cũng dùng lại được ở bước sau.</p>
+        </div>
+      </div>
+      <span class="assume-tag">Số khách hiện tại là giả định</span>
+      <p class="foot">Yêu cầu 1 · CRM và CDP</p>
+      <aside class="notes">
+        Mở bằng mục tiêu, không bằng công cụ. Điện gia dụng bị đứt đoạn sau khi bán: khách mua qua đại lý thì Tara không có dữ liệu.
+        Bảo hành điện tử bằng QR là cây cầu: khách có lý do để tự đăng ký, Tara có dữ liệu chủ sở hữu. Website BlueStone đã có sẵn kích hoạt và tra cứu bảo hành theo số điện thoại và số seri, nên đây là mở rộng chứ không phải xây mới.
+        Bấm 1: thanh tiến độ chạy từ khoảng 150 nghìn lên 1,5 triệu. Đã xây nền tảng khách hàng hơn 13 triệu hội viên, nên biết rõ đoạn đường này.
+        Bấm 2: hai quyết định về công cụ, cùng tinh thần với website: đo trước, quyết sau.
+        Bên trái, CRM hiện tại. Quick win trong 2 đến 6 tuần: đánh giá ưu nhược điểm, và trả lời đúng một câu hỏi: giới hạn của CRM có cản mục tiêu 3 năm không. Ba kết quả có thể: giữ, nâng cấp, hoặc thay. Tôi không đến với định kiến phải thay.
+        Bên phải, CDP. Ở đây tôi muốn đặt câu hỏi ngược lại với Ban Lãnh đạo: Tara muốn có CDP để giải bài toán gì? Câu trả lời của tôi là một lộ trình an toàn ba bước, khớp với ba giai đoạn của lộ trình chung.
+        Giai đoạn 1, dựng nền: xây Data Lake và chuẩn hóa định danh khách hàng, mỗi khách một mã duy nhất. Việc này phải làm dù có mua CDP hay không.
+        Giai đoạn 2, chạy thử 2 đến 3 việc kích hoạt thật: nhắc thay lõi lọc, gia hạn bảo hành, bán kèm phụ kiện. Danh sách khách được tính trong Data Lake rồi gửi theo lô qua kết nối tự viết sang Zalo, SMS, email hoặc CRM. Mục đích là đo xem lớp đưa dữ liệu ra kênh bán thật sự cần gì: cần tức thì hay theo lô là đủ, cần bao nhiêu kênh, đội marketing dùng được đến đâu.
+        Giai đoạn 3, rồi mới quyết: mua CDP trọn gói, hay chỉ bổ sung phần còn thiếu. Quyết định dựa trên số đo thật, không dựa trên lời chào hàng.
+        Câu chốt: bước nào cũng dùng lại được ở bước sau, không có khoản đầu tư nào bị bỏ đi.
+        Nếu được hỏi thêm: cách dùng Data Lake làm lõi hồ sơ khách hàng còn gọi là CDP ghép. Tận dụng hạ tầng đã đầu tư, tránh nhân đôi dữ liệu và chi phí giấy phép; nếu sau này mua CDP thì Data Lake vẫn là nguồn dữ liệu cho nó.
+      </aside>
+    </section>
+
+    <!-- S18 AI three use cases (3D flip) -->
+    <section class="content" data-section="Yêu cầu 1 · Chiến lược AI">
+      <span class="req-tag">Yêu cầu 1 · AI</span>
+      <h2>AI và phân tích nâng cao: ba use case chủ lực</h2>
+      <p class="lead">Mỗi use case giải một bài toán của Tara, đã có kết quả ở nơi khác, và đo được bằng tiền. Chạm vào thẻ để lật.</p>
+      <div class="stepper" data-step="0">
+        <div class="flips">
+          <div class="flip" tabindex="0" role="button" aria-label="Lật thẻ dự báo nhu cầu"><div class="in">
+            <div class="face front"><p class="ix">1</p><h4>Dự báo nhu cầu, tối ưu tồn kho</h4><p>Hàng điện gia dụng theo mùa: thiếu quạt mùa nóng, dư hàng khác. Tối ưu cả vốn và diện tích kho.</p><span class="tap">Chạm để lật</span></div>
+            <div class="face back"><h4>Kết quả đo được</h4><p>Hệ thống đề xuất đơn đặt hàng, con người duyệt.</p><p class="kpi">KPI: số ngày tồn kho, hết hàng mã chủ lực, hàng tồn bất hợp lý</p><p class="pf">Đã làm: AI dự báo nhu cầu (RELEX), Demand Planning Agent</p></div>
+          </div></div>
+          <div class="flip" tabindex="0" role="button" aria-label="Lật thẻ gợi ý bán kèm"><div class="in">
+            <div class="face front"><p class="ix">2</p><h4>Gợi ý bán kèm trên eCommerce</h4><p>Mua nồi chiên không dầu, gợi ý phụ kiện hoặc máy ép; nhắc thay lõi lọc đúng hạn; gia hạn bảo hành.</p><span class="tap">Chạm để lật</span></div>
+            <div class="face back"><h4>Kết quả đo được</h4><p>Cá nhân hóa theo hồ sơ khách hàng hợp nhất.</p><p class="kpi">KPI: % doanh thu từ gợi ý AI, giá trị đơn trung bình</p><p class="pf">Đã làm: tăng 15% giá trị đơn trung bình</p></div>
+          </div></div>
+          <div class="flip" tabindex="0" role="button" aria-label="Lật thẻ agent bảo hành"><div class="in">
+            <div class="face front"><p class="ix">3</p><h4>Agent AI cho bảo hành và CSKH</h4><p>Tự tiếp nhận ticket, hướng dẫn kỹ thuật bằng video, giảm ca kỹ thuật phải đến nhà.</p><span class="tap">Chạm để lật</span></div>
+            <div class="face back"><h4>Kết quả đo được</h4><p>Chấm điểm chất lượng tổng đài tự động.</p><p class="kpi">KPI: thời gian xử lý một ca bảo hành, tỷ lệ hài lòng</p><p class="pf">Đã làm: Customer Service Agent, Service QA Agent</p></div>
+          </div></div>
+        </div>
+        <span class="fragment" aria-hidden="true"></span>
+      </div>
+      <div class="princ"><div>Dữ liệu sạch trước, AI sau</div><div>AI đề xuất, con người quyết</div><div>Dùng nội bộ trước khi ra khách hàng</div><div>Minh bạch, đúng mục đích</div></div>
+      <p class="aigov fragment"><b>Quản trị AI:</b> không đưa dữ liệu cá nhân khách hàng vào mô hình công cộng · theo dõi độ chính xác hằng tháng, kém thì tạm dừng · trần chi phí cho từng use case · con người duyệt trước khi AI tác động tới khách</p>
+      <p class="later">Giai đoạn sau: chấm điểm tín dụng đại lý, rủi ro đơn COD, giám sát giá trên sàn, tự động hóa chứng từ, rà hợp đồng.</p>
+      <p class="foot">Yêu cầu 1 · Chiến lược AI</p>
+      <aside class="notes">
+        Không nói AI chung chung: ba use case, mỗi cái một con số. Chạm từng thẻ để lật, hoặc bấm tiếp để lật cả ba.
+        Mặt sau mỗi thẻ là KPI và bằng chứng đã làm. Bốn nguyên tắc ở dưới trả lời phần đạo đức trong chiến lược dữ liệu.
+        Các agent khác để giai đoạn sau, khi nền tảng dữ liệu đã sẵn sàng.
+        Bấm tiếp: quản trị AI, bốn quy tắc. Không đưa dữ liệu cá nhân khách vào mô hình công cộng; theo dõi độ chính xác hằng tháng, mô hình kém thì tạm dừng; mỗi use case có trần chi phí; và con người duyệt trước khi AI tác động tới khách hàng.
+      </aside>
+    </section>
+
+    <!-- S19 Security, data protection, business continuity -->
+    <section class="content secslide" data-section="Yêu cầu 1 · An ninh mạng">
+      <span class="req-tag">Yêu cầu 1 · An ninh mạng</span>
+      <h2>An ninh, bảo vệ dữ liệu và liên tục kinh doanh</h2>
+      <p class="lead">Làm trước những việc rẻ mà chặn được rủi ro lớn nhất. Việc đắt để sau, khi quy mô thật sự đòi hỏi.</p>
+      <div class="secq">
+        <div class="sq q1">
+          <div class="sh"><b>Nâng cấp bảo mật email cho lãnh đạo</b><span class="wk">Tuần 1–3</span></div>
+          <p class="ss">Lên Microsoft 365 E3 hoặc E5 nếu chưa có. Chỉ cho lãnh đạo và người duyệt tiền, không nâng cả công ty.</p>
+          <ul>
+            <li>Xác thực nhiều lớp, chặn đăng nhập từ thiết bị và nơi lạ</li>
+            <li>Chặn email giả danh CEO hoặc nhà cung cấp đòi chuyển tiền<em>E5</em></li>
+            <li>Kiểm tra đường link, tệp đính kèm trước khi mở<em>E5</em></li>
+            <li>Mã hóa email; chặn gửi số liệu nhạy cảm ra ngoài</li>
+          </ul>
+          <p class="so"><b>Vì sao trước tiên:</b> email lừa đảo nhắm vào người ký duyệt là cách mất tiền nhanh nhất của doanh nghiệp phân phối.</p>
+        </div>
+        <div class="sq q2">
+          <div class="sh"><b>Đào tạo nhận thức an toàn thông tin</b><span class="wk">Tuần 2–8, mỗi quý</span></div>
+          <p class="ss">Cho toàn bộ khối văn phòng. Con người là lớp bảo vệ rẻ nhất và hiệu quả nhất.</p>
+          <ul>
+            <li>Nhận biết email lừa đảo, đường link giả, tệp độc hại</li>
+            <li>Quy tắc mật khẩu, thiết bị cá nhân, dùng AI an toàn</li>
+            <li><b>Gửi email lừa đảo mô phỏng 3 tháng một lần</b> để kiểm tra</li>
+            <li>Ai bấm nhầm được hướng dẫn lại ngay, không phạt</li>
+          </ul>
+          <p class="so"><b>Đo bằng:</b> tỷ lệ bấm vào link giả giảm qua mỗi đợt; tỷ lệ chủ động báo email đáng ngờ tăng.</p>
+        </div>
+        <div class="sq q3">
+          <div class="sh"><b>Kiểm thử xâm nhập hệ thống hiện có</b><span class="wk">Tuần 3–8</span></div>
+          <p class="ss">Thuê đơn vị độc lập kiểm thử website, cổng đại lý và các hệ thống có kết nối internet.</p>
+          <ul>
+            <li>Báo cáo an toàn thông tin: lỗ hổng, mức rủi ro, kế hoạch khắc phục</li>
+            <li><b>Hệ thống cập nhật thường xuyên:</b> quét ít nhất 6 tháng một lần</li>
+            <li><b>Hệ thống ít thay đổi:</b> kiểm thử ít nhất 1 năm một lần</li>
+            <li>Kiểm thử lại sau mỗi thay đổi lớn</li>
+          </ul>
+          <p class="so"><b>Kết quả:</b> trong 8 tuần, Ban Lãnh đạo có bức tranh rủi ro bằng văn bản, không phải cảm tính.</p>
+        </div>
+      </div>
+      <div class="seclow fragment">
+        <div class="lt">
+          <h3>Giai đoạn sau, khi quy mô đòi hỏi<span>chi phí cao, chưa ưu tiên</span></h3>
+          <ul>
+            <li><b>Chống thất thoát dữ liệu (DLP)</b> cho văn phòng, kho và cửa hàng</li>
+            <li><b>Quản lý thiết bị tập trung (Microsoft Intune)</b>: kiểm soát máy công ty, xóa dữ liệu từ xa khi mất máy</li>
+          </ul>
+          <p>Giấy phép E3, E5 ở bước 1 đã có sẵn Intune và DLP, nên khi mở rộng chỉ cần thêm người dùng, không mua công cụ mới.</p>
+        </div>
+        <div class="rt">
+          <h3>Nền tảng không đổi: tuân thủ và liên tục kinh doanh</h3>
+          <ul>
+            <li>Luật 91/2025: phạt đến <b>5% doanh thu</b> nếu chuyển dữ liệu ra nước ngoài sai quy định; dữ liệu cá nhân đặt tại Local Zone Hà Nội</li>
+            <li>Khôi phục hệ thống bán hàng trong 1 giờ, hệ thống nội bộ trong 4 giờ; diễn tập 2 lần mỗi năm. Chi tiết ở phụ lục A3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="secx fragment">
+        <div><b>Lớp 1 · Nguồn</b>Xác thực nhiều lớp; quyền tối thiểu trên NetSuite và các hệ thống</div>
+        <div><b>Lớp 2 · Kết nối</b>Mã hóa đường truyền; mỗi hệ thống một khóa riêng, thu hồi được</div>
+        <div><b>Lớp 3 · Lưu trữ</b>Mã hóa; che dữ liệu cá nhân khi phân tích; dữ liệu cá nhân đặt tại Hà Nội</div>
+        <div><b>Lớp 4 · Nơi dùng</b>Phân quyền theo vai trò; nhật ký ai xem gì</div>
+        <div class="mon"><b>Giám sát và ứng phó sự cố</b>Nhật ký tập trung, cảnh báo bất thường, quy trình ứng phó; thuê dịch vụ giám sát 24/7 khi cần</div>
+      </div>
+      <p class="foot">Yêu cầu 1 · An ninh mạng</p>
+      <aside class="notes">
+        Thông điệp của slide: tôi không đề xuất mua công cụ an ninh đắt tiền ngay. Tôi làm trước ba việc rẻ, nhanh, chặn đúng rủi ro lớn nhất.
+        Việc 1, email lãnh đạo. Với nhà phân phối, kiểu tấn công gây mất tiền nhiều nhất là email giả danh: giả CEO yêu cầu chuyển khoản gấp, hoặc giả nhà cung cấp báo đổi số tài khoản. Microsoft 365 E3 có xác thực nhiều lớp, truy cập có điều kiện, mã hóa email và chặn gửi dữ liệu nhạy cảm ra ngoài. E5 thêm lớp chống giả danh, kiểm tra đường link và tệp đính kèm trước khi mở, và có sẵn công cụ gửi email lừa đảo mô phỏng. Chỉ nâng cho nhóm lãnh đạo và người duyệt tiền, nên chi phí nhỏ. Nếu Tara chưa dùng Microsoft 365, cần đánh giá lại phương án tương đương.
+        Việc 2, đào tạo nhận thức và kiểm tra mỗi quý. Nhấn mạnh: ai bấm nhầm thì được hướng dẫn lại, không phạt, để mọi người dám báo cáo.
+        Việc 3, kiểm thử xâm nhập. Thuê đơn vị độc lập, có báo cáo bằng văn bản. Thiết lập lịch: hệ thống cập nhật thường xuyên như website, app thì ít nhất 6 tháng một lần; hệ thống ít thay đổi thì ít nhất 1 năm một lần; và kiểm thử lại sau mỗi thay đổi lớn.
+        Bấm 1: hai việc tôi chủ động để sau là DLP toàn công ty và quản lý thiết bị tập trung bằng Intune. Tôi đã triển khai cả hai ở quy mô văn phòng, kho và hơn 1.200 cửa hàng, nên biết rõ chi phí và công sức. Chính vì biết nên tôi không đề xuất làm ngay. Điểm hay: giấy phép E3, E5 ở bước 1 đã bao gồm Intune và DLP, nên bước 1 cũng là bước đệm.
+        Bên phải là nền tảng không đổi: tuân thủ Luật 91/2025 và các mốc khôi phục hệ thống. Chi tiết ở phụ lục A3.
+        Bấm 2: vì sao gọi là an ninh xuyên suốt. Mỗi lớp của kiến trúc MIS có kiểm soát riêng: xác thực ở nguồn, mã hóa và khóa riêng ở lớp kết nối, mã hóa và che dữ liệu cá nhân ở lớp lưu trữ, phân quyền và nhật ký ở nơi dùng. Ô cuối là giám sát và ứng phó sự cố: nhật ký tập trung, cảnh báo bất thường, quy trình xử lý. Đội nhỏ thì thuê dịch vụ giám sát 24/7 bên ngoài, không tự dựng trung tâm giám sát.
+      </aside>
+    </section>
+
+    <!-- S20 International -->
+    <section class="content" data-section="Yêu cầu 1 · Lộ trình">
+      <h2>Sẵn sàng ra quốc tế: mở nước mới bằng bộ khung nhân bản</h2>
+      <p class="lead">Mỗi nước mới dùng lại cùng một bộ khung, chỉ thay phần riêng của nước đó. Mục tiêu tính bằng tháng, không phải bằng năm.</p>
+      <div class="cols c3">
+        <div class="box blue"><h3>Dùng lại nguyên khung</h3><ul><li>Nền tảng dữ liệu, dashboard, KPI</li><li>Trung tâm tồn kho, quy trình bán đa kênh</li><li>Khung an ninh và quản trị dữ liệu</li></ul></div>
+        <div class="box"><h3>Cấu hình riêng từng nước</h3><ul><li>NetSuite: pháp nhân mới, đồng tiền, thuế</li><li>Kênh bán và đối tác giao vận địa phương</li><li>Ngôn ngữ, giá, khuyến mãi</li></ul></div>
+        <div class="box red"><h3>Pháp lý dữ liệu</h3><ul><li>Luật dữ liệu nước sở tại, yêu cầu lưu dữ liệu tại chỗ</li><li>Hồ sơ chuyển dữ liệu xuyên biên giới theo Luật 91/2025</li><li>Nếu có thị trường châu Âu: tuân thủ thêm GDPR</li></ul></div>
+      </div>
+      <p class="warn fragment">Chuyển dữ liệu khách hàng ra nước ngoài sai quy định: phạt đến 5% doanh thu năm trước. Pháp lý dữ liệu phải đi cùng kế hoạch mở thị trường, không đi sau.</p>
+      <p class="foot">Yêu cầu 1 · Lộ trình</p>
+      <aside class="notes">
+        Bộ khung nhân bản: phần dùng lại, phần cấu hình riêng, phần pháp lý. Mở nước mới là cấu hình, không phải xây lại.
+        Bấm 1: cảnh báo pháp lý. Mức 5% doanh thu biến pháp lý dữ liệu thành rủi ro tiền thật.
+      </aside>
+    </section>
+
+    <!-- S21 Roadmap 3D stairs -->
+    <section class="content" data-section="Yêu cầu 1 · Lộ trình">
+      <span class="req-tag">Yêu cầu 1 · Lộ trình</span>
+      <h2>Lộ trình 3 giai đoạn: mỗi bậc mở khóa bậc tiếp theo</h2>
+      <div class="stairs stepper" data-step="0">
+        <div class="st s1"><p class="ph">Giai đoạn 1 · 0–6 tháng</p><h4>Nền móng và quick win</h4><ul><li>Quản trị dữ liệu, mã khách duy nhất</li><li>Lớp kết nối, lớp thời gian thực, trung tâm tồn kho</li><li>Chọn nền tảng, dựng Data Lake</li><li>Dashboard tồn kho, công nợ</li><li>Website: đo 2–6 tuần, làm phương án đã chọn</li><li>Đánh giá CRM; ba việc AI 2 tháng đầu</li><li>An ninh nhanh: email, đào tạo, kiểm thử</li></ul><p class="gate">Mở khóa khi: tồn kho, công nợ có số nền; dashboard dùng hằng ngày</p></div>
+        <div class="st s2"><p class="ph">Giai đoạn 2 · 6–18 tháng</p><h4>Nền tảng đầy đủ</h4><ul><li>Data Lake đầy đủ, báo cáo mọi phòng ban</li><li>Thử 2–3 việc kích hoạt khách hàng</li><li>AI dự báo nhu cầu, gợi ý bán kèm</li><li>Agent bảo hành và CSKH</li><li>Cổng đại lý, chấm điểm tín dụng</li><li>Giám sát giá trên sàn</li><li>DLP, quản lý thiết bị khi cần</li></ul><p class="gate">Mở khóa khi: tồn kho <b>≤ 95 ngày</b>, thu tiền <b>≤ 48 ngày</b></p></div>
+        <div class="st s3"><p class="ph">Giai đoạn 3 · 18–36 tháng</p><h4>Mở rộng và quốc tế</h4><ul><li>Quyết định CDP theo số đo thật</li><li>Nhân bản sang nước mới</li><li>Đại lý giao và lắp đặt đơn online</li><li>AI giai đoạn sau</li><li>Dữ liệu cho sản phẩm mới</li><li>Tối ưu chi phí vận hành</li><li>Liên tục tối ưu hệ thống</li></ul><p class="gate">Đích năm 3: gấp 4 lần quy mô; tồn kho <b>80 ngày</b>, thu tiền <b>40 ngày</b>, <b>1,5 triệu</b> khách định danh</p></div>
+        <span class="fragment" aria-hidden="true"></span><span class="fragment" aria-hidden="true"></span>
+      </div>
+      <p class="foot">Yêu cầu 1 · Lộ trình</p>
+      <aside class="notes">
+        Slide này gom toàn bộ các hạng mục đã nói ở phần trước vào ba giai đoạn. Ba bậc thang hiện dần theo từng lần bấm.
+        Giai đoạn 1, 6 tháng đầu, là nền móng: quản trị dữ liệu và mã khách duy nhất; lớp kết nối, lớp dữ liệu thời gian thực và trung tâm tồn kho; chọn nền tảng và dựng Data Lake; dashboard tồn kho, công nợ. Song song là các việc nhanh: đo website 2 đến 6 tuần, đánh giá CRM, ba việc AI trong 2 tháng đầu và an ninh nhanh.
+        Giai đoạn 2, tháng 6 đến 18: Data Lake đầy đủ; thử 2 đến 3 việc kích hoạt khách hàng; AI dự báo, gợi ý bán kèm, agent bảo hành; cổng đại lý và chấm điểm tín dụng. DLP và quản lý thiết bị chỉ làm khi quy mô đòi hỏi.
+        Giai đoạn 3, tháng 18 đến 36: quyết định CDP dựa trên số đo của giai đoạn 2, mở nước mới, đại lý giao đơn online, và liên tục tối ưu hệ thống: rà soát hiệu năng, chi phí cloud và giấy phép, bỏ những gì không còn dùng.
+        Điều kiện mở khóa nằm trên đường đi tới mục tiêu KPI: muốn sang giai đoạn 3, tức tháng 18, thì tồn kho phải về 95 ngày và thu tiền về 48 ngày, trên đường tới mục tiêu năm 2 là 90 và 46 ngày. Đích năm 3 là mục tiêu năm 3 của KPI.
+        Lộ trình chi tiết theo quý ở phụ lục A5.
+      </aside>
+    </section>
+
+    <!-- S22 KPI and value reporting -->
+    <section class="content kpislide" data-section="Yêu cầu 2 · KPI">
+      <span class="req-tag">Yêu cầu 2 · KPI</span>
+      <h2>KPI của Phòng Chuyển đổi số: đo bằng ngôn ngữ kinh doanh</h2>
+      <p class="goal">Mục tiêu chung: tăng trưởng 60% mỗi năm, bền vững và tiết kiệm</p>
+      <div class="kpi4">
+        <div class="kpib g dim"><h3>Tăng trưởng</h3><ul><li>Khách hàng định danh</li><li>% doanh thu online từ gợi ý AI</li><li>Tỷ lệ chuyển đổi tập khách định danh</li></ul><p class="who">Sở hữu: Marketing, eCommerce</p><p class="y1tag off">Năm 1: đo số nền, chấm từ năm 2</p></div>
+        <div class="kpib o dim"><h3>Tối ưu chi phí, vận hành</h3><ul><li>Số ngày tồn kho</li><li>Số ngày thu tiền đại lý</li><li>Năng suất kho</li><li>Đơn bán vượt tồn</li></ul><p class="who">Sở hữu: Chuỗi cung ứng, Tài chính, Kho vận</p><p class="y1tag off">Năm 1: đo số nền, chấm từ năm 2</p></div>
+        <div class="kpib x"><h3>Trải nghiệm khách hàng</h3><ul><li>Thời gian xử lý một ca bảo hành</li><li>Tỷ lệ hài lòng đa kênh</li></ul><p class="who">Sở hữu: Bảo hành, CSKH</p><p class="y1tag on">Chấm điểm từ năm 1</p></div>
+        <div class="kpib n"><h3>Nền tảng của Phòng CĐS</h3><ul><li>Dự án đúng hạn, đúng ngân sách</li><li>Hài lòng người dùng nội bộ</li><li>Uptime hệ thống bán hàng</li><li>Chi phí IT trên doanh thu</li></ul><p class="who">Sở hữu: Phòng Chuyển đổi số</p><p class="y1tag on">Chấm điểm từ năm 1</p></div>
+      </div>
+      <div class="kpiw fragment">
+        <div class="wb"><h4>Năm 1 chỉ chấm hai nhóm, từ năm 2 chấm đủ bốn nhóm</h4>
+          <div class="wrow2"><span>Năm 1</span><div class="wbar"><span class="wn" style="width:50%">Nền tảng CĐS 50%</span><span class="wx" style="width:50%">Trải nghiệm khách 50%</span></div></div>
+          <div class="wrow2"><span>Từ năm 2</span><div class="wbar"><span class="wn" style="width:20%">20%</span><span class="wx" style="width:20%">20%</span><span class="wg" style="width:30%">Tăng trưởng 30%</span><span class="wo" style="width:30%">Tối ưu 30%</span></div></div>
+          <p><b>Vì sao:</b> năm đầu là dựng nền; tăng trưởng và tối ưu chỉ đo số nền. Chấm vào thứ Phòng CĐS làm chủ trực tiếp và khách hàng cảm nhận ngay.</p>
+        </div>
+        <div class="wb"><h4>Báo cáo thế nào</h4>
+          <p><b>Hằng tháng, cho CEO:</b> bảng điểm 13 chỉ số và tiền giải phóng được.</p>
+          <p style="margin-top:5px"><b>Hằng quý, cho Hội đồng Quản trị:</b> tiến độ, giá trị, rủi ro, quyết định cần xin.</p>
+          <p style="margin-top:5px"><b>Mỗi KPI là KPI chung</b> giữa phòng sở hữu và Phòng CĐS, không đẩy cho IT một mình.</p>
+        </div>
+      </div>
+      <p class="kpimore"><b>Theo dõi thêm, không chấm điểm:</b> nợ quá hạn, vi phạm giá trên sàn, điểm chất lượng dữ liệu, tỷ lệ thay đổi thành công. Mục tiêu cụ thể của 13 chỉ số ở slide sau.</p>
+      <p class="foot">Yêu cầu 2 · KPI</p>
+      <aside class="notes">
+        Slide này trả lời: đo cái gì. Slide sau trả lời: đạt bao nhiêu, khi nào.
+        Mười ba chỉ số, chia bốn nhóm. Ba nhóm đầu đo đóng góp vào kinh doanh: tăng trưởng, tối ưu chi phí và vận hành, trải nghiệm khách hàng. Nhóm thứ tư đo chính Phòng Chuyển đổi số: dự án đúng hạn và đúng ngân sách, hài lòng của người dùng nội bộ, uptime, chi phí IT trên doanh thu.
+        Mỗi nhóm có phòng sở hữu. Ví dụ số ngày tồn kho là của Chuỗi cung ứng; Phòng Chuyển đổi số chịu trách nhiệm công cụ và dữ liệu. Đây là KPI chung.
+        Bấm 1: năm 1 chỉ chấm điểm hai nhóm: nền tảng của Phòng Chuyển đổi số và trải nghiệm khách hàng, mỗi nhóm 50%. Lý do: năm đầu là dựng nền; tăng trưởng và tối ưu chưa đủ dữ liệu để chấm công bằng, nên năm 1 chỉ đo số nền. Hai nhóm được chấm là thứ Phòng Chuyển đổi số làm chủ trực tiếp, và thứ khách hàng cảm nhận ngay. Từ năm 2 chấm đủ bốn nhóm: tăng trưởng 30%, tối ưu 30%, trải nghiệm 20%, nền tảng 20%. Đây là cách trả lời câu hỏi: năm đầu lấy gì để đánh giá anh.
+        Dòng cuối: những chỉ số theo dõi thêm nhưng không chấm điểm, để bảng điểm không bị loãng.
+      </aside>
+    </section>
+
+    <!-- S21b KPI targets by year -->
+    <section class="content" data-section="Yêu cầu 2 · KPI">
+      <span class="req-tag">Yêu cầu 2 · KPI</span>
+      <h2>Mục tiêu 13 KPI theo năm, có người chịu trách nhiệm</h2>
+      <p class="lead">Cùng 13 chỉ số của slide trước. Năm 1 chấm nền tảng và trải nghiệm khách hàng; tăng trưởng, tối ưu chỉ đo số nền.</p>
+      <table class="kt">
+        <colgroup><col style="width:33%"><col style="width:13%"><col style="width:13%"><col style="width:12%"><col style="width:12%"><col style="width:17%"></colgroup>
+        <tr><th>Chỉ số</th><th>Hiện tại (giả định)</th><th>Năm 1</th><th>Năm 2</th><th>Năm 3</th><th>Phòng sở hữu</th></tr>
+        <tr class="grp g1"><td colspan="6">Tăng trưởng</td></tr>
+        <tr><td class="k">Khách hàng định danh</td><td class="now">≈ 150.000</td><td class="base">Đo số nền</td><td class="y2">800.000</td><td class="y3">1,5 triệu</td><td class="own">Marketing</td></tr>
+        <tr><td class="k">% doanh thu online từ gợi ý AI</td><td class="now">0%</td><td class="base">Đo số nền</td><td class="y2">4%</td><td class="y3">8%</td><td class="own">eCommerce</td></tr>
+        <tr><td class="k">Tỷ lệ chuyển đổi tập khách định danh</td><td class="now">chưa đo</td><td class="base">Đo số nền</td><td class="y2">+25%</td><td class="y3">+50%</td><td class="own">Marketing</td></tr>
+        <tr class="grp g2"><td colspan="6">Tối ưu chi phí, vận hành</td></tr>
+        <tr><td class="k">Số ngày tồn kho</td><td class="now">110</td><td class="base">Đo số nền</td><td class="y2">90</td><td class="y3">80</td><td class="own">Chuỗi cung ứng</td></tr>
+        <tr><td class="k">Số ngày thu tiền đại lý</td><td class="now">55</td><td class="base">Đo số nền</td><td class="y2">46</td><td class="y3">40</td><td class="own">Tài chính</td></tr>
+        <tr><td class="k">Năng suất kho</td><td class="now">chưa đo</td><td class="base">Đo số nền</td><td class="y2">+50%</td><td class="y3">gấp 2</td><td class="own">Kho vận</td></tr>
+        <tr><td class="k">Đơn bán vượt tồn</td><td class="now">chưa đo</td><td class="base">Đo số nền</td><td class="y2">&lt; 0,3%</td><td class="y3">&lt; 0,1%</td><td class="own">eCommerce</td></tr>
+        <tr class="grp g3"><td colspan="6">Trải nghiệm khách hàng · chấm từ năm 1</td></tr>
+        <tr><td class="k">Thời gian xử lý một ca bảo hành</td><td class="now">chưa đo</td><td class="y1">−20%</td><td class="y2">−30%</td><td class="y3">−40%</td><td class="own">Bảo hành, CSKH</td></tr>
+        <tr><td class="k">Tỷ lệ hài lòng đa kênh</td><td class="now">chưa đo</td><td class="y1">4,2/5</td><td class="y2">4,3/5</td><td class="y3">4,5/5</td><td class="own">CSKH</td></tr>
+        <tr class="grp g4"><td colspan="6">Nền tảng của Phòng Chuyển đổi số · chấm từ năm 1</td></tr>
+        <tr><td class="k">Dự án đúng hạn, đúng ngân sách</td><td class="now">chưa đo</td><td class="y1">80%</td><td class="y2">85%</td><td class="y3">90%</td><td class="own">Phòng CĐS</td></tr>
+        <tr><td class="k">Hài lòng người dùng nội bộ</td><td class="now">chưa đo</td><td class="y1">4/5</td><td class="y2">4,2/5</td><td class="y3">4,3/5</td><td class="own">Phòng CĐS</td></tr>
+        <tr><td class="k">Uptime hệ thống bán hàng</td><td class="now">chưa đo</td><td class="y1">99,5%</td><td class="y2">99,7%</td><td class="y3">99,9%</td><td class="own">Phòng CĐS</td></tr>
+        <tr><td class="k">Chi phí IT trên doanh thu</td><td class="now">0,5–0,7%</td><td class="y1">≤ 1,5%</td><td class="y2">≤ 1,5%</td><td class="y3">≤ 1,5%</td><td class="own">Phòng CĐS, Tài chính</td></tr>
+      </table>
+      <span class="assume-tag">Số hiện tại là giả định, chốt trong 90 ngày</span>
+      <p class="foot">Yêu cầu 2 · KPI</p>
+      <aside class="notes">
+        Cùng 13 chỉ số của slide trước, giờ có mục tiêu năm 1, năm 2, năm 3 và phòng sở hữu.
+        Năm 1: hai nhóm tăng trưởng và tối ưu ghi "đo số nền". Năm đầu là dựng nền, nên chỉ chấm điểm hai nhóm Phòng Chuyển đổi số làm chủ trực tiếp: nền tảng, và trải nghiệm khách hàng. Ví dụ dự án đúng hạn 80%, uptime 99,5%, thời gian xử lý ca bảo hành giảm 20%.
+        Từ năm 2 mới chấm tăng trưởng và tối ưu. Nhấn hai con số tiền: số ngày tồn kho 110 xuống 90 năm 2 và 80 năm 3; số ngày thu tiền 55 xuống 46 rồi 40. Đây chính là 125 tỷ tiền mặt ở phần bài toán. Mốc giữa đường, tồn kho 95 ngày và thu tiền 48 ngày ở tháng 18, là điều kiện mở khóa giai đoạn 3 trên lộ trình.
+        Những ô "chưa đo" là việc đầu tiên tôi làm trong 90 ngày: chưa đo thì chưa quản được.
+      </aside>
+    </section>
+
+    <!-- S23 Organization -->
+    <section class="content" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <span class="req-tag">Yêu cầu 3 · Nguồn lực</span>
+      <h2>Phòng Chuyển đổi số: đội nhỏ có AI, làm việc của 20 người</h2>
+      <p class="lead">Không tuyển ồ ạt, giảm phụ thuộc thuê ngoài. Đào tạo lại người hiện có, bổ sung đúng vai trò còn thiếu.</p>
+      <div class="org">
+        <div class="lead-box">Lãnh đạo Phòng Chuyển đổi số</div>
+        <div class="lines"></div>
+        <div class="teams">
+          <div class="team" style="--c:var(--tara-blue)"><b>Dữ liệu và Phân tích</b><span>Kỹ sư dữ liệu, phân tích, ML</span><p class="ppl">2 người đào tạo lại <em>+1 năm 1, +1 năm 2</em></p></div>
+          <div class="team" style="--c:var(--tara-sky)"><b>Ứng dụng và Tích hợp</b><span>NetSuite, Haravan, DMS, trung tâm tồn kho</span><p class="ppl">3 người hiện có, AI hỗ trợ lập trình</p></div>
+          <div class="team" style="--c:var(--tara-grey)"><b>Hạ tầng cloud và An ninh</b><span>AWS, mạng, an ninh, dự phòng</span><p class="ppl">2 người hiện có <em>+1 năm 1</em></p></div>
+          <div class="team" style="--c:var(--tara-red)"><b>Dự án, thay đổi và đào tạo</b><span>Điều phối, phân tích nghiệp vụ, đào tạo</span><p class="ppl">1 người hiện có</p></div>
+        </div>
+        <div class="headcount"><div><b>8</b><span>người hôm nay</span></div><div><b>10</b><span>người cuối năm 1</span></div><div><b>11</b><span>người cuối năm 2</span></div></div>
+      </div>
+      <span class="assume-tag">Phân bổ nhân sự là giả định</span>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Bốn nhóm, từ 8 lên 10 rồi 11 người trong hai năm, trong khi quy mô kinh doanh gấp 4. Đó là ý nghĩa của "đội nhỏ có AI làm việc của 20 người".
+        Phát triển đội bằng khung năng lực và lộ trình nghề nghiệp, kèm cặp nội bộ.
+      </aside>
+    </section>
+
+    <!-- Budget slide -->
+    <section class="content" id="budget" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>Ngân sách theo giai đoạn, thấp hơn mức chung của ngành</h2>
+      <p class="lead">Chi phí công nghệ tính theo phần trăm doanh thu, gắn với giá trị đo được.</p>
+      <div class="budget">
+        <div>
+          <h3>Mốc tham chiếu thị trường</h3>
+          <div class="bench">
+            <div class="b-row"><span class="b-label">Bình quân mọi ngành<small>Deloitte, số liệu 2022</small></span><div class="b-track"><div class="b-fill" style="width:91.5%"></div></div><span class="b-val">5,49%</span></div>
+            <div class="b-row"><span class="b-label">Bán lẻ<small>Mốc tham chiếu phổ biến</small></span><div class="b-track"><div class="b-fill" style="width:33.3%"></div></div><span class="b-val">~2%</span></div>
+            <div class="b-row"><span class="b-label">Bán lẻ và bán buôn<small>Gartner, trung vị 2021</small></span><div class="b-track"><div class="b-fill" style="width:28.3%"></div></div><span class="b-val">1,7%</span></div>
+            <div class="b-row us"><span class="b-label">Đề xuất cho Tara<small>Giai đoạn chuyển đổi 3 năm</small></span><div class="b-track"><div class="b-fill tara" style="width:16.7%"></div><div class="b-fill tara-range" style="left:16.7%; width:8.3%"></div></div><span class="b-val">1,0–1,5%</span></div>
+            <div class="scale"><span></span><div><span>0%</span><span>2%</span><span>4%</span><span>6%</span></div><span></span></div>
+          </div>
+          <p class="src">Nguồn: Gartner IT Key Metrics Data 2022; Deloitte Global Technology Leadership Study 2023; IT-Online.<br><a href="#/sources">Chi tiết và đường dẫn ở phụ lục A1</a></p>
+        </div>
+        <div>
+          <div class="fragment">
+            <h3>Vì sao Tara cần ít hơn mức chung</h3>
+            <div class="why-low">
+              <div class="row"><i>1</i><span>Chi phí nhân sự và triển khai tại Việt Nam thấp hơn mặt bằng khảo sát quốc tế</span></div>
+              <div class="row"><i>2</i><span>Đội 8 người có AI hỗ trợ phát triển, giảm phụ thuộc thuê ngoài</span></div>
+              <div class="row"><i>3</i><span>Một nền tảng dữ liệu dùng chung, không làm ba dự án riêng lẻ</span></div>
+            </div>
+          </div>
+          <div class="alloc fragment">
+            <h3>Dịch chuyển cơ cấu chi (định hướng)</h3>
+            <div class="a-row"><span>Năm 1</span><div class="stack"><span class="run" style="width:55%">55%</span><span class="grow" style="width:25%">25%</span><span class="tf" style="width:20%">20%</span></div></div>
+            <div class="a-row"><span>Năm 2</span><div class="stack"><span class="run" style="width:45%">45%</span><span class="grow" style="width:30%">30%</span><span class="tf" style="width:25%">25%</span></div></div>
+            <div class="a-row"><span>Năm 3</span><div class="stack"><span class="run" style="width:40%">40%</span><span class="grow" style="width:30%">30%</span><span class="tf" style="width:30%">30%</span></div></div>
+            <div class="legend"><span style="--c:#8FA1B3">Duy trì vận hành</span><span style="--c:#277CBE">Phát triển kinh doanh</span><span style="--c:#0057A9">Chuyển đổi</span></div>
+            <p class="ai-cost">Đã gồm chi phí AI, 3 nhân sự bổ sung trong 2 năm, và tránh được khoản nâng bậc dịch vụ NetSuite</p>
+          </div>
+        </div>
+      </div>
+      <div class="result fragment">
+        <p class="money">1,2% × 1.200 tỷ doanh thu ≈ 14 tỷ mỗi năm, so với khoảng 125 tỷ tiền mặt có thể giải phóng<small>Giải ngân theo giai đoạn: giai đoạn sau chỉ mở khóa khi KPI giai đoạn trước đạt. Ngân sách theo tỷ lệ doanh thu, không tăng nhanh hơn doanh thu</small></p>
+      </div>
+      <span class="assume-tag">Doanh thu giả định minh họa</span>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Câu hỏi CEO hay đặt: các doanh nghiệp khác chi cho IT bao nhiêu. Theo Gartner, trung vị ngành bán lẻ và bán buôn là 1,7% doanh thu. Bình quân mọi ngành theo Deloitte là 5,49%, nhưng con số đó bị kéo lên bởi ngân hàng và công nghệ.
+        Bấm 1: tôi đề xuất Tara ở mức 1,0 đến 1,5%, thấp hơn trung vị ngành, vì chi phí Việt Nam thấp hơn, đội nhỏ có AI hỗ trợ, và một nền tảng dùng chung.
+        Bấm 2: cơ cấu chi sẽ dịch chuyển từ chủ yếu giữ hệ thống chạy sang phát triển và chuyển đổi.
+        Bấm 3: với doanh thu giả định 1.200 tỷ, khoảng 14 tỷ mỗi năm, so với khoảng 125 tỷ tiền mặt có thể giải phóng. Ngân sách gắn theo tỷ lệ doanh thu nên IT không bao giờ tăng nhanh hơn doanh nghiệp.
+        Nhấn mạnh cơ chế mở khóa theo kết quả: CEO giữ quyền kiểm soát, Phòng Chuyển đổi số chịu trách nhiệm bằng kết quả. Có kinh nghiệm quản lý ngân sách OPEX và CAPEX 1–8 triệu USD mỗi năm, cân bằng tại chỗ, cloud và kết hợp.
+        Slide tiếp theo quy ra tiền theo hạng mục.
+        Câu hỏi ngược lại nên hỏi: hiện chi phí IT của Tara đang ở mức bao nhiêu phần trăm doanh thu?
+      </aside>
+    </section>
+
+    <!-- S23b Budget in VND -->
+    <section class="content" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>Ngân sách bằng tiền: năm 1 ≈ 14 tỷ, tăng thêm ≈ 7 tỷ</h2>
+      <p class="lead">Tính theo doanh thu giả định 1.200 tỷ, mức 1,2%. Tiền giải ngân theo giai đoạn, giai đoạn sau chỉ mở khi đạt KPI giai đoạn trước.</p>
+      <div class="bv">
+        <div>
+          <p class="h3x">Năm 1, theo hạng mục</p>
+          <table class="bvt">
+            <tr><th>Hạng mục</th><th style="text-align:right">Tỷ đồng</th></tr>
+            <tr><td>Duy trì hệ thống hiện có<small>NetSuite, Haravan, Base, CRM, hạ tầng, bản quyền</small></td><td class="n">4,0</td></tr>
+            <tr><td>Nhân sự Phòng Chuyển đổi số<small>8 người hiện có, thêm 2 người trong năm</small></td><td class="n">5,0</td></tr>
+            <tr class="new"><td>Nền tảng dữ liệu mới trên AWS<small>Data Lake, lớp kết nối, lớp dữ liệu thời gian thực, trung tâm tồn kho</small></td><td class="n">1,8</td></tr>
+            <tr class="new"><td>An ninh nhanh<small>Email lãnh đạo E3/E5, kiểm thử xâm nhập, đào tạo</small></td><td class="n">0,9</td></tr>
+            <tr class="new"><td>Đối tác triển khai, tư vấn pháp lý dữ liệu</td><td class="n">1,0</td></tr>
+            <tr class="new"><td>AI theo lượng dùng và công cụ</td><td class="n">0,8</td></tr>
+            <tr><td>Dự phòng</td><td class="n">0,5</td></tr>
+            <tr class="tot"><td>Tổng năm 1 (≈ 1,2% doanh thu)</td><td class="n">14,0</td></tr>
+          </table>
+          <p class="tiersrc" style="margin-top:6px">Viền xanh là khoản mới. Chi phí IT hôm nay giả định khoảng 0,6% doanh thu, tức 7,2 tỷ; phần tăng thêm năm 1 vì vậy khoảng 6,8 tỷ.</p>
+        </div>
+        <div class="bvr">
+          <div class="card"><h3>Ba năm, giữ tỷ lệ trên doanh thu</h3>
+            <div class="yrs"><div><b>≈ 14 tỷ</b><span>Năm 1 · doanh thu 1.200 tỷ</span></div><div><b>≈ 23 tỷ</b><span>Năm 2 · doanh thu ≈ 1.920 tỷ</span></div><div><b>≈ 34 tỷ</b><span>Năm 3 · doanh thu ≈ 3.070 tỷ, mức 1,1%</span></div></div>
+          </div>
+          <div class="card"><h3>Mở khóa theo kết quả</h3>
+            <div class="gate"><div><b>GĐ1 · 0–6 tháng</b>≈ 3,5 tỷ tăng thêm, duyệt ngay</div><div><b>GĐ2 · 6–18 tháng</b>Mở khi tồn kho, công nợ có số nền; dashboard dùng hằng ngày</div><div><b>GĐ3 · 18–36 tháng</b>Mở khi tồn kho ≤ 95 ngày, thu tiền ≤ 48 ngày</div></div>
+          </div>
+          <div class="card roi"><h3>So với tiền giải phóng được</h3>
+            <p>Chỉ cần giảm <b>10 ngày tồn kho</b> là giải phóng khoảng <b>25 tỷ</b>, gấp gần 4 lần phần tăng thêm năm 1. Toàn bộ mục tiêu là khoảng <b>125 tỷ</b> tiền mặt.</p>
+          </div>
+        </div>
+      </div>
+      <span class="assume-tag">Mọi con số là giả định minh họa</span>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Slide trước nói tỷ lệ; slide này nói bằng tiền, vì CEO sẽ hỏi "giai đoạn 1 cần bao nhiêu".
+        Bảng bên trái: năm 1 khoảng 14 tỷ, tức 1,2% doanh thu giả định. Trong đó gần một nửa là chi phí đang có: duy trì hệ thống và đội hiện tại. Phần mới, viền xanh, là nền tảng dữ liệu, an ninh nhanh, đối tác và AI.
+        Câu quan trọng: so với hôm nay, phần tăng thêm năm 1 chỉ khoảng 7 tỷ.
+        Bên phải trên: ba năm giữ tỷ lệ trên doanh thu, nên ngân sách tăng theo quy mô nhưng không bao giờ tăng nhanh hơn doanh thu.
+        Giữa: mở khóa theo kết quả. Giai đoạn 1 xin duyệt ngay khoảng 3,5 tỷ tăng thêm cho 6 tháng. Giai đoạn 2 chỉ mở khi đạt điều kiện.
+        Dưới: so với tiền giải phóng. Giảm 10 ngày tồn kho là khoảng 25 tỷ, gấp gần 4 lần phần tăng thêm năm 1.
+        Có kinh nghiệm quản lý ngân sách IT 1 đến 8 triệu USD mỗi năm; các con số ở đây sẽ được tinh chỉnh khi có số thật của Tara.
+      </aside>
+    </section>
+
+    <!-- S25 Company-wide -->
+    <section class="content" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>Chuyển đổi số là việc của cả công ty</h2>
+      <p class="lead">IT xây công cụ; các phòng ban thay đổi cách làm. Ba cơ chế để điều đó xảy ra.</p>
+      <div class="cw">
+        <div class="box blue"><h3>1. Ban chỉ đạo Chuyển đổi số</h3><ul><li>CEO chủ trì, họp hằng tháng khoảng 1 giờ</li><li>Thành viên: Kinh doanh, Chuỗi cung ứng, Tài chính, Phòng Chuyển đổi số</li><li>Duyệt ưu tiên, mở khóa ngân sách theo kết quả, xử lý xung đột liên phòng ban</li></ul></div>
+        <div class="box fragment"><h3>2. Quản lý thay đổi có cấu trúc</h3><ol class="steps6"><li>Đánh giá tác động</li><li>Thiết kế, tài liệu hóa</li><li>Thử nghiệm với key user</li><li>Truyền thông, đào tạo</li><li>Triển khai có kế hoạch quay lui</li><li>Theo dõi 30 ngày</li></ol><p class="freeze">Đóng băng thay đổi hai tuần trước 11/11, 12/12 và Tết</p></div>
+        <div class="box fragment"><h3>3. Văn hóa dữ liệu</h3><ul><li>Mỗi phòng một Data Champion</li><li>Đào tạo ba cấp: lãnh đạo, người dùng, chuyên viên phân tích</li><li>Chia sẻ hằng tháng quyết định tốt nhờ dữ liệu</li><li>Giảm dần báo cáo Excel tự tổng hợp</li></ul></div>
+      </div>
+      <p class="quote fragment">Chuyển đổi số chủ yếu là chuyện con người; công nghệ chỉ là phần nhỏ.</p>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Ba cơ chế, bấm lần lượt. Ban chỉ đạo do CEO chủ trì. Quy trình quản lý thay đổi sáu bước, kèm lịch đóng băng trước mùa sale để bảo vệ doanh thu cao điểm. Văn hóa dữ liệu với Data Champion và đào tạo ba cấp.
+        Câu cuối dùng như một câu nói, không phải số liệu.
+      </aside>
+    </section>
+
+    <!-- S26 Commitments -->
+    <section class="content" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>Điều tôi cần từ Ban Lãnh đạo và trưởng các phòng ban</h2>
+      <p class="lead">Cam kết cụ thể, có giới hạn, đo được. Đây là điều kiện để con số 125 tỷ thành hiện thực.</p>
+      <div class="cols c2">
+        <div class="box blue"><h3>Từ CEO</h3><ul><li>Bảo trợ chương trình, chủ trì Ban chỉ đạo hằng tháng</li><li>Quyết nhanh khi phòng ban bất đồng, ví dụ chia hàng giữa đại lý và online</li><li>Truyền thông nội bộ: đây là ưu tiên của công ty</li><li>Duyệt ngân sách theo giai đoạn, mở khóa theo kết quả</li></ul></div>
+        <div class="box"><h3>Từ trưởng các phòng ban</h3><ul><li>Làm chủ sở hữu dữ liệu và quy trình của phòng</li><li>Cử một key user, khoảng 20% thời gian trong giai đoạn triển khai</li><li>Chấp nhận thay đổi quy trình, không bê nguyên cách làm cũ lên phần mềm mới</li><li>Nhận KPI chung với Phòng Chuyển đổi số</li></ul></div>
+      </div>
+      <div class="box red fragment" style="margin-top:16px;width:1136px;box-sizing:border-box"><h3>Ba quyết định kinh doanh cần Ban Lãnh đạo chốt</h3><ul><li>Quy tắc chia hàng giữa đại lý và kênh online</li><li>Chính sách giá tối thiểu trên sàn và tỷ lệ hoa hồng khi đại lý giao đơn online</li><li>Ngưỡng hạn mức công nợ và quy tắc giữ đơn</li></ul></div>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Trình bày như điều kiện thành công, không phải đòi hỏi. Lượng hóa: khoảng 1 giờ mỗi tháng với CEO, 20% thời gian của key user.
+        Bấm 1: ba quyết định kinh doanh mà IT không thay ai quyết được, IT chỉ thực thi.
+      </aside>
+    </section>
+
+    <!-- S25b Risks -->
+    <section class="content" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>Năm rủi ro lớn nhất, và cách tôi chặn trước</h2>
+      <p class="lead">Rủi ro lớn nhất của chuyển đổi số không nằm ở công nghệ. Mỗi rủi ro có một dấu hiệu báo sớm để Ban chỉ đạo xử lý trước khi muộn.</p>
+      <table class="rk">
+        <colgroup><col style="width:24%"><col style="width:9%"><col style="width:40%"><col style="width:27%"></colgroup>
+        <tr><th>Rủi ro</th><th>Mức độ</th><th>Cách chặn trước</th><th>Dấu hiệu báo sớm</th></tr>
+        <tr><td class="r"><b>Người dùng không áp dụng</b><span>Có hệ thống mới nhưng vẫn làm Excel</span></td><td><span class="lvl h">Cao</span></td><td>Key user tham gia từ đầu; đào tạo ba cấp; KPI chung với phòng sở hữu; CEO bảo trợ</td><td class="sig">Tỷ lệ dùng dashboard hằng tuần dưới 50% sau 2 tháng</td></tr>
+        <tr><td class="r"><b>Dữ liệu gốc bẩn</b><span>Mã hàng, mã khách trùng, sai</span></td><td><span class="lvl h">Cao</span></td><td>Quản trị dữ liệu đi trước; điểm chất lượng công khai; chủ sở hữu dữ liệu ở từng phòng</td><td class="sig">Điểm chất lượng dưới 90% hoặc không tăng qua 2 tháng</td></tr>
+        <tr><td class="r"><b>Sự cố mùa sale</b><span>Website, tồn kho quá tải ngày cao điểm</span></td><td><span class="lvl h">Cao</span></td><td>Thử tải gấp 10–20 lần trước mùa sale; đóng băng thay đổi 2 tuần; diễn tập dự phòng</td><td class="sig">Thử tải không đạt mục tiêu 4 tuần trước ngày sale</td></tr>
+        <tr><td class="r"><b>Chậm tiến độ</b><span>Dự án kéo dài, mất niềm tin</span></td><td><span class="lvl m">Trung bình</span></td><td>Chia giai đoạn ngắn; quick win trong 90 ngày; Ban chỉ đạo theo dõi hằng tháng</td><td class="sig">Hai mốc liên tiếp trễ quá 2 tuần</td></tr>
+        <tr><td class="r"><b>Phụ thuộc nhà cung cấp</b><span>Khóa vào một nền tảng, tăng giá</span></td><td><span class="lvl m">Trung bình</span></td><td>Dữ liệu ở định dạng mở; hợp đồng có điều khoản dữ liệu và rút lui; giữ bản sao dữ liệu SaaS</td><td class="sig">Nhà cung cấp tăng giá hoặc giới hạn xuất dữ liệu</td></tr>
+      </table>
+      <p class="rkfoot"><b>Cách quản lý:</b> năm dấu hiệu báo sớm nằm trên bảng điểm hằng tháng gửi Ban chỉ đạo. Vượt ngưỡng là đưa vào cuộc họp tháng đó, không chờ đến cuối quý.</p>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Slide này trả lời câu hỏi "nếu không thành công thì sao". Đề bài nói triển khai thành công trong thời gian sớm nhất; muốn nhanh thì phải chặn rủi ro trước.
+        Ba rủi ro cao đều không phải công nghệ: người dùng không áp dụng, dữ liệu gốc bẩn, và sự cố mùa sale.
+        Điểm khác biệt của slide này là cột cuối: mỗi rủi ro có một dấu hiệu báo sớm đo được. Ví dụ, sau 2 tháng mà dưới một nửa người dùng mở dashboard hằng tuần, đó là tín hiệu để Ban chỉ đạo can thiệp, không đợi đến cuối dự án mới biết.
+        Năm dấu hiệu này nằm luôn trên bảng điểm hằng tháng.
+      </aside>
+    </section>
+
+    <!-- S27 First 90 days -->
+    <section class="content" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>90 ngày đầu tiên: nghe trước, đo trước, rồi mới làm</h2>
+      <div class="tl">
+        <div class="seg s1"><div class="hd">Ngày 1–30: lắng nghe, đo</div><ul><li>Gặp từng trưởng phòng ban và đại lý chủ lực</li><li>Rà soát 8 hệ thống, hợp đồng, chi phí IT</li><li>Tuần 1: xác nhận bậc dịch vụ NetSuite, giấy phép</li><li>Bắt đầu đo website và đánh giá CRM, mỗi việc 2–6 tuần</li></ul><p class="out">Kết quả: bản đồ hiện trạng, số đo ban đầu</p></div>
+        <div class="seg s2"><div class="hd">Ngày 31–60: thiết kế, quyết định</div><ul><li>Thành lập Ban chỉ đạo, hội đồng quản trị dữ liệu</li><li>Chốt phương án website và CRM: giữ, nâng cấp hay thay</li><li>Thử hai phương án nền tảng Data Lake</li><li>Phương án lưu dữ liệu cá nhân, cùng tư vấn pháp lý</li></ul><p class="out">Kết quả: kiến trúc, lộ trình, ngân sách giai đoạn 1 được duyệt</p></div>
+        <div class="seg s3"><div class="hd">Ngày 61–90: quick win, khởi công</div><ul><li>Dashboard tồn kho, công nợ dùng hằng ngày</li><li>Danh sách hàng chậm để xả có mục tiêu</li><li>Khởi công lớp kết nối, lớp thời gian thực, trung tâm tồn kho</li><li>Chốt số nền 13 KPI; bảng điểm tháng đầu tiên</li></ul><p class="out">Kết quả: tiền mặt bắt đầu được giải phóng</p></div>
+      </div>
+      <div class="par fragment">
+        <h3>Chạy song song từ tuần đầu<span>không chờ nền tảng dữ liệu, chi tiết ở slide sau và slide an ninh</span></h3>
+        <div class="pw">
+          <div></div><div class="wk">T1</div><div class="wk">T2</div><div class="wk">T3</div><div class="wk">T4</div><div class="wk">T5</div><div class="wk">T6</div><div class="wk">T7</div><div class="wk">T8</div><div class="wk">T9</div><div class="wk">T10</div><div class="wk">T11</div><div class="wk">T12</div><div class="wk">T13</div>
+          <div class="lb">Ba việc AI 2 tháng đầu</div><div class="bar ai" style="grid-column:2/10">AI hằng ngày từ tuần 1 · agent chấm chất lượng CSKH từ tuần 3 · hỏi NetSuite từ tuần 4</div><div style="grid-column:10/15"></div>
+          <div class="lb">An ninh nhanh</div><div class="bar sec" style="grid-column:2/5">Email lãnh đạo</div><div class="bar sec" style="grid-column:5/10">Đào tạo; kiểm thử xâm nhập, báo cáo</div><div class="bar ms" style="grid-column:10/15">Email lừa đảo mô phỏng mỗi quý</div>
+        </div>
+      </div>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Ba chặng 30 ngày, nguyên tắc: không thay đổi gì trước khi nghe và đo.
+        Ngày 1 đến 30: gặp trưởng phòng ban và đại lý chủ lực, rà soát 8 hệ thống và chi phí IT. Ngay tuần đầu xác nhận bậc dịch vụ NetSuite và giấy phép, vì con số này quyết định kiến trúc tích hợp. Bắt đầu đo website và đánh giá CRM, mỗi việc 2 đến 6 tuần.
+        Ngày 31 đến 60: thành lập Ban chỉ đạo và hội đồng quản trị dữ liệu; chốt phương án website và CRM; thử hai phương án nền tảng Data Lake; làm phương án lưu dữ liệu cá nhân cùng tư vấn pháp lý. Kết quả là kiến trúc, lộ trình và ngân sách giai đoạn 1 được duyệt.
+        Ngày 61 đến 90: dashboard tồn kho, công nợ dùng hằng ngày; danh sách hàng chậm để xả; khởi công lớp kết nối, lớp dữ liệu thời gian thực và trung tâm tồn kho; chốt số nền cho 13 KPI và gửi bảng điểm tháng đầu tiên.
+        Bấm 1: những việc chạy song song từ tuần đầu, không chờ nền tảng: ba việc AI ở slide tiếp theo, và an ninh nhanh. Hai nhóm này cho kết quả nhìn thấy trong 8 tuần.
+      </aside>
+    </section>
+
+    <!-- S28 Quick wins in probation -->
+    <section class="content qwslide" data-section="Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ">
+      <h2>Ba việc tôi làm ngay trong 2 tháng đầu tiên</h2>
+      <p class="lead">Không chờ nền tảng dữ liệu, không cần ngân sách lớn. Ba việc này chạy được với hệ thống Tara đang có và cho kết quả nhìn thấy trong 8 tuần.</p>
+      <div class="qw">
+        <div class="qwc k1">
+          <div class="hd"><i>1</i><div><b>Đưa AI vào công việc hằng ngày</b><span>Xây văn hóa làm việc có AI cho toàn công ty</span></div></div>
+          <ul>
+            <li>Ban hành <b>hướng dẫn sử dụng AI an toàn</b>: được dùng gì, không được đưa dữ liệu nào ra ngoài</li>
+            <li>Đào tạo theo phòng ban, mỗi phòng một bộ tình huống thật của chính họ</li>
+            <li>Mỗi phòng cử một người dẫn dắt, chia sẻ cách dùng hay hằng tuần</li>
+            <li>Thư viện câu lệnh dùng chung cho việc lặp lại: soạn email, tóm tắt, dịch, phân tích</li>
+          </ul>
+          <div class="qww"><span class="on" data-w="1"></span><span class="on" data-w="2"></span><span class="on" data-w="3"></span><span class="on" data-w="4"></span><span class="on" data-w="5"></span><span class="on" data-w="6"></span><span class="on" data-w="7"></span><span class="on" data-w="8"></span></div>
+          <p class="res"><b>Kết quả đo được</b>Tỷ lệ nhân viên dùng AI hằng tuần; số giờ tiết kiệm tự báo cáo theo phòng ban</p>
+        </div>
+        <div class="qwc k2">
+          <div class="hd"><i>2</i><div><b>Agent chấm chất lượng phục vụ</b><span>Giữ chân khách đã mua, trước khi họ bỏ đi</span></div></div>
+          <ul>
+            <li>Tự đọc hội thoại <b>đa kênh</b>: website, chat, tổng đài, mạng xã hội và kênh bảo hành</li>
+            <li>Tự chấm điểm chất lượng phục vụ từng ca, thay vì nghe mẫu vài phần trăm</li>
+            <li><b>Cảnh báo ca nóng</b> qua email ngay khi phát hiện khách bức xúc hoặc ca quá hạn</li>
+            <li>Bảng theo dõi trực tiếp cho trưởng bộ phận CSKH và bảo hành</li>
+          </ul>
+          <div class="qww"><span data-w="1"></span><span data-w="2"></span><span class="on" data-w="3"></span><span class="on" data-w="4"></span><span class="on" data-w="5"></span><span class="on" data-w="6"></span><span class="on" data-w="7"></span><span class="on" data-w="8"></span></div>
+          <p class="res"><b>Kết quả đo được</b>100% hội thoại được chấm thay vì lấy mẫu; thời gian phát hiện ca nóng tính bằng phút; tỷ lệ hài lòng</p>
+        </div>
+        <div class="qwc k3">
+          <div class="hd"><i>3</i><div><b>Hỏi NetSuite bằng tiếng Việt</b><span>Trợ lý tra cứu cho Ban Lãnh đạo và trưởng phòng</span></div></div>
+          <ul>
+            <li>Hỏi thẳng bằng câu nói thường: <b>"Tháng vừa rồi khách hàng nào doanh thu cao nhất?"</b></li>
+            <li>Tra hồ sơ khách hàng, nhà cung cấp, nhân viên và chi tiết giao dịch</li>
+            <li>Đọc báo cáo kết quả kinh doanh và <b>đưa ra nhận xét phân tích tài chính</b></li>
+            <li>Chỉ đọc, không ghi; phân quyền đúng như trên NetSuite, có nhật ký truy vấn</li>
+          </ul>
+          <div class="qww"><span data-w="1"></span><span data-w="2"></span><span data-w="3"></span><span class="on" data-w="4"></span><span class="on" data-w="5"></span><span class="on" data-w="6"></span><span class="on" data-w="7"></span><span class="on" data-w="8"></span></div>
+          <p class="res"><b>Kết quả đo được</b>Thời gian lấy một con số từ vài ngày chờ báo cáo xuống vài phút; số câu hỏi tự phục vụ mỗi tuần</p>
+        </div>
+      </div>
+      <div class="qwfoot">
+        <div><b>Không phụ thuộc lộ trình dài:</b> cả ba dùng hệ thống và dữ liệu Tara đang có</div>
+        <div><b>Chi phí nhỏ, trả theo lượng dùng:</b> không mua license lớn, không cần phần cứng mới</div>
+        <div><b>Là bước đệm:</b> cả ba tạo thói quen và dữ liệu nền cho giai đoạn 1 của lộ trình</div>
+      </div>
+      <p class="foot">Yêu cầu 3 · Nguồn lực, ngân sách, hỗ trợ</p>
+      <aside class="notes">
+        Slide này trả lời câu hỏi Ban Lãnh đạo luôn nghĩ nhưng ít khi hỏi thẳng: trong hai tháng đầu tiên, anh làm được gì?
+        Ba việc chọn theo ba tiêu chí: không phụ thuộc nền tảng dữ liệu còn chưa xây, chi phí nhỏ, và có kết quả nhìn thấy trong 8 tuần.
+        Việc 1, đưa AI vào công việc hằng ngày: bắt đầu ngay tuần đầu vì không cần hệ thống nào. Quan trọng là ban hành hướng dẫn an toàn trước, rồi mới đào tạo. Đây là việc tôi đã làm ở quy mô toàn công ty.
+        Việc 2, agent chấm chất lượng phục vụ: Tara bán hàng gia dụng, khách mua rồi mới cần bảo hành, nên giữ chân khách sau bán là chỗ dễ mất nhất. Hiện CSKH chỉ nghe mẫu được vài phần trăm cuộc gọi; agent đọc được toàn bộ và cảnh báo ca nóng trong vài phút.
+        Việc 3, hỏi NetSuite bằng tiếng Việt: Ban Lãnh đạo tự lấy số mà không cần chờ ai làm báo cáo. Nhấn mạnh phần an toàn: chỉ đọc, không ghi, phân quyền đúng như trên NetSuite, và mọi truy vấn đều có nhật ký.
+        Kết: ba việc này không phải để gây ấn tượng, mà là bước đệm. Chúng tạo thói quen làm việc với dữ liệu và AI trước khi nền tảng lớn hoàn thành.
+      </aside>
+    </section>
+
+    <!-- S28 Closing -->
+    <section class="content" data-section="Kết">
+      <h2>Cam kết hai chiều</h2>
+      <div class="cols c2">
+        <div class="box blue"><h3>Tôi cam kết</h3><ul><li>Quick win trong 90 ngày</li><li>Bảng điểm bằng tiền hằng tháng, báo cáo quý cho Hội đồng Quản trị</li><li>Chi phí IT không tăng nhanh hơn doanh thu</li><li>Không dự án nào thiếu chủ sở hữu từ phía kinh doanh</li></ul></div>
+        <div class="box"><h3>Tôi đề nghị Ban Lãnh đạo</h3><ul><li>CEO bảo trợ, Ban chỉ đạo họp hằng tháng</li><li>Trưởng phòng ban làm chủ dữ liệu, cử key user</li><li>Ngân sách theo giai đoạn, mở khóa theo kết quả</li><li>Chốt ba quyết định kinh doanh về kênh, giá, công nợ</li></ul></div>
+      </div>
+      <div class="values"><div class="v1"><b>Integrity</b>Minh bạch số liệu, nói rõ đâu là giả định</div><div class="v2"><b>Optimization and Transformation</b>Ngân sách thấp hơn ngành, tiền mặt được giải phóng</div><div class="v3"><b>Accountability</b>KPI đo bằng tiền, báo cáo đều đặn</div></div>
+      <p class="final">Tôi không đến để xây những phần mềm đắt đỏ. Tôi đến để <b>biến dữ liệu thành tiền mặt và tốc độ ra quyết định</b>, với năng lực đã kiểm chứng ở quy mô lớn hơn, để Tara đạt 60% mỗi năm một cách bền vững, an toàn và tiết kiệm.</p>
+      <p class="foot">Kết</p>
+      <aside class="notes">
+        Kết bằng cam kết hai chiều và ba giá trị cốt lõi trong mô tả công việc. Đọc chậm câu thông điệp cuối, rồi mời Ban Lãnh đạo đặt câu hỏi.
+      </aside>
+    </section>
+
+    <!-- Appendix: sources -->
+    <section class="content appx" id="sources" data-section="Phụ lục">
+      <h2>Phụ lục A1: nguồn tham chiếu chi phí IT và giới hạn NetSuite</h2>
+      <table class="sources">
+        <thead><tr><th>Nguồn</th><th>Con số</th><th>Phạm vi và lưu ý</th><th>Đường dẫn</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Gartner, IT Key Metrics Data 2022: Retail and Wholesale Analysis</td>
+            <td class="num">1,7%</td>
+            <td class="note">Trung vị chi IT trên doanh thu ngành bán lẻ và bán buôn, số liệu năm 2021; khoảng 5.320 USD mỗi nhân viên. Báo cáo gốc trả phí, con số lấy từ bản tóm tắt.</td>
+            <td><a href="https://www.gartner.com/en/documents/4008960" target="_blank" rel="noopener">gartner.com/en/documents/4008960</a></td>
+          </tr>
+          <tr>
+            <td>Deloitte, 2023 Global Technology Leadership Study</td>
+            <td class="num">5,49%</td>
+            <td class="note">Bình quân mọi ngành năm 2022, tăng từ 4,25% năm 2020. Khảo sát 1.179 lãnh đạo công nghệ toàn cầu.</td>
+            <td><a href="https://www.deloitte.com/us/en/insights/topics/leadership/maximizing-value-of-tech-investments.html" target="_blank" rel="noopener">deloitte.com/us/en/insights/topics/leadership/maximizing-value-of-tech-investments.html</a></td>
+          </tr>
+          <tr>
+            <td>IT-Online, bài phân tích chi phí IT ngành bán lẻ</td>
+            <td class="num">~2%</td>
+            <td class="note">Mốc 2% doanh thu vẫn được xem là tham chiếu phổ biến của ngành bán lẻ. Bài viết cũng lưu ý so sánh theo tỷ lệ doanh thu có giới hạn.</td>
+            <td><a href="https://it-online.co.za/?p=167836" target="_blank" rel="noopener">it-online.co.za/?p=167836</a></td>
+          </tr>
+          <tr>
+            <td>Oracle NetSuite, Concurrency Governance Limits Based on Service Tiers</td>
+            <td class="num">5 / 15 / 20</td>
+            <td class="note">Lượt gọi đồng thời nền theo bậc Standard, Premium, Enterprise và Ultimate; mỗi giấy phép SuiteCloud Plus cộng thêm 10. Áp dụng cho hợp đồng từ 6/2020.</td>
+            <td><a href="https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/bridgehead_1500275603.html" target="_blank" rel="noopener">docs.oracle.com, NetSuite Help, Concurrency Governance Limits</a></td>
+          </tr>
+          <tr>
+            <td>Giới hạn dòng giao dịch mỗi tháng theo bậc dịch vụ NetSuite</td>
+            <td class="num">200k – 50tr</td>
+            <td class="note">Standard 200.000; Premium 2.000.000; Enterprise 10.000.000; Ultimate 50.000.000 dòng mỗi tháng, tính theo trung bình trượt 6 tháng. Cần đối chiếu với hợp đồng thực tế của Tara.</td>
+            <td><a href="https://www.crosscountry-consulting.com/insights/blog/netsuite-service-tiers/" target="_blank" rel="noopener">crosscountry-consulting.com, NetSuite Service Tiers Explained</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="read-note">Cách đọc: các khảo sát chủ yếu từ doanh nghiệp quốc tế, nơi chi phí nhân sự và triển khai cao hơn Việt Nam. Vì vậy dùng làm mốc kiểm tra mức hợp lý, không dùng làm căn cứ chính. Căn cứ chính của ngân sách là giá trị đo được bằng tiền.</p>
+      <p class="foot">Phụ lục</p>
+      <aside class="notes">Chỉ mở slide này khi được hỏi sâu về nguồn số liệu.</aside>
+    </section>
+
+    <!-- S16 NetSuite service tier and licensing cost -->
+    <section class="content tierslide appx" data-section="Phụ lục">
+      <h2>Phụ lục A2: chi phí NetSuite, tích hợp sai cách là tiền thật</h2>
+      <p class="lead">NetSuite không tính tiền theo số hệ thống kết nối, mà theo hai thứ mà cách tích hợp quyết định trực tiếp: số dòng giao dịch mỗi tháng và số lượt gọi đồng thời.</p>
+      <div class="tier2">
+        <div>
+          <p class="h3x">Bốn bậc dịch vụ của NetSuite</p>
+          <table class="tiertbl">
+            <tr><th>Bậc</th><th>Người dùng tối đa</th><th>Dòng giao dịch mỗi tháng</th><th>Lượt gọi đồng thời (nền)</th><th>SuiteCloud Plus tối đa</th></tr>
+            <tr><td>Standard</td><td>100</td><td>200.000</td><td>5</td><td>1</td></tr>
+            <tr><td>Premium</td><td>1.000</td><td>2.000.000</td><td>15</td><td>3</td></tr>
+            <tr><td>Enterprise</td><td>2.000</td><td>10.000.000</td><td>20</td><td>6</td></tr>
+            <tr><td>Ultimate</td><td>4.000</td><td>50.000.000</td><td>20</td><td>12</td></tr>
+          </table>
+          <p class="tiersrc">Mỗi giấy phép SuiteCloud Plus cộng thêm 10 lượt gọi đồng thời. Dòng giao dịch tính theo trung bình trượt 6 tháng. Áp dụng cho hợp đồng từ 6/2020; con số cụ thể theo hợp đồng của Tara.</p>
+        </div>
+        <div>
+          <p class="h3x">Hai thứ đẩy chi phí lên, cả hai đều do tích hợp</p>
+          <div class="drv">
+            <div class="d w"><b>Ghi vào ERP: ăn dòng giao dịch</b><p>Mỗi dòng trên mỗi chứng từ do hệ thống khác đẩy vào đều được tính: đơn web, đơn sàn, đơn DMS, điều chuyển kho, phiếu bảo hành. <em>Vượt ngưỡng là buộc nâng bậc.</em></p></div>
+            <div class="d r"><b>Đọc từ ERP: ăn lượt gọi đồng thời</b><p>Mỗi hệ thống hỏi thẳng NetSuite đều chiếm một lượt. Hết lượt thì trả về lỗi vượt giới hạn. <em>Muốn thêm lượt phải mua SuiteCloud Plus, và số giấy phép lại bị chặn bởi bậc dịch vụ.</em></p></div>
+          </div>
+          <p class="tiersrc" style="margin-top:8px">Hệ quả: càng tích hợp nhiều hệ thống theo kiểu hỏi và ghi thẳng, càng sớm phải nâng bậc. Mà nâng bậc là nhảy cả gói, không mua lẻ.</p>
+        </div>
+      </div>
+      <div class="fixes fragment">
+        <div><b>Đọc qua lớp thời gian thực</b>Hàng nghìn lượt hỏi tồn kho mỗi giây không chạm NetSuite, nên không chiếm lượt gọi đồng thời</div>
+        <div><b>Giữ chỗ nằm ngoài ERP</b>Lượt giữ hàng, hết hạn, nhả hàng xử lý ở lớp dữ liệu thời gian thực; chỉ ghi về NetSuite khi xuất kho thật, nên không sinh dòng giao dịch rác</div>
+        <div><b>Phân tích không hỏi ERP</b>Báo cáo và AI đọc từ Data Lake qua SuiteAnalytics, không truy vấn trực tiếp hệ thống ghi sổ</div>
+      </div>
+      <p class="askbox fragment">Ba câu tôi cần hỏi trong tuần đầu: Tara đang ở <b>bậc dịch vụ nào</b>, dùng <b>bao nhiêu dòng giao dịch mỗi tháng</b>, và có <b>bao nhiêu giấy phép SuiteCloud Plus</b>. Ba con số này quyết định kiến trúc tích hợp, và quyết định năm sau Tara có phải trả thêm tiền NetSuite hay không.</p>
+      <p class="foot">Phụ lục</p>
+      <aside class="notes">
+        Phụ lục, mở khi Ban Lãnh đạo hỏi về chi phí NetSuite hoặc vì sao không cho hệ thống hỏi thẳng ERP. Nói bằng ngôn ngữ tiền. Nhiều người nghĩ NetSuite là thuê bao cố định, kết nối bao nhiêu hệ thống cũng vậy. Không phải.
+        Bảng bên trái là bốn bậc dịch vụ. Điều quan trọng không phải con số, mà là cơ chế: mỗi bậc giới hạn số dòng giao dịch mỗi tháng và số lượt gọi đồng thời. Standard chỉ 200 nghìn dòng và 5 lượt gọi đồng thời; Premium lên 2 triệu dòng và 15 lượt.
+        Bên phải là hai thứ đẩy chi phí, và cả hai đều do cách tích hợp quyết định.
+        Thứ nhất, ghi vào ERP ăn dòng giao dịch. Mỗi dòng trên mỗi chứng từ do hệ thống khác đẩy vào đều tính. Nếu Tara gấp 4 lần quy mô mà vẫn đẩy mọi thứ vào NetSuite, số dòng giao dịch cũng gấp 4, và sẽ chạm trần bậc hiện tại.
+        Thứ hai, đọc từ ERP ăn lượt gọi đồng thời. Muốn thêm lượt phải mua giấy phép SuiteCloud Plus, mỗi giấy phép thêm 10 lượt. Nhưng số giấy phép tối đa lại bị chặn bởi chính bậc dịch vụ. Nghĩa là đến một mức nào đó, muốn thêm lượt thì buộc phải nâng bậc.
+        Bấm 1: ba điểm trong thiết kế của tôi giảm cả hai. Đây chính là lý do kinh tế cho lớp dữ liệu thời gian thực, bên cạnh lý do kỹ thuật ở slide "Data Lake cần thiết, nhưng không giữ được hàng cho khách".
+        Bấm 2: ba câu hỏi tôi cần biết trong tuần đầu. Nói thẳng: tôi chưa biết Tara đang ở bậc nào, nhưng ba con số này quyết định kiến trúc, và quyết định năm sau có phải trả thêm tiền NetSuite hay không. Nếu ai trong phòng biết, tôi rất muốn nghe ngay bây giờ.
+      </aside>
+    </section>
+
+    <!-- A3 Security detail -->
+    <section class="content appx" data-section="Phụ lục">
+      <h2>Phụ lục A3: khung an ninh mạng và dự phòng</h2>
+      <div class="cols c3">
+        <div class="box"><h3>Danh tính và truy cập</h3><ul><li>Xác thực nhiều lớp, ưu tiên lãnh đạo và người duyệt tiền</li><li>Phân quyền theo vai trò, quyền tối thiểu</li><li>Giai đoạn sau: quản lý thiết bị tập trung (Intune)</li></ul></div>
+        <div class="box"><h3>Dữ liệu</h3><ul><li>Mã hóa khi lưu và khi truyền</li><li>Bước 1: chặn gửi dữ liệu nhạy cảm qua email; giai đoạn sau: DLP toàn công ty</li><li>Nhật ký truy cập, phát hiện bất thường</li></ul></div>
+        <div class="box"><h3>Hạ tầng và ứng dụng</h3><ul><li>Tường lửa ứng dụng web, chống DDoS mùa sale</li><li>Kiểm thử xâm nhập: 6 tháng một lần với hệ thống cập nhật thường xuyên, 1 năm một lần với hệ thống ít thay đổi, và sau mỗi thay đổi lớn</li><li>Vá lỗi theo mức độ nghiêm trọng</li></ul></div>
+        <div class="box"><h3>Tuân thủ Luật 91/2025</h3><ul><li>Quản lý đồng ý của khách</li><li>Đánh giá tác động xử lý, chuyển dữ liệu</li><li>Quy trình thông báo sự cố</li></ul></div>
+        <div class="box"><h3>Dự phòng và phục hồi</h3><ul><li>Tầng 1 web, tồn kho, thanh toán: khôi phục 1 giờ, mất tối đa 5 phút dữ liệu</li><li>Tầng 2 DMS, CRM, bảo hành: 4 giờ, 1 giờ; tầng 3 báo cáo, AI: 24 giờ</li><li>Sao lưu không thể sửa xóa; diễn tập hai lần mỗi năm</li></ul></div>
+        <div class="box"><h3>Con người</h3><ul><li>Đào tạo nhận diện lừa đảo, dùng AI an toàn</li><li>Email lừa đảo mô phỏng 3 tháng một lần</li><li>Diễn tập phản ứng sự cố; quy định với nhà cung cấp</li></ul></div>
+      </div>
+      <p class="foot">Phụ lục</p>
+      <aside class="notes">Khung sáu lớp. Mở khi được hỏi chi tiết về an ninh.</aside>
+    </section>
+
+    <!-- A4 Build vs buy -->
+    <section class="content appx" data-section="Phụ lục">
+      <h2>Phụ lục A4: tự làm hay mua</h2>
+      <table class="tbl" style="margin-top:18px;width:1136px">
+        <tr><th style="width:24%">Lựa chọn</th><th>Khi nào chọn</th><th style="width:30%">Ví dụ cho Tara</th></tr>
+        <tr><td><b>Mua phần mềm, dịch vụ có sẵn</b></td><td>Nghiệp vụ chuẩn, không tạo khác biệt cạnh tranh, nhà cung cấp làm tốt hơn</td><td>ERP (NetSuite), email, an ninh nền tảng, BI</td></tr>
+        <tr><td><b>Tự xây với đội nội bộ</b></td><td>Tạo khác biệt cạnh tranh, cần thay đổi nhanh, gắn chặt quy trình riêng</td><td>Trung tâm tồn kho, cổng đại lý, mô hình AI riêng</td></tr>
+        <tr><td><b>Thuê ngoài có thời hạn</b></td><td>Cần chuyên môn sâu trong thời gian ngắn, có chuyển giao</td><td>Kiểm thử xâm nhập, tư vấn pháp lý dữ liệu, thiết lập ban đầu</td></tr>
+      </table>
+      <p class="anote">Tiêu chí chấm: tổng chi phí 3 năm, mức độ khác biệt cạnh tranh, tốc độ ra kết quả, rủi ro khóa nhà cung cấp, năng lực đội nội bộ.</p>
+      <p class="foot">Phụ lục</p>
+      <aside class="notes">Nguyên tắc: mua cái chuẩn, xây cái tạo khác biệt, thuê cái cần nhanh và có chuyển giao.</aside>
+    </section>
+
+    <!-- A5 Quarterly roadmap -->
+    <section class="content appx" data-section="Phụ lục">
+      <h2>Phụ lục A5: lộ trình chi tiết theo quý</h2>
+      <div class="gt">
+        <div style="grid-row:1;grid-column:1"></div><div class="yr a" style="grid-row:1;grid-column:2/6">Năm 1</div><div class="yr b" style="grid-row:1;grid-column:6/10">Năm 2</div><div class="yr c" style="grid-row:1;grid-column:10/14">Năm 3</div>
+        <div style="grid-row:2;grid-column:1"></div><div class="ph" style="grid-row:2;grid-column:2/4">GĐ1 · nền móng</div><div class="ph" style="grid-row:2;grid-column:4/8">GĐ2 · nền tảng đầy đủ</div><div class="ph" style="grid-row:2;grid-column:8/14">GĐ3 · mở rộng, quốc tế</div>
+        <div style="grid-row:3;grid-column:1"></div><div style="grid-row:3;grid-column:2" class="hd">Q1</div><div style="grid-row:3;grid-column:3" class="hd">Q2</div><div style="grid-row:3;grid-column:4" class="hd">Q3</div><div style="grid-row:3;grid-column:5" class="hd">Q4</div><div style="grid-row:3;grid-column:6" class="hd">Q1</div><div style="grid-row:3;grid-column:7" class="hd">Q2</div><div style="grid-row:3;grid-column:8" class="hd">Q3</div><div style="grid-row:3;grid-column:9" class="hd">Q4</div><div style="grid-row:3;grid-column:10" class="hd">Q1</div><div style="grid-row:3;grid-column:11" class="hd">Q2</div><div style="grid-row:3;grid-column:12" class="hd">Q3</div><div style="grid-row:3;grid-column:13" class="hd">Q4</div>
+        <div style="grid-row:4;grid-column:1" class="lab">Quản trị dữ liệu, định danh khách</div><div class="bar b1" style="grid-row:4;grid-column:2/4">Dữ liệu gốc, mã khách duy nhất</div><div class="bar lt" style="grid-row:4;grid-column:4/14">Duy trì, điểm chất lượng hằng tháng</div>
+        <div style="grid-row:5;grid-column:1" class="lab">Lớp kết nối, lớp dữ liệu thời gian thực, tồn kho</div><div class="bar b1" style="grid-row:5;grid-column:2/5">Dựng và đưa vào bán hàng</div><div class="bar lt" style="grid-row:5;grid-column:5/14">Mở rộng kênh, tối ưu</div>
+        <div style="grid-row:6;grid-column:1" class="lab">Data Lake</div><div class="bar b4" style="grid-row:6;grid-column:2/3">Thử 2 phương án</div><div class="bar b2" style="grid-row:6;grid-column:3/6">Xây ba tầng dữ liệu</div><div class="bar lt" style="grid-row:6;grid-column:6/14">Mở rộng nguồn, bên ngoài</div>
+        <div style="grid-row:7;grid-column:1" class="lab">Dashboard mọi cấp</div><div class="bar b2" style="grid-row:7;grid-column:2/3">Tồn kho, công nợ</div><div class="bar b2" style="grid-row:7;grid-column:3/6">Mọi phòng ban</div><div class="bar lt" style="grid-row:7;grid-column:6/14">Tự phục vụ</div>
+        <div style="grid-row:8;grid-column:1" class="lab">Website, Haravan</div><div class="bar b4" style="grid-row:8;grid-column:2/3">Đo 2–6 tuần</div><div class="bar b2" style="grid-row:8;grid-column:3/5">Theo phương án đã chọn</div>
+        <div style="grid-row:9;grid-column:1" class="lab">CRM và CDP</div><div class="bar b4" style="grid-row:9;grid-column:2/3">Đánh giá CRM</div><div class="bar b2" style="grid-row:9;grid-column:4/8">Thử 2–3 việc kích hoạt</div><div class="ms" style="grid-row:9;grid-column:8/9">Quyết CDP</div>
+        <div style="grid-row:10;grid-column:1" class="lab">AI</div><div class="bar b3" style="grid-row:10;grid-column:2/4">AI hằng ngày, agent CSKH, hỏi NetSuite</div><div class="bar b3" style="grid-row:10;grid-column:4/8">Dự báo, gợi ý bán kèm, agent bảo hành</div><div class="bar lt" style="grid-row:10;grid-column:8/14">AI giai đoạn sau</div>
+        <div style="grid-row:11;grid-column:1" class="lab">Cổng đại lý, tín dụng</div><div class="bar b2" style="grid-row:11;grid-column:4/8">Cổng đại lý, chấm điểm tín dụng</div><div class="bar lt" style="grid-row:11;grid-column:8/14">Đại lý giao đơn online</div>
+        <div style="grid-row:12;grid-column:1" class="lab">An ninh</div><div class="bar b3" style="grid-row:12;grid-column:2/3">Quick win</div><div class="bar lt" style="grid-row:12;grid-column:3/6">Kiểm thử định kỳ</div><div class="bar b4" style="grid-row:12;grid-column:6/10">DLP, Intune khi cần</div><div class="bar lt" style="grid-row:12;grid-column:10/14">Kiểm thử định kỳ</div>
+        <div style="grid-row:13;grid-column:1" class="lab">Quốc tế</div><div class="bar b4" style="grid-row:13;grid-column:7/9">Chuẩn bị khung nhân bản</div><div class="bar b1" style="grid-row:13;grid-column:9/14">Mở nước mới</div>
+        <div class="sep" style="grid-row:14"></div>
+        <div class="lab" style="grid-row:15;grid-column:1;color:var(--tara-red)">Mở khóa ngân sách</div><div class="ms" style="grid-row:15;grid-column:3/4">Cuối GĐ1</div><div class="ms" style="grid-row:15;grid-column:7/8">Cuối GĐ2</div>
+      </div>
+      <p class="anote">Thời điểm cụ thể chốt sau 90 ngày đầu, khi đã có số nền và phương án cho website, CRM, Data Lake.</p>
+      <p class="foot">Phụ lục</p>
+      <aside class="notes">Mở khi được hỏi chi tiết tiến độ. Đọc theo hàng: mỗi hạng mục, làm gì vào quý nào. Hai mốc đỏ là hai lần mở khóa ngân sách theo kết quả.</aside>
+    </section>
+
+  </div>
+</div>
+
+<script src="vendor/three/three.min.js"></script>
+<script src="vendor/reveal/reveal.js"></script>
+<script src="vendor/reveal/notes.js"></script>
+<script src="assets/deck.js"></script>
+</body>
+</html>
