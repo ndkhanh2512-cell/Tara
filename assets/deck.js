@@ -95,7 +95,7 @@
     host.appendChild(renderer.domElement);
     var scene = new THREE.Scene();
     var cam = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
-    cam.position.set(0, 3.2, 9.5); cam.lookAt(0, 0, 0);
+    cam.position.set(0, 3.6, 11.2); cam.lookAt(0, -0.1, 0);
     scene.add(new THREE.AmbientLight(0xffffff, 0.75));
     var dl = new THREE.DirectionalLight(0xffffff, 0.7); dl.position.set(3, 6, 5); scene.add(dl);
 
@@ -123,6 +123,20 @@
       var l = new THREE.Line(g, new THREE.LineBasicMaterial({ color: SKY, transparent: true, opacity: 0 }));
       group.add(l); links.push(l);
     }
+    var NAMES = ['NetSuite', 'DMS', 'eCommerce', 'Haravan', 'Base', 'Bảo hành, CSKH', 'CRM', 'Dữ liệu bên ngoài'];
+    var tags = NAMES.map(function (nm, i) {
+      var d = document.createElement('p'); d.className = 'h3tag' + (i === 7 ? ' ext' : ''); d.textContent = nm;
+      host.appendChild(d); return d;
+    });
+    var coreTag = document.createElement('p'); coreTag.className = 'h3tag h3core'; coreTag.textContent = 'Data Lake';
+    host.appendChild(coreTag);
+    var wv = new THREE.Vector3();
+    function placeTag(el, v, op) {
+      v.project(cam);
+      el.style.left = ((v.x + 1) / 2 * 100) + '%';
+      el.style.top = ((1 - v.y) / 2 * 100) + '%';
+      el.style.opacity = op;
+    }
     var t0 = performance.now();
     function frame(now) {
       requestAnimationFrame(frame);
@@ -138,7 +152,10 @@
         var p = links[i].geometry.attributes.position;
         p.setXYZ(0, n.position.x, n.position.y, n.position.z); p.setXYZ(1, 0, 0, 0); p.needsUpdate = true;
         links[i].material.opacity = Math.max(0, (e - 0.6) / 0.4) * 0.8;
+        n.getWorldPosition(wv); wv.y += 0.28;
+        placeTag(tags[i], wv, Math.max(0, (e - 0.7) / 0.3));
       });
+      wv.set(0, 0.45, 0); placeTag(coreTag, wv, Math.max(0, (e - 0.7) / 0.3));
       renderer.render(scene, cam);
     }
     requestAnimationFrame(frame);
@@ -421,10 +438,10 @@
         note: '<b>Hôm nay, hỏi thẳng ERP:</b> số liệu mới, nhưng mỗi cú bấm của khách đi qua lớp kết nối rồi vào thẳng NetSuite. Mùa sale hàng nghìn lượt mỗi giây dồn vào hệ thống ghi sổ: chậm, chạm giới hạn gọi API, và sớm phải nâng bậc dịch vụ.' },
       lake: { load: 12, rt: 2400, rtTxt: function (v) { return (v / 1000).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + ' giây'; }, fresh: 'Vài phút – vài giờ', freshP: 92, hold: 'Không', holdP: 96,
         tone: ['okk', 'hot', 'hot', 'hot'], cls: 'mid',
-        note: '<b>Chỉ có Data Lake:</b> ERP được giải tỏa, nhưng NetSuite và các nguồn khác chỉ đổ dữ liệu vào hồ theo từng đợt. Giữa hai đợt, lớp 4 đọc số đã cũ; mỗi truy vấn mất vài giây; không có cơ chế giữ hàng. Mùa sale sẽ bán vượt tồn.' },
+        note: '<b>Chỉ có Data Lake:</b> ERP được giải tỏa, nhưng NetSuite và các nguồn khác chỉ đổ dữ liệu vào hồ theo từng đợt. Giữa hai đợt, lớp 4 đọc số đã cũ: mỗi truy vấn mất vài giây: không có cơ chế giữ hàng. Mùa sale sẽ bán vượt tồn.' },
       cache: { load: 7, rt: 8, rtTxt: function (v) { return Math.max(1, Math.round(v)) + ' ms'; }, fresh: 'Dưới 60 giây', freshP: 6, hold: 'Có, ngay khi đặt', holdP: 4,
         tone: ['okk', 'okk', 'okk', 'okk'], cls: '',
-        note: '<b>Data Lake cộng lớp dữ liệu thời gian thực:</b> Data Lake vẫn nhận theo lô và nuôi báo cáo, AI ở phía sau. NetSuite và các nguồn khác đẩy từng thay đổi qua lớp kết nối vào lớp 3A; lớp 4 hỏi lớp 3A. Cùng ERP, cùng Data Lake, chỉ thêm một làn.' }
+        note: '<b>Data Lake cộng lớp dữ liệu thời gian thực:</b> Data Lake vẫn nhận theo lô và nuôi báo cáo, AI ở phía sau. NetSuite và các nguồn khác đẩy từng thay đổi qua lớp kết nối vào lớp 3A: lớp 4 hỏi lớp 3A. Cùng ERP, cùng Data Lake, chỉ thêm một làn.' }
     };
     var hud = { load: document.getElementById('f3-load'), rt: document.getElementById('f3-rt'),
                 fresh: document.getElementById('f3-fresh'), hold: document.getElementById('f3-hold') };
@@ -560,7 +577,97 @@
     requestAnimationFrame(animate);
   }
 
+
+  /* ---------- Slide 5: inline cash calculator ---------- */
+  function initCalc5() {
+    var root = document.getElementById('calc5'); if (!root) return;
+    var $ = function (id) { return document.getElementById(id); };
+    var D = { 'c5-rev': 1200, 'c5-cogs': 920, 'c5-dio': 110, 'c5-dio-t': 80, 'c5-dso': 55, 'c5-dso-t': 40, 'c5-rate': 9 };
+    var fmt = function (n, d) { return n.toLocaleString('vi-VN', { maximumFractionDigits: d || 0, minimumFractionDigits: d || 0 }); };
+    var num = function (id) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; };
+    var last = null;
+    function flash(el) { el.classList.add('flash'); setTimeout(function () { el.classList.remove('flash'); }, 500); }
+    function update(anim) {
+      var rev = num('c5-rev'), cogs = num('c5-cogs');
+      var dio = num('c5-dio'), dioT = num('c5-dio-t'), dso = num('c5-dso'), dsoT = num('c5-dso-t');
+      var pInv = cogs / 365, pAr = rev / 365;
+      var inv = Math.round(Math.max(0, dio - dioT) * pInv), ar = Math.round(Math.max(0, dso - dsoT) * pAr);
+      $('c5-inv').textContent = '≈ ' + fmt(inv) + ' tỷ';
+      $('c5-ar').textContent = '≈ ' + fmt(ar) + ' tỷ';
+      $('c5-inv-s').textContent = dio > dioT ? 'giảm tồn từ ' + fmt(dio) + ' xuống ' + fmt(dioT) + ' ngày' : 'tồn kho đã ở mức mục tiêu';
+      $('c5-ar-s').textContent = dso > dsoT ? 'thu tiền nhanh hơn, từ ' + fmt(dso) + ' xuống ' + fmt(dsoT) + ' ngày' : 'thu tiền đã ở mức mục tiêu';
+      $('c5-total').textContent = '≈ ' + fmt(inv + ar) + ' tỷ';
+      var rate = parseFloat($('c5-rate').value); if (!isFinite(rate) || rate < 0) rate = 0;
+      var yr = (inv + ar) * rate / 100 + inv * 0.05;
+      $('c5-yr').textContent = '+ ≈ ' + fmt(yr) + ' tỷ mỗi năm';
+      $('c5-per').textContent = 'Mỗi ngày tồn kho giảm được ≈ ' + fmt(pInv, 1) + ' tỷ · mỗi ngày thu tiền nhanh hơn ≈ ' + fmt(pAr, 1) + ' tỷ';
+      var key = inv + '|' + ar;
+      if (anim && key !== last) { flash($('c5-inv')); flash($('c5-ar')); }
+      last = key;
+    }
+    root.querySelectorAll('input').forEach(function (el) {
+      el.addEventListener('input', function () { update(true); });
+      el.addEventListener('keydown', function (e) { e.stopPropagation(); });
+    });
+    $('c5-reset').addEventListener('click', function () { Object.keys(D).forEach(function (k) { $(k).value = D[k]; }); update(true); });
+    $('c5-reset').addEventListener('keydown', function (e) { e.stopPropagation(); });
+    update(false);
+  }
+
+
+  /* ---------- Action board: CEO can re-prioritise ---------- */
+  function initActions() {
+    var body = document.getElementById('ab-body'); if (!body) return;
+    var A = [
+      ['Tồn kho chôn vốn', 'Dashboard tồn kho, danh sách hàng chậm để xả', 'Ngày 61–90', 1, '', '5'],
+      ['Công nợ đại lý quá hạn', 'Dashboard công nợ, hạn mức hiện trên ứng dụng bán hàng', '3–6 tháng', 1, 'hạn mức công nợ', '5'],
+      ['Bán vượt tồn, mỗi kênh một số', 'Lớp kết nối, lớp thời gian thực, trung tâm tồn kho', '3–9 tháng', 1, 'quy tắc chia hàng', '7–10'],
+      ['Mã và số liệu không khớp', 'Quản trị dữ liệu, mã duy nhất, Data Champion', '0–6 tháng', 1, '', '13'],
+      ['Lừa đảo email, chưa biết lỗ hổng', 'Bảo mật email lãnh đạo, đào tạo, kiểm thử xâm nhập', 'Tuần 1–8', 1, '', '18'],
+      ['Website nội dung cũ, 0 đánh giá', 'Gỡ nội dung cũ, nhắn xin đánh giá sau giao hàng', 'Tuần 2–6', 1, '', '11'],
+      ['Chi phí NetSuite có thể tăng', 'Xác nhận bậc dịch vụ, giấy phép', 'Tuần 1', 1, '', 'A2'],
+      ['Website chậm', 'Đo 2–6 tuần, rồi chọn phương án Haravan', '1–6 tháng', 2, '', '12'],
+      ['CRM có đủ cho 3 năm?', 'Đánh giá: giữ, nâng cấp hay thay', '2–6 tuần', 2, '', '15'],
+      ['Năng suất, chất lượng CSKH', 'AI hằng ngày, agent chấm chất lượng, hỏi NetSuite', 'Tuần 1–8', 2, '', '16'],
+      ['Báo cáo rời rạc, nhiều con số', 'Data Lake, dashboard mọi phòng ban', '3–12 tháng', 2, '', '8, 14'],
+      ['Khách mua qua đại lý vô danh', 'Hồ sơ khách định danh, thử 2–3 việc kích hoạt', '6–18 tháng', 2, '', '15'],
+      ['Thiếu, dư hàng theo mùa', 'AI dự báo, gợi ý bán kèm, agent bảo hành', '6–18 tháng', 2, '', '17'],
+      ['Phá giá trên sàn, xung đột kênh', 'Quét mã xuất kho, giám sát giá sàn, cổng đại lý', '6–18 tháng', 2, 'giá sàn, hoa hồng đại lý', '5'],
+      ['Mở rộng quốc tế', 'Khung nhân bản, pháp lý dữ liệu nước mới', '12–36 tháng', 3, 'thị trường, thời điểm', '19'],
+      ['Mua CDP, mini app Zalo, DLP', 'Quyết theo số đo, khi quy mô đòi hỏi', 'Từ tháng 18', 3, 'ngân sách theo số đo', '12, 15, 18']
+    ];
+    var cur = A.map(function (r) { return r[3]; });
+    function render() {
+      var idx = A.map(function (r, i) { return i; }).sort(function (a, b) { return (cur[a] - cur[b]) || (a - b); });
+      body.innerHTML = '';
+      idx.forEach(function (i, k) {
+        var r = A[i], p = cur[i], chg = p !== r[3];
+        var tr = document.createElement('tr'); if (chg) tr.className = 'chg';
+        var dec = r[4] ? '<em>Cần chốt: ' + r[4] + '</em> · ' : '';
+        tr.innerHTML = '<td class="n">' + (k + 1) + '</td><td class="p">' + r[0] + '</td><td>' + r[1] + '</td><td class="t">' + r[2] +
+          '</td><td><button type="button" class="pri p' + p + '" data-i="' + i + '">P' + p + '</button>' + (chg ? '<span class="old">từ P' + r[3] + '</span>' : '') +
+          '</td><td class="d">' + dec + '<span class="sl">slide ' + r[5] + '</span></td>';
+        body.appendChild(tr);
+      });
+      [1, 2, 3].forEach(function (n) {
+        document.getElementById('ab-c' + n).textContent = 'P' + n + ' · ' + cur.filter(function (x) { return x === n; }).length;
+      });
+    }
+    body.addEventListener('click', function (e) {
+      var b = e.target.closest('.pri'); if (!b) return;
+      var i = +b.dataset.i; cur[i] = cur[i] % 3 + 1; render();
+      var nb = body.querySelector('.pri[data-i="' + i + '"]'); if (nb) nb.focus();
+    });
+    body.addEventListener('keydown', function (e) { e.stopPropagation(); });
+    var rs = document.getElementById('ab-reset');
+    rs.addEventListener('click', function () { cur = A.map(function (r) { return r[3]; }); render(); });
+    rs.addEventListener('keydown', function (e) { e.stopPropagation(); });
+    render();
+  }
+
   initCalc();
+  initActions();
+  initCalc5();
   initSim();
   initFlips();
   initHero();
@@ -578,10 +685,14 @@
     transition: 'fade',
     backgroundTransition: 'none',
     controlsTutorial: false,
+    keyboard: { 13: 'next' },
     pdfSeparateFragments: false,
     plugins: [RevealNotes]
   }).then(syncStage);
 
+  function markFirst() { document.documentElement.classList.toggle('on-first', Reveal.getIndices().h === 0); }
+  Reveal.on('ready', markFirst);
+  Reveal.on('slidechanged', markFirst);
   Reveal.on('slidechanged', syncStage);
   Reveal.on('fragmentshown', syncStage);
   Reveal.on('fragmenthidden', syncStage);
