@@ -633,7 +633,7 @@
       ['Khách mua qua đại lý vô danh', 'Hồ sơ khách định danh, thử 2–3 việc kích hoạt', 'Giai đoạn 2|6–18 tháng', 2, '', '800.000 khách định danh ở năm 2'],
       ['Thiếu, dư hàng theo mùa', 'AI dự báo, gợi ý bán kèm, agent bảo hành', 'Giai đoạn 2|6–18 tháng', 2, '', '4% doanh thu online từ gợi ý AI ở năm 2'],
       ['Phá giá trên sàn, xung đột kênh', 'Quét mã xuất kho, giám sát giá sàn, cổng đại lý', 'Giai đoạn 2|6–18 tháng', 2, 'giá sàn, hoa hồng đại lý', 'Biết lô phá giá trong vài phút'],
-      ['Mở rộng quốc tế', 'Khung nhân bản, pháp lý dữ liệu nước mới', 'Giai đoạn 2 → 3|12–36 tháng', 3, 'thị trường, thời điểm', 'Mở nước mới đúng pháp lý dữ liệu'],
+      ['Mở rộng quốc tế', 'Chọn mô hình, khung nhân bản, pháp lý dữ liệu', 'Giai đoạn 2 → 3|12–36 tháng', 3, 'thị trường, mô hình mở rộng', 'Mở nước mới đúng mô hình, đúng pháp lý'],
       ['Mua CDP, mini app Zalo, DLP', 'Quyết theo số đo, khi quy mô đòi hỏi', 'Giai đoạn 3|từ tháng 18', 3, 'ngân sách theo số đo', 'Chỉ chi khi số đo chứng minh lợi ích']
     ];
     var cur = A.map(function (r) { return r[3]; });
@@ -675,6 +675,72 @@
 
   document.querySelectorAll('.stage').forEach(buildLinks);
 
+
+  /* ---------- Presentation flow: tracker in footer + map overlay (key M) ---------- */
+  var FLOW = [
+    { name: 'Mở đầu', rq: 0, rqt: 'Mở đầu', msg: 'Ba đề xuất, một điều kiện. Vì sao tin đề xuất này' },
+    { name: 'Bài toán', rq: 0, rqt: 'Bối cảnh', msg: 'Quy mô gấp 4. Ba câu hỏi CEO, ≈ 125 tỷ đang kẹt. 8 hệ thống rời rạc' },
+    { name: 'Kiến trúc MIS và dữ liệu', rq: 1, rqt: 'Yêu cầu 1', msg: 'Bốn lớp, Data Lake và lớp thời gian thực, website, quản trị dữ liệu, dashboard' },
+    { name: 'Khách hàng, AI, an toàn thông tin', rq: 1, rqt: 'Yêu cầu 1', msg: 'CRM và CDP đo trước, AI ngắn và dài hạn, Phòng ban số, bảo mật hai tầng' },
+    { name: 'Quốc tế và lộ trình', rq: 1, rqt: 'Yêu cầu 1', msg: 'Chọn mô hình trước. Lộ trình 3 năm, đạt kết quả mới đi tiếp' },
+    { name: 'KPI', rq: 2, rqt: 'Yêu cầu 2', msg: '13 KPI, 4 nhóm, chấm điểm tăng dần theo năm' },
+    { name: 'Nguồn lực và ngân sách', rq: 3, rqt: 'Yêu cầu 3', msg: '8 lên 11 người, ≈ 14 tỷ năm 1, hai phương án, cơ chế cả công ty' },
+    { name: 'Triển khai và chốt', rq: 3, rqt: 'Yêu cầu 3', msg: 'Rủi ro, 60 ngày đầu, ủng hộ của Ban Lãnh đạo, chốt ưu tiên' },
+    { name: 'Kết', rq: 0, rqt: 'Kết', msg: 'Cam kết hai chiều, hỏi đáp' },
+    { name: 'Phụ lục', rq: 0, rqt: 'Hỏi đáp', msg: 'Nguồn số liệu, chi phí NetSuite, khung an toàn thông tin, tự làm hay mua, lộ trình theo quý' }
+  ];
+  var slidesAll = [].slice.call(document.querySelectorAll('.reveal .slides > section'));
+  var stepOf = [], cur = 0;
+  slidesAll.forEach(function (s, i) { var f = s.getAttribute('data-flow'); if (f) cur = +f - 1; stepOf[i] = cur; });
+  FLOW.forEach(function (st, k) {
+    var idx = stepOf.map(function (v, i) { return v === k ? i : -1; }).filter(function (i) { return i >= 0; });
+    st.first = idx[0]; st.last = idx[idx.length - 1];
+  });
+  var MAIN = 9;
+  slidesAll.forEach(function (s, i) {
+    var k = stepOf[i];
+    var note = s.querySelector('aside.notes');
+    if (note) note.insertAdjacentHTML('afterbegin', '<p><b>Vị trí trong bài: bước ' + (k + 1) + '/' + FLOW.length + ' · ' + FLOW[k].name + '</b> (slide ' + (FLOW[k].first + 1) + '–' + (FLOW[k].last + 1) + ')</p>');
+    var foot = s.querySelector(':scope > .foot'); if (!foot) return;
+    var bar = '<span class="ftrack" title="Mở bản đồ bài trình bày (phím M)">';
+    for (var q = 0; q < MAIN; q++) bar += '<i class="' + (q < k ? 'done' : (q === k ? 'cur' : '')) + '"></i>';
+    bar += '</span><span class="fstep" title="Mở bản đồ bài trình bày (phím M)">' + (k < MAIN ? 'Bước ' + (k + 1) + '/' + MAIN : 'Phụ lục') + '</span>';
+    foot.insertAdjacentHTML('afterbegin', bar);
+  });
+  var fm = document.createElement('div'); fm.id = 'flowmap';
+  var grid = '';
+  FLOW.forEach(function (st, k) {
+    grid += '<div class="fmstep" data-k="' + k + '"><span class="n">' + (k < MAIN ? k + 1 : 'A') + '</span><span class="rq r' + st.rq + '">' + st.rqt + '</span>' +
+      '<h5>' + st.name + '</h5><span class="sl">Slide ' + (st.first + 1) + (st.last > st.first ? '–' + (st.last + 1) : '') + '</span><p>' + st.msg + '</p>' +
+      (k < FLOW.length - 1 && (k + 1) % 5 !== 0 ? '<span class="arr">›</span>' : '') + '</div>';
+  });
+  fm.innerHTML = '<div class="fm"><div class="fmh"><b>Bản đồ bài trình bày</b><span>Bấm vào một bước để chuyển tới. Phím M hoặc Esc để đóng.</span><button type="button" id="fm-close">Đóng</button></div><div class="fmgrid">' + grid +
+    '</div><div class="fmnote"><span><b>Yêu cầu 1:</b> chiến lược, kiến trúc MIS, AI, CRM và CDP, an toàn thông tin</span><span><b>Yêu cầu 2:</b> KPI</span><span><b>Yêu cầu 3:</b> nguồn lực, ngân sách, hỗ trợ</span></div></div>';
+  document.body.appendChild(fm);
+  function mapRefresh() {
+    var i = Reveal.getIndices().h, k = stepOf[i];
+    fm.querySelectorAll('.fmstep').forEach(function (el, q) {
+      el.classList.toggle('cur', q === k); el.classList.toggle('done', q < k);
+      if (q === k) el.setAttribute('data-now', i + 1);
+    });
+  }
+  function toggleMap(force) {
+    var on = typeof force === 'boolean' ? force : !fm.classList.contains('on');
+    if (on) mapRefresh();
+    fm.classList.toggle('on', on);
+  }
+  window.toggleFlowMap = toggleMap;
+  fm.addEventListener('click', function (e) {
+    var st = e.target.closest('.fmstep');
+    if (st) { Reveal.slide(FLOW[+st.dataset.k].first); toggleMap(false); return; }
+    if (e.target === fm || e.target.id === 'fm-close') toggleMap(false);
+  });
+  document.addEventListener('click', function (e) { if (e.target.closest('.ftrack, .fstep')) { e.preventDefault(); toggleMap(true); } }, true);
+  document.addEventListener('keydown', function (e) {
+    if (!fm.classList.contains('on')) return;
+    if (e.key === 'Escape' || e.key === 'm' || e.key === 'M') { e.preventDefault(); e.stopPropagation(); toggleMap(false); }
+  }, true);
+
   Reveal.initialize({
     width: 1280,
     height: 720,
@@ -685,7 +751,7 @@
     transition: 'fade',
     backgroundTransition: 'none',
     controlsTutorial: false,
-    keyboard: { 13: 'next' },
+    keyboard: { 13: 'next', 77: function () { toggleMap(); } },
     pdfSeparateFragments: false,
     plugins: [RevealNotes]
   }).then(syncStage);

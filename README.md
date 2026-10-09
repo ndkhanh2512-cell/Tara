@@ -1,7 +1,7 @@
 # Bài trình bày: Chiến lược chuyển đổi số
 
 ## Chạy trên máy (không cần mạng)
-Mở `index.html` bằng Chrome hoặc Edge, nhập mật khẩu được cung cấp riêng. Nội dung slide được mã hóa, chỉ giải mã được khi nhập đúng mật khẩu. Trong cùng một tab, tải lại trang không phải nhập lại. Toàn bộ thư viện và font đã nằm trong thư mục `vendor/`.
+Mở `index.html` bằng Chrome hoặc Edge, nhập mật khẩu được cung cấp riêng. Nội dung slide được mã hóa, chỉ giải mã được khi nhập đúng mật khẩu. Trong cùng một tab, tải lại trang không phải nhập lại. Phím M mở bản đồ bài trình bày. Toàn bộ thư viện và font đã nằm trong thư mục `vendor/`.
 
 ## Cấu trúc
 33 slide chính và 5 phụ lục (A1–A5). Màu sắc theo nhận diện Tara: xanh #0057A9, xanh nhạt #277CBE, đỏ #D53F59, xám #6D6E71: tiêu đề Montserrat, nội dung Be Vietnam Pro.
