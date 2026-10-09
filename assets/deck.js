@@ -619,22 +619,22 @@
   function initActions() {
     var body = document.getElementById('ab-body'); if (!body) return;
     var A = [
-      ['Tồn kho chôn vốn', 'Dashboard tồn kho, danh sách hàng chậm để xả', 'Ngày 61–90', 1, '', '5'],
-      ['Công nợ đại lý quá hạn', 'Dashboard công nợ, hạn mức hiện trên ứng dụng bán hàng', '3–6 tháng', 1, 'hạn mức công nợ', '5'],
-      ['Bán vượt tồn, mỗi kênh một số', 'Lớp kết nối, lớp thời gian thực, trung tâm tồn kho', '3–9 tháng', 1, 'quy tắc chia hàng', '7–10'],
-      ['Mã và số liệu không khớp', 'Quản trị dữ liệu, mã duy nhất, Data Champion', '0–6 tháng', 1, '', '13'],
-      ['Lừa đảo email, chưa biết lỗ hổng', 'Bảo mật email lãnh đạo, đào tạo, kiểm thử xâm nhập', 'Tuần 1–8', 1, '', '18'],
-      ['Website nội dung cũ, 0 đánh giá', 'Gỡ nội dung cũ, nhắn xin đánh giá sau giao hàng', 'Tuần 2–6', 1, '', '11'],
-      ['Chi phí NetSuite có thể tăng', 'Xác nhận bậc dịch vụ, giấy phép', 'Tuần 1', 1, '', 'A2'],
-      ['Website chậm', 'Đo 2–6 tuần, rồi chọn phương án Haravan', '1–6 tháng', 2, '', '12'],
-      ['CRM có đủ cho 3 năm?', 'Đánh giá: giữ, nâng cấp hay thay', '2–6 tuần', 2, '', '15'],
-      ['Năng suất, chất lượng CSKH', 'AI hằng ngày, agent chấm chất lượng, hỏi NetSuite', 'Tuần 1–8', 2, '', '16'],
-      ['Báo cáo rời rạc, nhiều con số', 'Data Lake, dashboard mọi phòng ban', '3–12 tháng', 2, '', '8, 14'],
-      ['Khách mua qua đại lý vô danh', 'Hồ sơ khách định danh, thử 2–3 việc kích hoạt', '6–18 tháng', 2, '', '15'],
-      ['Thiếu, dư hàng theo mùa', 'AI dự báo, gợi ý bán kèm, agent bảo hành', '6–18 tháng', 2, '', '17'],
-      ['Phá giá trên sàn, xung đột kênh', 'Quét mã xuất kho, giám sát giá sàn, cổng đại lý', '6–18 tháng', 2, 'giá sàn, hoa hồng đại lý', '5'],
-      ['Mở rộng quốc tế', 'Khung nhân bản, pháp lý dữ liệu nước mới', '12–36 tháng', 3, 'thị trường, thời điểm', '19'],
-      ['Mua CDP, mini app Zalo, DLP', 'Quyết theo số đo, khi quy mô đòi hỏi', 'Từ tháng 18', 3, 'ngân sách theo số đo', '12, 15, 18']
+      ['Tồn kho chôn vốn', 'Dashboard tồn kho, danh sách hàng chậm để xả', '60 ngày đầu|ngày 41–60', 1, '', 'Tồn kho 110 → 95 ngày ở tháng 18'],
+      ['Công nợ đại lý quá hạn', 'Dashboard công nợ, hạn mức hiện trên ứng dụng bán hàng', 'Giai đoạn 1|3–6 tháng', 1, 'hạn mức công nợ', 'Thu tiền 55 → 48 ngày ở tháng 18'],
+      ['Bán vượt tồn, mỗi kênh một số', 'Lớp kết nối, lớp thời gian thực, trung tâm tồn kho', 'Giai đoạn 1 → 2|3–9 tháng', 1, 'quy tắc chia hàng', 'Bán vượt tồn < 0,5%, tồn cập nhật < 60 giây'],
+      ['Mã và số liệu không khớp', 'Quản trị dữ liệu, mã duy nhất, Data Champion', 'Giai đoạn 1|0–6 tháng', 1, '', 'Điểm chất lượng dữ liệu ≥ 95%'],
+      ['Lừa đảo email, chưa biết lỗ hổng', 'Bảo mật email lãnh đạo, đào tạo, kiểm thử xâm nhập', '60 ngày đầu|tuần 1–8', 1, '', 'Báo cáo lỗ hổng, tỷ lệ bấm link giả giảm'],
+      ['Website nội dung cũ, 0 đánh giá', 'Gỡ nội dung cũ, nhắn xin đánh giá sau giao hàng', '60 ngày đầu|tuần 2–6', 1, '', 'Hết link hỏng, sản phẩm có đánh giá thật'],
+      ['Chi phí NetSuite có thể tăng', 'Xác nhận bậc dịch vụ, giấy phép', '60 ngày đầu|tuần 1', 1, '', 'Không nâng bậc ngoài kế hoạch'],
+      ['Website chậm', 'Đo 2–6 tuần, rồi chọn phương án Haravan', 'Giai đoạn 1|1–6 tháng', 2, '', 'Quyết nền tảng bằng số đo tốc độ, lỗi'],
+      ['CRM có đủ cho 3 năm?', 'Đánh giá: giữ, nâng cấp hay thay', '60 ngày đầu|2–6 tuần', 2, '', 'Quyết giữ, nâng cấp hay thay có số liệu'],
+      ['Năng suất, chất lượng CSKH', 'AI hằng ngày, agent chấm chất lượng, hỏi NetSuite', '60 ngày đầu|tuần 1–8', 2, '', '100% hội thoại được chấm, % nhân viên dùng AI'],
+      ['Báo cáo rời rạc, nhiều con số', 'Data Lake, dashboard mọi phòng ban', 'Giai đoạn 1 → 2|3–12 tháng', 2, '', 'Một bộ số chung, số file Excel đã tắt'],
+      ['Khách mua qua đại lý vô danh', 'Hồ sơ khách định danh, thử 2–3 việc kích hoạt', 'Giai đoạn 2|6–18 tháng', 2, '', '800.000 khách định danh ở năm 2'],
+      ['Thiếu, dư hàng theo mùa', 'AI dự báo, gợi ý bán kèm, agent bảo hành', 'Giai đoạn 2|6–18 tháng', 2, '', '4% doanh thu online từ gợi ý AI ở năm 2'],
+      ['Phá giá trên sàn, xung đột kênh', 'Quét mã xuất kho, giám sát giá sàn, cổng đại lý', 'Giai đoạn 2|6–18 tháng', 2, 'giá sàn, hoa hồng đại lý', 'Biết lô phá giá trong vài phút'],
+      ['Mở rộng quốc tế', 'Khung nhân bản, pháp lý dữ liệu nước mới', 'Giai đoạn 2 → 3|12–36 tháng', 3, 'thị trường, thời điểm', 'Mở nước mới đúng pháp lý dữ liệu'],
+      ['Mua CDP, mini app Zalo, DLP', 'Quyết theo số đo, khi quy mô đòi hỏi', 'Giai đoạn 3|từ tháng 18', 3, 'ngân sách theo số đo', 'Chỉ chi khi số đo chứng minh lợi ích']
     ];
     var cur = A.map(function (r) { return r[3]; });
     function render() {
@@ -643,10 +643,10 @@
       idx.forEach(function (i, k) {
         var r = A[i], p = cur[i], chg = p !== r[3];
         var tr = document.createElement('tr'); if (chg) tr.className = 'chg';
-        var dec = r[4] ? '<em>Cần chốt: ' + r[4] + '</em> · ' : '';
-        tr.innerHTML = '<td class="n">' + (k + 1) + '</td><td class="p">' + r[0] + '</td><td>' + r[1] + '</td><td class="t">' + r[2] +
+        var dec = r[4] ? ' <em class="flag" title="Cần Ban Lãnh đạo chốt: ' + r[4] + '">⚑</em>' : '';
+        tr.innerHTML = '<td class="n">' + (k + 1) + '</td><td class="p">' + r[0] + '</td><td>' + r[1] + dec + '</td><td class="t"><b>' + r[2].split('|')[0] + '</b> <small>· ' + r[2].split('|')[1] + '</small>' +
           '</td><td><button type="button" class="pri p' + p + '" data-i="' + i + '">P' + p + '</button>' + (chg ? '<span class="old">từ P' + r[3] + '</span>' : '') +
-          '</td><td class="d">' + dec + '<span class="sl">slide ' + r[5] + '</span></td>';
+          '</td><td class="d">' + r[5] + '</td>';
         body.appendChild(tr);
       });
       [1, 2, 3].forEach(function (n) {
