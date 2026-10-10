@@ -1726,3 +1726,55 @@ html.print-pdf .navhint { display: none; }
 .fmnote { margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: #6D6E71; }
 .fmnote b { color: #0057A9; }
 html.print-pdf .foot .ftrack, html.print-pdf .foot .fstep { display: none; }
+.ab td.d { font-size: 11.4px; line-height: 1.28; }
+.kt td.own .co, .colegend .co { display: inline-block; margin-left: 5px; font-size: 10.5px; font-weight: 700; color: #fff; background: var(--tara-sky); border-radius: 3px; padding: 0 5px; vertical-align: 1px; }
+.kt td.own .co.alt { background: #9AA6B3; }
+.colegend { width: 1136px; margin-top: 5px; font-size: 12.2px; color: var(--ink-soft); line-height: 1.38; }
+.colegend .co { margin: 0 4px 0 0; }
+.kpi4 .kpib .who .cob { color: var(--tara-sky); font-weight: 700; }
+.kt td, .kt th { padding: 3.6px 8px !important; }
+.endslide h1 { font-size: 72px !important; white-space: nowrap; max-width: none !important; }
+.endslide .sub { max-width: 46ch !important; font-size: 24px !important; margin-top: 22px !important; }
+.endslide .contact { margin-top: 36px; display: flex; gap: 26px; font-size: 16px; color: var(--ink-soft); }
+.endslide .contact b { color: var(--tara-blue); font-family: var(--head); }
+.ab td { padding: 2.9px 7px !important; line-height: 1.24 !important; }
+.ab { font-size: 12.1px !important; }
+.tl .seg li { margin-bottom: 3px !important; line-height: 1.32 !important; }
+.tl .seg .out { margin-top: 6px !important; }
+.thanks .apx { grid-template-columns: repeat(6, max-content) !important; }
+.thanks .apx a.endbtn { background: var(--tara-red); border-color: var(--tara-red); color: #fff; }
+.thanks .apx a.endbtn b { color: #fff; }
+.f3-tag[data-k="src2"] { transform: translate(0, -50%) !important; text-align: left !important; }
+.f3-tag[data-k="src2"].lft { transform: translate(-100%, -50%) !important; text-align: right !important; }
+.f3 .f3-ctl, #flow3d .f3-ctl { position: static !important; margin: 0 0 6px 0 !important; }
+.f3-tag[data-k="sats"], .f3-tag[data-k="cache"] { transform: translate(0, -50%) !important; text-align: left !important; }
+
+/* ---------- Flow 3D: tab-3 column headers + highlight ---------- */
+.f3-col { position: absolute; transform: translate(-50%, -50%); margin: 0; pointer-events: none; z-index: 2;
+  font-family: var(--head); font-weight: 800; font-size: 11.5px; letter-spacing: .05em; white-space: nowrap;
+  padding: 3px 10px; border-radius: 12px; color: #fff; background: #9AA6B3; opacity: 0; transition: opacity .5s; }
+.f3-col.c2 { background: var(--tara-sky); } .f3-col.c3 { background: var(--tara-blue); } .f3-col.c4 { background: var(--tara-red); }
+.f3-tag.hl { background: rgba(255,255,255,.95); border: 2px solid var(--tara-sky); border-radius: 8px; padding: 3px 9px; box-shadow: 0 4px 14px rgba(39,124,190,.25); }
+.f3-tag[data-k="cache"].hl { border-color: var(--tara-blue); }
+.f3-tag.hl { color: var(--tara-blue); }
+.f3-tag.rgt { transform: translate(-100%, -50%) !important; text-align: right !important; }
+.f3-tag[data-k="cache"].hl { transform: translate(-50%, -50%) !important; text-align: center !important; }
+
+/* ---------- Slide 8 v3: pros and cons, no diagrams ---------- */
+.ways .pcx { margin: 10px 0 8px; display: grid; gap: 6px; }
+.ways .pcx p { margin: 0; font-size: 14.5px; line-height: 1.42; border-radius: 6px; padding: 7px 10px; }
+.ways .pcx .pro { background: #EAF4EC; color: #1E5B2E; }
+.ways .pcx .pro b { color: #1E7A3A; }
+.ways .pcx .con { background: #FDF0F2; color: #7A1E2E; }
+.ways .pcx .con b { color: var(--tara-red); }
+.ways .ws { font-size: 14.5px !important; line-height: 1.42 !important; }
+.ways .wrow { font-size: 14.5px !important; padding: 6px 0 !important; }
+.ways .wrow b, .ways .wrow span { font-size: 14px !important; }
+.ways .pcx { margin: 7px 0 4px; gap: 5px; }
+.ways .pcx p { font-size: 13.4px; line-height: 1.36; padding: 5px 9px; }
+.ways .ws { font-size: 13.2px !important; line-height: 1.36 !important; }
+.ways .wrow { font-size: 13.2px !important; padding: 3.5px 0 !important; }
+.ways .wrow b, .ways .wrow span { font-size: 13px !important; }
+.stairs .st .goal3 { margin: 2px 0 6px; font-size: 12.2px; line-height: 1.35; color: var(--tara-blue); background: #EEF4FB; border-radius: 5px; padding: 4px 8px; }
+.stairs .st .goal3 b { color: var(--tara-red); }
+.stairs .st.s1 { height: 372px !important; } .stairs .st.s2 { height: 420px !important; }

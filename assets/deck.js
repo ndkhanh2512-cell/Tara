@@ -265,14 +265,22 @@
     scene.add(new THREE.AmbientLight(0xffffff, 0.8));
     var dl = new THREE.DirectionalLight(0xffffff, 0.65); dl.position.set(-5, 10, 8); scene.add(dl);
     var grid = new THREE.GridHelper(44, 44, 0xC6D5E4, 0xDCE5EE); grid.position.y = -1.9; scene.add(grid);
+    var bands = [[-8.5, 0x9AA6B3, 0.10], [-3.2, 0x277CBE, 0.22], [2.7, 0x0057A9, 0.22], [9.0, 0xD53F59, 0.08]].map(function (b) {
+      var m = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 22), new THREE.MeshBasicMaterial({ color: b[1], transparent: true, opacity: 0, depthWrite: false }));
+      m.rotation.x = -Math.PI / 2; m.position.set(b[0], -1.88, -1); m.userData.op = b[2]; scene.add(m); return m;
+    });
 
     function grow(obj) { obj.userData.s = 0; obj.userData.want = 0; obj.scale.setScalar(0.001); obj.visible = false; return obj; }
 
     /* --- ERP: ledger tower --- */
-    var P = { erp: new THREE.Vector3(-10.2, 0, 0.2), hub: new THREE.Vector3(-5.4, 0.1, 1.4), cache: new THREE.Vector3(-0.8, 0.1, 4.2),
-              lake: new THREE.Vector3(0.6, -1.55, -4.2), rep: new THREE.Vector3(6.6, -1.0, -7.2) };
+    var P = { erp: new THREE.Vector3(-10.2, 0, 0.2), hub: new THREE.Vector3(-3.2, 0.1, 1.0), cache: new THREE.Vector3(2.5, 0.1, 3.0),
+              lake: new THREE.Vector3(3.0, -1.55, -4.8), rep: new THREE.Vector3(10.0, -1.0, -6.6) };
+    var COL3 = { erp: new THREE.Vector3(-8.4, 0, -3.8), rep: new THREE.Vector3(9.0, -1.0, -2.2) };
     var erpMat = new THREE.MeshStandardMaterial({ color: GREY, roughness: 0.6, metalness: 0.08 });
     var erp = new THREE.Group(); erp.position.copy(P.erp); scene.add(erp);
+    var movers = [];
+    function mover(o, base, col3) { o.userData.pos = { direct: base.clone(), lake: base.clone(), cache: col3.clone() }; movers.push(o); }
+    mover(erp, P.erp, COL3.erp);
     erp.add(new THREE.Mesh(new THREE.BoxGeometry(2.2, 3.2, 2.2), erpMat));
     for (var s = 0; s < 4; s++) {
       var sh = new THREE.Mesh(new THREE.BoxGeometry(2.34, 0.08, 2.34), new THREE.MeshStandardMaterial({ color: 0xffffff }));
@@ -282,15 +290,18 @@
     erp.add(halo);
 
     /* --- Layer 1: the other source systems, grouped behind NetSuite --- */
-    var srcPos = [new THREE.Vector3(-10.9, -1.35, 3.3), new THREE.Vector3(-9.3, -1.35, 3.3),
-                  new THREE.Vector3(-10.9, -1.35, 4.6), new THREE.Vector3(-9.3, -1.35, 4.6)];
+    var srcPos = [new THREE.Vector3(-7.1, -1.35, 4.6), new THREE.Vector3(-5.5, -1.35, 4.6),
+                  new THREE.Vector3(-7.1, -1.35, 5.9), new THREE.Vector3(-5.5, -1.35, 5.9)];
+    var srcPos3 = [new THREE.Vector3(-9.2, -1.35, 0.4), new THREE.Vector3(-7.6, -1.35, 0.4),
+                   new THREE.Vector3(-9.2, -1.35, 1.6), new THREE.Vector3(-7.6, -1.35, 1.6)];
     var srcBoxes = srcPos.map(function (p, i) {
-      var m = new THREE.Mesh(new THREE.BoxGeometry(1.15, 0.6, 0.9),
-        new THREE.MeshStandardMaterial({ color: [0x8E99A6, 0x7B8794, 0x9AA6B3, 0x86919D][i], roughness: 0.6 }));
-      m.position.copy(p); scene.add(m);
+      var g = new THREE.Group(); g.position.copy(p); scene.add(g);
+      g.add(new THREE.Mesh(new THREE.BoxGeometry(1.15, 0.6, 0.9),
+        new THREE.MeshStandardMaterial({ color: [0x8E99A6, 0x7B8794, 0x9AA6B3, 0x86919D][i], roughness: 0.6 })));
       var top = new THREE.Mesh(new THREE.BoxGeometry(1.17, 0.05, 0.92), new THREE.MeshStandardMaterial({ color: 0xffffff }));
-      top.position.set(p.x, p.y + 0.12, p.z); scene.add(top);
-      return m;
+      top.position.y = 0.12; g.add(top);
+      mover(g, p, srcPos3[i]);
+      return g;
     });
 
     /* --- Layer 2: the connector hub (always present) --- */
@@ -337,6 +348,7 @@
 
     /* --- Reports / AI consumer (behind the lake) --- */
     var rep = grow(new THREE.Group()); rep.position.copy(P.rep); scene.add(rep);
+    mover(rep, P.rep, COL3.rep);
     rep.add(new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.25, 1.4), new THREE.MeshStandardMaterial({ color: 0xffffff })));
     [0.5, 0.9, 1.3].forEach(function (hgt, i) {
       var bar = new THREE.Mesh(new THREE.BoxGeometry(0.32, hgt, 0.32), new THREE.MeshStandardMaterial({ color: [SKY, BLUE, RED][i] }));
@@ -347,10 +359,13 @@
     var satPos = [new THREE.Vector3(8.0, 1.2, 0.8), new THREE.Vector3(8.9, 0.2, 2.9),
                   new THREE.Vector3(7.6, -0.7, 2.2), new THREE.Vector3(8.5, -1.0, 4.8)];
     var satCols = [SKY, BLUE, GREY, RED];
+    var satPos3 = [new THREE.Vector3(-9.0, -1.45, 4.9), new THREE.Vector3(-7.9, -1.45, 4.9),
+                   new THREE.Vector3(-9.0, -1.45, 6.0), new THREE.Vector3(-7.9, -1.45, 6.0)];
     var sats = satPos.map(function (p, i) {
       var m = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.9, 1.4),
         new THREE.MeshStandardMaterial({ color: satCols[i], roughness: 0.5, emissive: 0x000000 }));
-      m.position.copy(p); scene.add(m); m.userData.flash = 0; m.userData.base = satCols[i]; return m;
+      m.position.copy(p); scene.add(m); m.userData.flash = 0; m.userData.base = satCols[i];
+      mover(m, p, satPos3[i]); return m;
     });
     var satCentre = new THREE.Vector3(7.65, 0.05, 2.0);
 
@@ -369,33 +384,49 @@
       scene.add(line); routes[mode].push(line); return cv;
     }
     var erpIn = P.erp.clone().add(new THREE.Vector3(1.0, 0, 0));
+    var erpIn3 = COL3.erp.clone().add(new THREE.Vector3(1.0, 0, 0));
     var hubIn = P.hub.clone();
     var lakeTop = P.lake.clone().add(new THREE.Vector3(0, 0.6, 0));
     var cacheIn = P.cache.clone();
     var repIn = P.rep.clone().add(new THREE.Vector3(0, 0.6, 0));
+    var repIn3 = COL3.rep.clone().add(new THREE.Vector3(0, 0.6, 0));
     var C = { direct: [], lakeQ: [], cacheQ: [] };
-    satPos.forEach(function (sp) {
-      C.direct.push(route('direct', sp, hubIn, 2.4, RED, false));
-      C.lakeQ.push(route('lake', sp, hubIn, 2.0, RED, false));
-      C.cacheQ.push(route('cache', sp, cacheIn, 0.9, SKY, false));
+    satPos.forEach(function (sp, i) {
+      C.direct.push(route('direct', sp, erpIn, 2.6, RED, false));
+      C.lakeQ.push(route('lake', sp, lakeTop, 1.8, GREY, false));
+      C.cacheQ.push(route('cache', satPos3[i], hubIn, 0.8, SKY, false));
     });
-    var cHubErp = route('direct', hubIn, erpIn, 1.4, RED, false);
-    var cSrcLake = srcPos.map(function (sp) { return route('lake', sp, hubIn, 1.6, GREY, true); });
-    var cSrcCache = srcPos.map(function (sp) { return route('cache', sp, hubIn, 1.6, SKY, false); });
-    var cErpHub = route('lake', erpIn, hubIn, 1.2, GREY, true);
-    var cErpHub2 = route('cache', erpIn, hubIn, 1.2, BLUE, false);
+    var cHubCache = route('cache', hubIn, cacheIn, 1.0, BLUE, false);
+    var cCacheHub = route('cache', cacheIn, hubIn, 1.6, 0x7FB2DE, true);
+    var cHubSat = satPos3.map(function (sp) { return route('cache', hubIn, sp, 1.4, 0x7FB2DE, true); });
+    var cHubErp3 = route('cache', hubIn, erpIn3, 1.4, SKY, true);
+    var cErpSat = satPos.map(function (sp) { return route('direct', erpIn, sp, 3.4, 0xF2A2AF, true); });
+    var cSrcErp = srcPos.map(function (sp) { return route('direct', sp, erpIn, 1.4, RED, false); });
+    var cErpSrc = srcPos.map(function (sp) { return route('direct', erpIn, sp, 1.0, 0xE58A9A, false); });
+    var cSrcSat = [];
+    srcPos.forEach(function (sp, a) { [a % satPos.length, (a + 2) % satPos.length].forEach(function (b) { cSrcSat.push(route('direct', sp, satPos[b], 2.2, 0xE58A9A, true)); }); });
+    var cSrcSrc = [route('direct', srcPos[0], srcPos[3], 0.9, 0xE58A9A, false), route('direct', srcPos[1], srcPos[2], 0.9, 0xE58A9A, false)];
+    var cSrcLake = srcPos.map(function (sp) { return route('lake', sp, lakeTop, 1.8, GREY, true); });
+    var cSatErpL = satPos.map(function (sp) { return route('lake', sp, erpIn, 2.6, RED, false); });
+    var cSrcErpL = srcPos.map(function (sp) { return route('lake', sp, erpIn, 1.4, RED, false); });
+    var cErpLake = route('lake', erpIn, lakeTop, 1.8, GREY, true);
+    var cSrcCache = srcPos3.map(function (sp) { return route('cache', sp, hubIn, 1.0, SKY, false); });
+    var cErpHub = route('cache', erpIn3, hubIn, 1.2, GREY, true);
+    var cErpHub2 = route('cache', erpIn3, hubIn, 1.0, BLUE, false);
     var cBatchLake = route('lake', hubIn, lakeTop, 1.5, GREY, true);
     var cBatchCache = route('cache', hubIn, lakeTop, 1.5, GREY, true);
     var cEvents = route('cache', hubIn, cacheIn, 1.0, BLUE, false);
     var cRepLake = route('lake', lakeTop, repIn, 1.0, SKY, false);
-    var cRepCache = route('cache', lakeTop, repIn, 1.0, SKY, false);
+    var cRepCache = route('cache', lakeTop, repIn3, 1.0, SKY, false);
+    var cCacheRep = route('cache', cacheIn.clone().add(new THREE.Vector3(0.7, 0.9, 0.4)), repIn3.clone().add(new THREE.Vector3(-0.6, 0, 0.6)), 0.6, BLUE, false);
 
     /* --- Particles --- */
     var pgeo = new THREE.SphereGeometry(0.12, 10, 8);
     var MAT = {
       red: new THREE.MeshBasicMaterial({ color: RED }), grey: new THREE.MeshBasicMaterial({ color: 0x8A8C90 }),
       blue: new THREE.MeshBasicMaterial({ color: BLUE }), sky: new THREE.MeshBasicMaterial({ color: SKY }),
-      batch: new THREE.MeshBasicMaterial({ color: 0x9EC3E4 })
+      batch: new THREE.MeshBasicMaterial({ color: 0x9EC3E4 }),
+      erpOut: new THREE.MeshBasicMaterial({ color: 0xF58C9E })
     };
     var pool = [];
     for (var i = 0; i < 420; i++) { var pm = new THREE.Mesh(pgeo, MAT.sky); pm.visible = false; scene.add(pm); pool.push({ m: pm, live: false }); }
@@ -410,17 +441,48 @@
     /* --- Labels that follow 3D objects --- */
     var tags = {};
     host.querySelectorAll('.f3-tag').forEach(function (t) { tags[t.dataset.k] = t; });
+    var LAKE_TXT = {
+      erp: 'Lớp 1 · NetSuite<small>Nguồn, hệ thống ghi sổ</small>',
+      src2: 'Lớp 1 · Nguồn khác<small>DMS, Haravan, CRM,<br>bảo hành, Base, bên ngoài</small>',
+      sats: 'Lớp 1 · Kênh bán<small>Website, sàn, DMS, CSKH</small>',
+      lake: 'Data Lake<small>Lịch sử, nạp theo lô</small>',
+      rep: 'Báo cáo, AI<small>Dashboard, dự báo</small>'
+    };
+    var DIRECT_TXT = {
+      erp: 'NetSuite<small>Hệ thống ghi sổ</small>',
+      src2: 'Hệ thống khác<small>DMS, Haravan, CRM,<br>bảo hành, Base, bên ngoài</small>',
+      sats: 'Kênh bán<small>Website, sàn, DMS, CSKH</small>'
+    };
     var anchors = {
-      erp: P.erp.clone().add(new THREE.Vector3(0, 2.4, 0)), src2: new THREE.Vector3(-6.6, -1.2, 5.2), hub: P.hub.clone().add(new THREE.Vector3(0, 1.9, 0)),
+      erp: P.erp.clone().add(new THREE.Vector3(0, 2.4, 0)), src2: new THREE.Vector3(-4.7, -1.0, 5.0), hub: P.hub.clone().add(new THREE.Vector3(0, -1.5, 2.0)),
       lake: P.lake.clone().add(new THREE.Vector3(2.6, -1.1, 2.0)),
-      cache: P.cache.clone().add(new THREE.Vector3(0, -1.5, 2.4)), sats: new THREE.Vector3(10.4, 2.6, 0.8),
+      cache: P.cache.clone().add(new THREE.Vector3(1.2, 1.0, 0)), sats: new THREE.Vector3(9.0, 1.1, 0.8),
       rep: P.rep.clone().add(new THREE.Vector3(-0.6, 1.1, 2.2)), stale: new THREE.Vector3(6.2, -1.9, 5.6)
     };
     var VIS = {
-      direct: { erp: 1, src2: 1, sats: 1, hub: 1 }, lake: { erp: 1, src2: 1, sats: 1, hub: 1, lake: 1, rep: 1, stale: 1 },
+      direct: { erp: 1, src2: 1, sats: 1 }, lake: { erp: 1, src2: 1, sats: 1, lake: 1, rep: 1, stale: 1 },
       cache: { erp: 1, src2: 1, sats: 1, hub: 1, lake: 1, rep: 1, cache: 1 }
     };
+    var COLS = [['LỚP 1 · NGUỒN', -8.5], ['LỚP 2 · KẾT NỐI', -3.2], ['LỚP 3 · LƯU VÀ TRẢ LỜI', 2.7], ['LỚP 4 · NƠI DÙNG', 9.0]].map(function (c, i) {
+      var d = document.createElement('p'); d.className = 'f3-col c' + (i + 1); d.textContent = c[0]; stage.appendChild(d);
+      return { el: d, at: new THREE.Vector3(c[1], -1.9, -1.0) };
+    });
+    var cen = new THREE.Vector3();
+    function centroid(list) { cen.set(0, 0, 0); list.forEach(function (o) { cen.add(o.position); }); return cen.multiplyScalar(1 / list.length); }
     function placeTags() {
+      var c3 = MODE === 'cache';
+      anchors.erp.copy(erp.position).add(c3 ? new THREE.Vector3(-1.4, 0.4, 0) : new THREE.Vector3(0, 2.4, 0));
+      anchors.src2.copy(centroid(srcBoxes)).add(c3 ? new THREE.Vector3(-1.5, 0.3, 0) : new THREE.Vector3(1.6, 0.35, -0.25));
+      anchors.sats.copy(c3 ? centroid(sats).add(new THREE.Vector3(-1.5, 0.2, 0)) : sats[0].position.clone().add(new THREE.Vector3(1.0, -0.1, 0)));
+      anchors.hub.copy(P.hub).add(c3 ? new THREE.Vector3(0, 1.9, 0) : new THREE.Vector3(0, -1.5, 2.0));
+      anchors.cache.copy(P.cache).add(new THREE.Vector3(0, -1.6, 2.3));
+      anchors.rep.copy(rep.position).add(new THREE.Vector3(-0.6, 1.1, 2.2));
+      anchors.lake.copy(P.lake).add(c3 ? new THREE.Vector3(0, 1.2, -4.2) : new THREE.Vector3(2.6, -1.1, 2.0));
+      COLS.forEach(function (c) {
+        var v = c.at.clone().project(cam);
+        c.el.style.left = ((v.x + 1) / 2 * W) + 'px'; c.el.style.top = '14px';
+        c.el.style.opacity = MODE === 'cache' ? '1' : '0';
+      });
       Object.keys(tags).forEach(function (k) {
         var v = anchors[k].clone().project(cam);
         tags[k].style.left = ((v.x + 1) / 2 * W) + 'px';
@@ -435,13 +497,13 @@
     var M = {
       direct: { load: 94, rt: 420, rtTxt: function (v) { return Math.round(v) + ' ms'; }, fresh: 'Tức thì', freshP: 4, hold: 'Có, ERP gánh', holdP: 60,
         tone: ['hot', 'hot', 'okk', 'mid'], cls: 'bad',
-        note: '<b>Hôm nay, hỏi thẳng ERP:</b> số liệu mới, nhưng mỗi cú bấm của khách đi qua lớp kết nối rồi vào thẳng NetSuite. Mùa sale hàng nghìn lượt mỗi giây dồn vào hệ thống ghi sổ: chậm, chạm giới hạn gọi API, và sớm phải nâng bậc dịch vụ.' },
+        note: '<b>Hôm nay, chưa có kiến trúc lớp:</b> mọi hệ thống ngang hàng. Kênh bán và các hệ thống khác cùng gọi thẳng vào NetSuite, NetSuite trả dữ liệu ngược lại từng kênh, và các hệ thống còn gọi qua lại với nhau liên tục. Mùa sale hàng nghìn lượt mỗi giây dồn vào hệ thống ghi sổ: chậm, chạm giới hạn gọi API, và sớm phải nâng bậc dịch vụ.' },
       lake: { load: 12, rt: 2400, rtTxt: function (v) { return (v / 1000).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + ' giây'; }, fresh: 'Vài phút – vài giờ', freshP: 92, hold: 'Không', holdP: 96,
         tone: ['okk', 'hot', 'hot', 'hot'], cls: 'mid',
-        note: '<b>Chỉ có Data Lake:</b> ERP được giải tỏa, nhưng NetSuite và các nguồn khác chỉ đổ dữ liệu vào hồ theo từng đợt. Giữa hai đợt, lớp 4 đọc số đã cũ: mỗi truy vấn mất vài giây: không có cơ chế giữ hàng. Mùa sale sẽ bán vượt tồn.' },
+        note: '<b>Chỉ có Data Lake, chưa có lớp kết nối:</b> kênh bán và các nguồn khác vẫn ghi đơn vào NetSuite, còn đọc số từ Data Lake. NetSuite chỉ đổ dữ liệu vào hồ theo từng đợt, nên giữa hai đợt kênh bán đọc số đã cũ, mỗi truy vấn mất vài giây, không có cơ chế giữ hàng. Mùa sale sẽ bán vượt tồn.' },
       cache: { load: 7, rt: 8, rtTxt: function (v) { return Math.max(1, Math.round(v)) + ' ms'; }, fresh: 'Dưới 60 giây', freshP: 6, hold: 'Có, ngay khi đặt', holdP: 4,
         tone: ['okk', 'okk', 'okk', 'okk'], cls: '',
-        note: '<b>Data Lake cộng lớp dữ liệu thời gian thực:</b> Data Lake vẫn nhận theo lô và nuôi báo cáo, AI ở phía sau. NetSuite và các nguồn khác đẩy từng thay đổi qua lớp kết nối vào lớp 3A: lớp 4 hỏi lớp 3A. Cùng ERP, cùng Data Lake, chỉ thêm một làn.' }
+        note: '<b>Kiến trúc bốn lớp:</b> mọi hệ thống ở lớp 1, kể cả kênh bán, chỉ nói chuyện qua lớp kết nối ở giữa. Kênh bán hỏi tồn kho qua lớp kết nối, lớp 3A trả lời trong vài mili giây; đơn hàng đi qua lớp kết nối vào NetSuite. Data Lake nhận theo lô; báo cáo và AI ở lớp 4 lấy lịch sử từ Data Lake và số liệu tức thì từ lớp 3A.' }
     };
     var hud = { load: document.getElementById('f3-load'), rt: document.getElementById('f3-rt'),
                 fresh: document.getElementById('f3-fresh'), hold: document.getElementById('f3-hold') };
@@ -449,6 +511,13 @@
     function tone(el, t) { el.classList.remove('hot', 'mid', 'okk'); if (t) el.classList.add(t); }
     function setMode(m) {
       MODE = m;
+      hub.visible = m === 'cache';
+      ['hub', 'cache'].forEach(function (k) { if (tags[k]) tags[k].classList.toggle('hl', m === 'cache'); });
+      ['erp', 'src2', 'sats'].forEach(function (k) { if (tags[k]) tags[k].classList.toggle('rgt', m === 'cache'); });
+      Object.keys(tags).forEach(function (k) {
+        var t = tags[k]; if (!t.dataset.orig) t.dataset.orig = t.innerHTML;
+        t.innerHTML = (m === 'direct' && DIRECT_TXT[k]) ? DIRECT_TXT[k] : (m === 'lake' && LAKE_TXT[k]) ? LAKE_TXT[k] : t.dataset.orig;
+      });
       host.querySelectorAll('.f3-ctl button').forEach(function (b) { b.classList.toggle('on', b.dataset.mode === m); });
       noteEl.innerHTML = M[m].note; noteEl.className = 'f3-note ' + M[m].cls;
       lake.userData.want = (m === 'lake' || m === 'cache') ? 1 : 0;
@@ -464,7 +533,7 @@
       b.addEventListener('keydown', function (e) { e.stopPropagation(); });
     });
 
-    var acc = 0, evAcc = 0, repAcc = 0, srcAcc = 0, batchT = 0, staleT = 0, heat = 1, last = performance.now(), t0 = last;
+    var acc = 0, evAcc = 0, repAcc = 0, repAcc3 = 0, srcAcc = 0, batchT = 0, staleT = 0, heat = 1, last = performance.now(), t0 = last;
     var tmp = new THREE.Vector3();
     setMode('direct');
 
@@ -491,6 +560,14 @@
       });
       spinners.forEach(function (r) { r.rotation.x += dt * r.userData.sp; });
       hubRings.forEach(function (r, i) { r.rotation.z += dt * (0.8 + i * 0.4); });
+      var kLerp = 1 - Math.pow(0.02, dt);
+      movers.forEach(function (o) { o.position.lerp(o.userData.pos[MODE], kLerp); });
+      var sTgt = MODE === 'cache' ? 0.62 : 1; sats.forEach(function (o) { var s = o.scale.x + (sTgt - o.scale.x) * kLerp; o.scale.set(s, s, s); });
+      bands.forEach(function (b) { var tgt = MODE === 'cache' ? b.userData.op : 0; b.material.opacity += (tgt - b.material.opacity) * kLerp; });
+      var pulse = MODE === 'cache' ? 0.35 + 0.25 * Math.sin(T * 3) : 0;
+      hubCore.material.emissive = hubCore.material.emissive || new THREE.Color(0, 0, 0);
+      hubCore.material.emissive.setRGB(0.05 * pulse * 4, 0.25 * pulse, 0.55 * pulse);
+      slab.material.emissive.setRGB(0.02 * pulse, 0.12 * pulse, 0.4 * pulse);
       hubCore.rotation.y += dt * 0.5;
       layers.forEach(function (d, i) { d.rotation.y += dt * (0.1 + i * 0.05); });
 
@@ -500,32 +577,53 @@
       while (acc > every) {
         acc -= every;
         var k = (Math.random() * satPos.length) | 0;
-        if (MODE === 'direct') fire(C.direct[k], 1.1, MAT.red, 1.25, 0, function () { fire(cHubErp, 0.9, MAT.red, 1.25); });
-        else if (MODE === 'lake') fire(C.lakeQ[k], 1.3, MAT.grey, 1.05, 0, function () { fire(cBatchLake, 1.2, MAT.grey, 1.05); });
-        else fire(C.cacheQ[k], 0.55, MAT.sky, 0.95);
+        if (MODE === 'direct') { fire(C.direct[k], 1.6, MAT.red, 1.25); if (Math.random() < 0.7) fire(cErpSat[(Math.random() * cErpSat.length) | 0], 1.7, MAT.erpOut, 1.05, 0.25); }
+        else if (MODE === 'lake') { fire(C.lakeQ[k], 1.5, MAT.grey, 1.05); if (Math.random() < 0.4) fire(cSatErpL[k], 1.6, MAT.red, 1.0, 0.2); }
+        else {
+          var kk = k;
+          fire(C.cacheQ[kk], 0.6, MAT.sky, 0.95, 0, function () {
+            if (Math.random() < 0.25) { fire(cHubErp3, 0.7, MAT.sky, 0.95); return; }
+            fire(cHubCache, 0.35, MAT.sky, 0.95, 0, function () {
+              fire(cCacheHub, 0.35, MAT.batch, 0.9, 0, function () { fire(cHubSat[kk], 0.6, MAT.batch, 0.9); });
+            });
+          });
+        }
       }
       /* batch loads into the lake: bursts every few seconds */
       if (MODE !== 'direct') {
         batchT -= dt;
         if (batchT <= 0) {
           batchT = MODE === 'lake' ? 4.2 : 3.6;
-          var cv2 = MODE === 'lake' ? cBatchLake : cBatchCache;
-          for (var b = 0; b < 20; b++) fire(cErpHub, 0.9, MAT.batch, 1.15, b * 0.03,
-            (function (last) { return function () { fire(cv2, 1.1, MAT.batch, 1.15, 0, last ? splash : null); }; })(b === 19));
+          if (MODE === 'lake') { for (var b0 = 0; b0 < 20; b0++) fire(cErpLake, 1.6, MAT.batch, 1.15, b0 * 0.035, b0 === 19 ? splash : null); }
+          else for (var b = 0; b < 20; b++) fire(cErpHub, 0.9, MAT.batch, 1.15, b * 0.03,
+            (function (last) { return function () { fire(cBatchCache, 1.1, MAT.batch, 1.15, 0, last ? splash : null); }; })(b === 19));
         }
         repAcc += dt;
         while (repAcc > 0.45) { repAcc -= 0.45; fire(MODE === 'lake' ? cRepLake : cRepCache, 1.2, MAT.sky, 0.85); }
+      }
+      if (MODE === 'direct') {
+        srcAcc += dt;
+        while (srcAcc > 0.14) {
+          srcAcc -= 0.14;
+          var r = Math.random(), si2 = (Math.random() * srcPos.length) | 0;
+          if (r < 0.35) fire(cSrcErp[si2], 0.9, MAT.red, 1.0);
+          else if (r < 0.6) fire(cErpSrc[si2], 0.9, MAT.red, 0.9);
+          else if (r < 0.85) fire(cSrcSat[(Math.random() * cSrcSat.length) | 0], 1.3, MAT.red, 0.9);
+          else fire(cSrcSrc[(Math.random() * cSrcSrc.length) | 0], 0.6, MAT.red, 0.85);
+        }
       }
       if (MODE !== 'direct') {
         srcAcc += dt;
         while (srcAcc > 0.35) {
           srcAcc -= 0.35;
           var si = (Math.random() * srcPos.length) | 0;
-          if (MODE === 'lake') fire(cSrcLake[si], 1.0, MAT.batch, 1.0, 0, function () { fire(cBatchLake, 1.1, MAT.batch, 1.0); });
+          if (MODE === 'lake') { if (Math.random() < 0.6) fire(cSrcLake[si], 1.6, MAT.batch, 1.0); else fire(cSrcErpL[si], 1.0, MAT.red, 1.0); }
           else fire(cSrcCache[si], 0.8, MAT.sky, 1.0, 0, function () { if (Math.random() < 0.5) fire(cEvents, 0.5, MAT.blue, 1.0); else fire(cBatchCache, 1.0, MAT.batch, 1.0); });
         }
       }
       if (MODE === 'cache') {
+        repAcc3 = (repAcc3 || 0) + dt;
+        while (repAcc3 > 0.22) { repAcc3 -= 0.22; fire(cCacheRep, 1.0, MAT.blue, 1.1); }
         evAcc += dt;
         while (evAcc > 0.16) { evAcc -= 0.16; fire(cErpHub2, 0.65, MAT.blue, 1.15, 0, function () { fire(cEvents, 0.5, MAT.blue, 1.15); }); }
       }
@@ -619,22 +717,23 @@
   function initActions() {
     var body = document.getElementById('ab-body'); if (!body) return;
     var A = [
-      ['Tồn kho chôn vốn', 'Dashboard tồn kho, danh sách hàng chậm để xả', '60 ngày đầu|ngày 41–60', 1, '', 'Tồn kho 110 → 95 ngày ở tháng 18'],
-      ['Công nợ đại lý quá hạn', 'Dashboard công nợ, hạn mức hiện trên ứng dụng bán hàng', 'Giai đoạn 1|3–6 tháng', 1, 'hạn mức công nợ', 'Thu tiền 55 → 48 ngày ở tháng 18'],
-      ['Bán vượt tồn, mỗi kênh một số', 'Lớp kết nối, lớp thời gian thực, trung tâm tồn kho', 'Giai đoạn 1 → 2|3–9 tháng', 1, 'quy tắc chia hàng', 'Bán vượt tồn < 0,5%, tồn cập nhật < 60 giây'],
-      ['Mã và số liệu không khớp', 'Quản trị dữ liệu, mã duy nhất, Data Champion', 'Giai đoạn 1|0–6 tháng', 1, '', 'Điểm chất lượng dữ liệu ≥ 95%'],
-      ['Lừa đảo email, chưa biết lỗ hổng', 'Bảo mật email lãnh đạo, đào tạo, kiểm thử xâm nhập', '60 ngày đầu|tuần 1–8', 1, '', 'Báo cáo lỗ hổng, tỷ lệ bấm link giả giảm'],
-      ['Website nội dung cũ, 0 đánh giá', 'Gỡ nội dung cũ, nhắn xin đánh giá sau giao hàng', '60 ngày đầu|tuần 2–6', 1, '', 'Hết link hỏng, sản phẩm có đánh giá thật'],
-      ['Chi phí NetSuite có thể tăng', 'Xác nhận bậc dịch vụ, giấy phép', '60 ngày đầu|tuần 1', 1, '', 'Không nâng bậc ngoài kế hoạch'],
-      ['Website chậm', 'Đo 2–6 tuần, rồi chọn phương án Haravan', 'Giai đoạn 1|1–6 tháng', 2, '', 'Quyết nền tảng bằng số đo tốc độ, lỗi'],
-      ['CRM có đủ cho 3 năm?', 'Đánh giá: giữ, nâng cấp hay thay', '60 ngày đầu|2–6 tuần', 2, '', 'Quyết giữ, nâng cấp hay thay có số liệu'],
-      ['Năng suất, chất lượng CSKH', 'AI hằng ngày, agent chấm chất lượng, hỏi NetSuite', '60 ngày đầu|tuần 1–8', 2, '', '100% hội thoại được chấm, % nhân viên dùng AI'],
-      ['Báo cáo rời rạc, nhiều con số', 'Data Lake, dashboard mọi phòng ban', 'Giai đoạn 1 → 2|3–12 tháng', 2, '', 'Một bộ số chung, số file Excel đã tắt'],
-      ['Khách mua qua đại lý vô danh', 'Hồ sơ khách định danh, thử 2–3 việc kích hoạt', 'Giai đoạn 2|6–18 tháng', 2, '', '800.000 khách định danh ở năm 2'],
-      ['Thiếu, dư hàng theo mùa', 'AI dự báo, gợi ý bán kèm, agent bảo hành', 'Giai đoạn 2|6–18 tháng', 2, '', '4% doanh thu online từ gợi ý AI ở năm 2'],
-      ['Phá giá trên sàn, xung đột kênh', 'Quét mã xuất kho, giám sát giá sàn, cổng đại lý', 'Giai đoạn 2|6–18 tháng', 2, 'giá sàn, hoa hồng đại lý', 'Biết lô phá giá trong vài phút'],
-      ['Mở rộng quốc tế', 'Chọn mô hình, khung nhân bản, pháp lý dữ liệu', 'Giai đoạn 2 → 3|12–36 tháng', 3, 'thị trường, mô hình mở rộng', 'Mở nước mới đúng mô hình, đúng pháp lý'],
-      ['Mua CDP, mini app Zalo, DLP', 'Quyết theo số đo, khi quy mô đòi hỏi', 'Giai đoạn 3|từ tháng 18', 3, 'ngân sách theo số đo', 'Chỉ chi khi số đo chứng minh lợi ích']
+      ['Kế hoạch dựa trên giả định', 'Trình duyệt kế hoạch chi tiết, trọng tâm', '60 ngày đầu|ngày 60', 1, 'duyệt kế hoạch chi tiết', 'Duyệt đúng ngày 60, 14 KPI có số nền'],
+      ['Tồn kho chôn vốn', 'Dashboard tồn kho, danh sách hàng chậm để xả', '60 ngày đầu|ngày 41–60', 1, '', '110 → 95 ngày ở tháng 18, ≈ 38 tỷ'],
+      ['Công nợ đại lý quá hạn', 'Dashboard công nợ, hạn mức trên app bán hàng', 'Giai đoạn 1|3–6 tháng', 1, 'hạn mức công nợ', '55 → 48 ngày ở tháng 18, ≈ 23 tỷ'],
+      ['Bán vượt tồn, mỗi kênh một số', 'Lớp kết nối, lớp thời gian thực, tồn kho chung', 'Giai đoạn 1 → 2|3–9 tháng', 1, 'quy tắc chia hàng', 'Bán vượt tồn < 0,5%, cập nhật < 60 giây'],
+      ['Mã và số liệu không khớp', 'Quản trị dữ liệu, mã duy nhất, Data Champion', 'Giai đoạn 1|0–6 tháng', 1, '', 'Chất lượng dữ liệu ≥ 95%, trùng hồ sơ < 2%'],
+      ['Lừa đảo email, chưa biết lỗ hổng', 'Bảo mật email lãnh đạo, đào tạo, kiểm thử', '60 ngày đầu|tuần 1–8', 1, '', '100% lãnh đạo xác thực 2 lớp, bấm link giả < 5%'],
+      ['Website nội dung cũ, 0 đánh giá', 'Gỡ nội dung cũ, nhắn xin đánh giá sau giao hàng', '60 ngày đầu|tuần 2–6', 1, '', '0 link hỏng, ≥ 30% hàng bán chạy có đánh giá'],
+      ['Chi phí NetSuite có thể tăng', 'Xác nhận bậc dịch vụ, giấy phép', '60 ngày đầu|tuần 1', 1, '', '0 lần nâng bậc ngoài kế hoạch, dùng < 80% hạn mức'],
+      ['Website chậm', 'Đo 2–6 tuần, rồi chọn phương án Haravan', 'Giai đoạn 1|1–6 tháng', 2, '', 'Trang sản phẩm tải < 3 giây trên di động'],
+      ['CRM có đủ cho 3 năm?', 'Đánh giá CRM, thử nhanh, quyết CRM và CDP', 'Giai đoạn 1|quyết ở tháng 6', 2, '', 'Quyết trước tháng 6, đủ sức chứa 1,5 triệu hồ sơ'],
+      ['Năng suất, chất lượng CSKH', 'AI hằng ngày, agent chấm chất lượng, hỏi NetSuite', '60 ngày đầu|tuần 1–8', 2, '', '100% hội thoại được chấm, ≥ 60% nhân viên dùng AI'],
+      ['Báo cáo rời rạc, nhiều con số', 'Data Lake, dashboard mọi phòng ban', 'Giai đoạn 1 → 2|3–12 tháng', 2, '', '≥ 70% dùng dashboard, tắt ≥ 50% file Excel'],
+      ['Khách mua qua đại lý vô danh', 'Triển khai CRM, CDP, kích hoạt khách hàng', 'Giai đoạn 2|6–18 tháng', 2, '', '800.000 khách năm 2, 1,5 triệu năm 3'],
+      ['Thiếu, dư hàng theo mùa', 'AI dự báo, gợi ý bán kèm, agent bảo hành', 'Giai đoạn 2|6–18 tháng', 2, '', '4% doanh thu online từ AI, sai số dự báo < 25%'],
+      ['Phá giá trên sàn, xung đột kênh', 'Quét mã xuất kho, giám sát giá sàn, cổng đại lý', 'Giai đoạn 2|6–18 tháng', 2, 'giá sàn, hoa hồng đại lý', 'Phát hiện lô phá giá < 15 phút, vi phạm giảm 50%'],
+      ['Mở rộng quốc tế', 'Chọn mô hình, khung nhân bản, pháp lý dữ liệu', 'Giai đoạn 2 → 3|12–36 tháng', 3, 'thị trường, mô hình mở rộng', 'Nước đầu tiên ≤ 6 tháng sau khi chốt mô hình'],
+      ['Mini app Zalo, DLP', 'Quyết theo số đo, khi quy mô đòi hỏi', 'Giai đoạn 2 → 3|khi cần', 3, 'ngân sách theo số đo', 'Chỉ chi khi lợi ích ≥ 3 lần chi phí mỗi năm']
     ];
     var cur = A.map(function (r) { return r[3]; });
     function render() {
@@ -681,9 +780,9 @@
     { name: 'Mở đầu', rq: 0, rqt: 'Mở đầu', msg: 'Ba đề xuất, một điều kiện. Vì sao tin đề xuất này' },
     { name: 'Bài toán', rq: 0, rqt: 'Bối cảnh', msg: 'Quy mô gấp 4. Ba câu hỏi CEO, ≈ 125 tỷ đang kẹt. 8 hệ thống rời rạc' },
     { name: 'Kiến trúc MIS và dữ liệu', rq: 1, rqt: 'Yêu cầu 1', msg: 'Bốn lớp, Data Lake và lớp thời gian thực, website, quản trị dữ liệu, dashboard' },
-    { name: 'Khách hàng, AI, an toàn thông tin', rq: 1, rqt: 'Yêu cầu 1', msg: 'CRM và CDP đo trước, AI ngắn và dài hạn, Phòng ban số, bảo mật hai tầng' },
+    { name: 'Khách hàng, AI, an toàn thông tin', rq: 1, rqt: 'Yêu cầu 1', msg: 'CRM và CDP quyết ở tháng 6, AI ngắn và dài hạn, Phòng ban số, bảo mật hai tầng' },
     { name: 'Quốc tế và lộ trình', rq: 1, rqt: 'Yêu cầu 1', msg: 'Chọn mô hình trước. Lộ trình 3 năm, đạt kết quả mới đi tiếp' },
-    { name: 'KPI', rq: 2, rqt: 'Yêu cầu 2', msg: '13 KPI, 4 nhóm, chấm điểm tăng dần theo năm' },
+    { name: 'KPI', rq: 2, rqt: 'Yêu cầu 2', msg: '14 KPI, 4 nhóm, chấm điểm tăng dần theo năm, CĐS cùng chịu KPI phòng khác' },
     { name: 'Nguồn lực và ngân sách', rq: 3, rqt: 'Yêu cầu 3', msg: '8 lên 11 người, ≈ 14 tỷ năm 1, hai phương án, cơ chế cả công ty' },
     { name: 'Triển khai và chốt', rq: 3, rqt: 'Yêu cầu 3', msg: 'Rủi ro, 60 ngày đầu, ủng hộ của Ban Lãnh đạo, chốt ưu tiên' },
     { name: 'Kết', rq: 0, rqt: 'Kết', msg: 'Cam kết hai chiều, hỏi đáp' },
