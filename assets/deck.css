@@ -1778,3 +1778,27 @@ html.print-pdf .foot .ftrack, html.print-pdf .foot .fstep { display: none; }
 .stairs .st .goal3 { margin: 2px 0 6px; font-size: 12.2px; line-height: 1.35; color: var(--tara-blue); background: #EEF4FB; border-radius: 5px; padding: 4px 8px; }
 .stairs .st .goal3 b { color: var(--tara-red); }
 .stairs .st.s1 { height: 372px !important; } .stairs .st.s2 { height: 420px !important; }
+
+/* ---------- Slide 8: pros/cons panel per tab ---------- */
+.flow3d { position: relative; }
+.f3-ctl { align-items: center; }
+.f3-ctl .pcbtn { margin-left: auto; background: var(--tara-red) !important; border-color: var(--tara-red) !important; color: #fff !important; }
+.f3-ctl .pcbtn.open { background: #9E2238 !important; border-color: #9E2238 !important; }
+.f3-pc { position: absolute; right: 0; top: 40px; width: 470px; z-index: 6; background: #fff; border: 1.6px solid var(--line); border-radius: 12px;
+  box-shadow: 0 18px 44px rgba(11,30,52,.22); padding: 12px 16px 12px; display: none; }
+.f3-pc.on { display: block; }
+.f3-pc .pch { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.f3-pc .pch b { font-family: var(--head); font-size: 16px; color: var(--ink); }
+.f3-pc .pch b i { font-style: normal; color: var(--c); margin-right: 6px; font-size: 20px; }
+.f3-pc .pch button { border: 0; background: #F1F3F6; color: var(--ink-soft); border-radius: 6px; padding: 3px 9px; font: 600 13px var(--head); cursor: pointer; }
+.f3-pc .pcd { font-size: 12.6px; color: var(--ink-soft); margin: 4px 0 8px; line-height: 1.38; }
+.f3-pc .pcpro, .f3-pc .pccon { margin: 0 0 5px; font-size: 13px; line-height: 1.38; border-radius: 6px; padding: 5px 9px; }
+.f3-pc .pcpro { background: #EAF4EC; color: #1E5B2E; } .f3-pc .pcpro b { color: #1E7A3A; }
+.f3-pc .pccon { background: #FDF0F2; color: #7A1E2E; } .f3-pc .pccon b { color: var(--tara-red); }
+.f3-pc table { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 12.6px; }
+.f3-pc td { padding: 4px 4px; border-top: 1px solid #E8EDF2; }
+.f3-pc td:first-child { color: var(--ink-soft); width: 38%; }
+.f3-pc td span { display: inline-block; font-weight: 700; border-radius: 4px; padding: 1px 7px; }
+.f3-pc td span.bad { background: #FBE9EC; color: #9E2238; } .f3-pc td span.ok { background: #E1EDF9; color: var(--tara-blue); } .f3-pc td span.mid { background: #F1F2F4; color: #4E5157; }
+.f3-pc .pcsum { margin-top: 7px; font-size: 12.6px; line-height: 1.38; background: var(--tara-blue); color: #fff; border-radius: 7px; padding: 6px 10px; }
+.f3-pc .pcsum b { color: #FFD3DA; }
